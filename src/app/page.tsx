@@ -1,14 +1,21 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const APP_URL = "https://app-cvifypro.vercel.app";
 
 const Nav = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center p-4 lg:p-6 bg-background/80 backdrop-blur-xl border-b border-white/5">
     <div className="max-w-7xl w-full flex justify-between items-center">
-      <div className="flex items-center gap-2">
-        <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center font-black text-white text-xl shadow-glow animate-float">C</div>
+      <div className="flex items-center gap-3">
+        <Image 
+          src="/logo.png" 
+          alt="CVify Logo" 
+          width={40} 
+          height={40} 
+          className="rounded-xl shadow-glow animate-float"
+        />
         <span className="text-2xl font-black tracking-tight text-white font-outfit">CVify <span className="text-primary text-xs ml-1 uppercase tracking-widest bg-primary/10 px-2 py-1 rounded-md">Pro</span></span>
       </div>
       <div className="hidden md:flex items-center gap-8 text-sm font-bold text-slate-300">
@@ -205,8 +212,14 @@ const Footer = () => (
   <footer className="py-20 px-6 border-t border-white/5 bg-background">
     <div className="max-w-7xl mx-auto grid md:row lg:grid-cols-3 gap-16 items-start">
       <div className="space-y-6">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-black text-white">C</div>
+        <div className="flex items-center gap-3">
+          <Image 
+            src="/logo.png" 
+            alt="CVify Logo" 
+            width={32} 
+            height={32} 
+            className="rounded-lg"
+          />
           <span className="text-2xl font-black text-white font-outfit">CVify</span>
         </div>
         <p className="text-slate-500 font-medium leading-relaxed">The professional ecosystem for modern careers. Built for builders, leaders, and dreamers.</p>
