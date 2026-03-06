@@ -25,8 +25,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   try {
-    const response = await fetch(`${API_URL}/auth/sitemap-data`, { next: { revalidate: 3600 } });
+    const response = await fetch(`${API_URL}/auth/sitemap-data`, { 
+      next: { revalidate: 3600 },
+      signal: AbortSignal.timeout(5000) // 5s timeout
+    });
+
+    if (!response.ok) {
+      console.warn(`Sitemap fetch failed: ${response.status} ${response.statusText}`);
+      return staticRoutes;
+    }
+
     const users = await response.json();
+
+    if (!Array.isArray(users)) {
+      console.warn("Sitemap data is not an array");
+      return staticRoutes;
+    }
 
     const dynamicRoutes: MetadataRoute.Sitemap = users.map((user: any) => ({
       url: `https://cvify.pro/p/${user.username}`,
