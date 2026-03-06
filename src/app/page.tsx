@@ -63,7 +63,7 @@ const Hero = () => (
     <div className="max-w-7xl mx-auto text-center relative z-10">
       <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-10 animate-float border-white/10">
         <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_#10b981]"></span>
-        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Next-Gen Resume Intelligence v2.0</span>
+        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Next-Gen Resume Intelligence v3.0</span>
       </div>
       <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.85] mb-10 font-outfit">
         <span className="text-gradient">Elevate Your </span>
@@ -113,15 +113,21 @@ const HowItWorks = () => (
         />
         <StepCard 
           number="03" 
+          icon="📊"
+          title="ATS Audit" 
+          description="Get real-time AI scoring. Our engine audits your resume against elite industry standards." 
+        />
+        <StepCard 
+          number="04" 
           icon="🤖"
           title="AI Cover Letter" 
           description="Use your Diamonds to let Gemini AI draft a high-impact cover letter for any role." 
         />
         <StepCard 
-          number="04" 
+          number="05" 
           icon="📥"
           title="HD Export" 
-          description="Download your carrier-defining documents as crystal-clear native PDFs." 
+          description="Download your carrier-defining documents as crystal-clear native PDFs instantly." 
         />
       </div>
     </div>
@@ -153,7 +159,7 @@ const DiamondSystem = () => (
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-xl">🤝</div>
               <div>
                 <p className="text-white font-bold">50 Diamonds Per Referral</p>
-                <p className="text-slate-500 text-sm">Invite colleagues and grow your balance exponentially.</p>
+                <p className="text-slate-500 text-sm">Earn 50 💎 once your invitee saves their first resume.</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
@@ -199,11 +205,11 @@ const Features = () => (
     </div>
     <div className="grid grid-cols-1 md:row lg:grid-cols-3 gap-10">
       <FeatureCard icon="🎨" title="Premium Templates" description="Handpicked professional styles. Swap designs instantly without losing data." />
-      <FeatureCard icon="🚀" title="ATS Mastery" description="Structural integrity that guarantees readability by automated screening robots." />
+      <FeatureCard icon="📊" title="AI ATS Audit" description="Real-time scanning engine that analyzes your content for maximum robot-readability." />
+      <FeatureCard icon="📧" title="Pro Multi-Channel" description="Premium, redesigned email notifications for OTP and account security." />
       <FeatureCard icon="💎" title="Crystal PDF" description="Native rendering engine produces high-fidelity, searchable, and professional documents." />
-      <FeatureCard icon="🌑" title="Dark Ecosystem" description="Eye-friendly engineering available across the entire platform." />
-      <FeatureCard icon="📈" title="Growth System" description="Refer friends, earn diamonds, and leverage AI to dominate your job hunt." />
-      <FeatureCard icon="🔒" title="Elite Security" description="Disposable email protection and encrypted profile storage." />
+      <FeatureCard icon="📉" title="Verified Referrals" description="Smart behavior-based reward system. Earn diamonds when your team takes action." />
+      <FeatureCard icon="🔒" title="Elite Security" description="Disposable email protection and hardware-grade profile encryption." />
     </div>
   </section>
 );
