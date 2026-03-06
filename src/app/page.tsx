@@ -610,12 +610,12 @@ const PortfolioShowcase = () => (
       >
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 font-outfit">
           <UserCircle2 className="w-4 h-4 text-primary" />
-          <span className="text-primary text-xs font-black tracking-widest uppercase">Live Branding</span>
+          <span className="text-primary text-xs font-black tracking-widest uppercase">Real-World Impact</span>
         </div>
-        <h2 className="text-4xl md:text-8xl font-black text-white font-outfit mb-6 tracking-tighter leading-[0.9]">Your Personal <br /><span className="text-action">Career Page.</span></h2>
-        <p className="text-xl text-slate-400 font-medium max-w-2xl mx-auto">Your resume shouldn't just be a PDF. It should be a dynamic, interactive presence that recruiters can discover and stay updated on.</p>
+        <h2 className="text-4xl md:text-8xl font-black text-white font-outfit mb-6 tracking-tighter leading-[0.9]">Meet Our <br /><span className="text-action">Power Users.</span></h2>
+        <p className="text-xl text-slate-400 font-medium max-w-2xl mx-auto">See how CVify helps top-tier professionals like Umair build an undeniable online presence.</p>
         <div className="mt-12 p-4 rounded-3xl bg-white/5 border border-white/5 inline-flex items-center gap-6 text-lg font-black text-primary hover:bg-white/10 transition-colors group cursor-pointer">
-           app-cvifypro.vercel.app/p/alex-dev <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+           app-cvifypro.vercel.app/p/umairansari92 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </div>
       </motion.div>
 
@@ -631,10 +631,10 @@ const PortfolioShowcase = () => (
                   <div className="grid md:grid-cols-2 gap-20 items-center h-full">
                      <div className="space-y-10 text-left">
                         <div className="flex items-center gap-8">
-                           <div className="w-24 h-24 rounded-3xl bg-primary/20 flex items-center justify-center border border-primary/20 text-4xl group-hover:rotate-6 transition-transform">👨‍💻</div>
+                           <div className="w-24 h-24 rounded-3xl bg-primary/20 flex items-center justify-center border border-primary/20 text-4xl group-hover:rotate-6 transition-transform">🚀</div>
                            <div className="space-y-2">
-                              <h3 className="text-3xl font-black text-white">Alex Johnson</h3>
-                              <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Senior Full-Stack Engineer</p>
+                              <h3 className="text-3xl font-black text-white">Umair Ansari</h3>
+                              <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Lead Product Architect @ CVify</p>
                            </div>
                         </div>
                         <div className="space-y-4">
@@ -643,33 +643,33 @@ const PortfolioShowcase = () => (
                            <div className="h-2 w-4/6 bg-slate-800 rounded" />
                         </div>
                         <div className="flex gap-4">
-                           <div className="px-5 py-3 rounded-2xl bg-white/5 border border-white/5 text-[10px] font-black text-slate-400">REACT.JS</div>
-                           <div className="px-5 py-3 rounded-2xl bg-white/5 border border-white/5 text-[10px] font-black text-slate-400">NODE.JS</div>
+                           <div className="px-5 py-3 rounded-2xl bg-white/5 border border-white/5 text-[10px] font-black text-slate-400 uppercase">Architecture</div>
+                           <div className="px-5 py-3 rounded-2xl bg-white/5 border border-white/5 text-[10px] font-black text-slate-400 uppercase">Strategic Growth</div>
                         </div>
                         <div className="flex gap-4 pt-4">
-                           <button className="bg-primary text-white p-4 rounded-2xl font-black text-sm">Download Resume</button>
-                           <button className="bg-white/5 text-white p-4 rounded-2xl font-black text-sm border border-white/5">Contact Me</button>
+                           <button className="bg-primary text-white p-4 rounded-2xl font-black text-sm">View Full Profile</button>
+                           <button className="bg-white/5 text-white p-4 rounded-2xl font-black text-sm border border-white/5">Connect</button>
                         </div>
                      </div>
                      
                      <div className="space-y-10 bg-slate-950/50 p-12 rounded-[3.5rem] border border-white/5 relative shadow-inner h-full flex flex-col justify-center">
                         <div className="flex justify-between items-center mb-4">
-                           <h4 className="text-[10px] font-black uppercase tracking-widest text-primary">Recruiter Intelligence</h4>
+                           <h4 className="text-[10px] font-black uppercase tracking-widest text-primary">Live Profile Insights</h4>
                            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
                         </div>
                         <div className="grid grid-cols-2 gap-10">
                            <div className="space-y-3">
-                              <p className="text-5xl font-black text-white">128</p>
-                              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Profile Views</p>
+                              <p className="text-5xl font-black text-white">2.4k</p>
+                              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Total Views</p>
                            </div>
                            <div className="space-y-3">
-                              <p className="text-5xl font-black text-success">34</p>
-                              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Contact Requests</p>
+                              <p className="text-5xl font-black text-success">842</p>
+                              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Hiring Interest</p>
                            </div>
                         </div>
-                        <div className="pt-8 border-t border-white/5">
+                        <div className="pt-8 border-t border-white/5 text-left">
                            <div className="flex items-center gap-3 text-sm font-bold text-slate-400">
-                             <BarChart3 className="w-5 h-5 text-primary" /> Showing insights for last 30 days
+                             <BarChart3 className="w-5 h-5 text-primary" /> Authority score: Top 1% in sector
                            </div>
                         </div>
                      </div>
@@ -679,6 +679,33 @@ const PortfolioShowcase = () => (
          </motion.div>
       </div>
     </div>
+  </section>
+);
+
+const AuthoritySearch = () => (
+  <section className="py-20 px-6 relative overflow-hidden bg-slate-900/5">
+     <div className="max-w-4xl mx-auto bg-slate-950/50 border border-white/5 p-12 rounded-[4rem] backdrop-blur-3xl shadow-glow relative z-10">
+        <div className="flex flex-col md:flex-row items-center gap-6">
+           <div className="flex-1 relative w-full">
+              <input 
+                 type="text" 
+                 placeholder="Search public profiles (e.g., 'Software Engineer in London')" 
+                 className="w-full bg-white/5 border border-white/10 p-6 rounded-[2rem] text-white font-bold outline-none focus:border-primary/50 transition-all placeholder:text-slate-600"
+              />
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 px-6 py-2 rounded-xl bg-primary/20 text-primary font-black uppercase text-[10px] tracking-widest">Enter</div>
+           </div>
+           <button className="bg-primary hover:bg-blue-600 text-white px-10 py-6 rounded-[2rem] font-black shadow-lg shadow-primary/20 flex items-center gap-3 w-full md:w-auto justify-center">
+              Discover Talent <Target className="w-5 h-5" />
+           </button>
+        </div>
+        <div className="mt-8 flex flex-wrap justify-center gap-6">
+           {["Top Rated", "Available Now", "Identity Verified", "Enterprise Connect"].map((tag, i) => (
+             <span key={i} className="text-[9px] font-black text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                <CheckCircle2 className="w-3 h-3 text-success" /> {tag}
+             </span>
+           ))}
+        </div>
+     </div>
   </section>
 );
 
@@ -1064,7 +1091,7 @@ const SecurityTrust = () => (
 );
 
 const Testimonials = () => (
-  <section className="py-40 px-6 relative border-t border-white/5">
+  <section id="testimonials" className="py-40 px-6 relative border-t border-white/5">
     <div className="max-w-7xl mx-auto flex flex-col items-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -1072,15 +1099,30 @@ const Testimonials = () => (
         viewport={{ once: true }}
         className="text-center mb-24"
       >
-        <h2 className="text-4xl md:text-5xl font-black text-white font-outfit tracking-tight">Voices of Success</h2>
-        <p className="text-slate-400 font-medium mt-4">Join thousands of professionals who elevated their career with CVify.</p>
+        <h2 className="text-4xl md:text-8xl font-black text-white font-outfit tracking-tighter uppercase leading-[0.8] mb-6">Voices of <br /><span className="text-primary italic">Success.</span></h2>
+        <p className="text-slate-400 font-medium text-xl mt-4 italic max-w-2xl mx-auto">Join thousands of professionals across diverse industries who elevated their career with CVify.</p>
       </motion.div>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
         {[
-          { text: "CVify helped me improve my resume match score from 40% to 85%. I landed an interview at a top tech firm within two weeks.", author: "Sarah K.", role: "Senior Software Engineer" },
-          { text: "The AI cover letter generator is a game changer. It saved me hours of writing and got me more callbacks than ever before.", author: "James L.", role: "Product Manager" },
-          { text: "Having a live portfolio that tracks recruiter views made me feel so much more in control of my job search. Incredible tool.", author: "Alex M.", role: "UI/UX Designer" }
+          { 
+            text: "CVify helped me improve my resume match score from 40% to 85%. I landed an interview at a top fintech firm within two weeks.", 
+            author: "A. Ahmed", 
+            role: "Senior Accountant @ Global Capital",
+            img: "testi_ahmed_1772825816397.png"
+          },
+          { 
+            text: "The AI cover letter generator is a total game changer. It saved me hours of writing and actually captures my professional voice perfectly.", 
+            author: "K. Khan", 
+            role: "UI/UX Designer @ CreativeFlow",
+            img: "testi_khan_1772825832845.png"
+          },
+          { 
+            text: "Having a live portfolio that tracks recruiter views made me feel so much more in control. It's not just a resume; it's a branding machine.", 
+            author: "F. Siddiqui", 
+            role: "Analyst @ DataDynamics",
+            img: "testi_fatima_1772825852029.png"
+          }
         ].map((item, i) => (
           <motion.div
             key={i}
@@ -1088,20 +1130,25 @@ const Testimonials = () => (
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="glass-card p-10 rounded-[3rem] border-white/5 relative"
+            className="glass-card p-10 rounded-[3rem] border-white/5 relative group hover:border-primary/30 transition-all"
           >
-            <Quote className="absolute top-8 right-8 w-10 h-10 text-white/5" />
-            <div className="flex gap-1 mb-6">
-              {[...Array(5)].map((_, j) => <Star key={j} className="w-4 h-4 text-warning fill-warning" />)}
-            </div>
-            <p className="text-slate-300 font-medium leading-relaxed mb-8">"{item.text}"</p>
-            <div className="flex items-center gap-4">
-               <div className="w-10 h-10 rounded-full bg-slate-800" />
-               <div>
-                  <p className="text-sm font-black text-white">{item.author}</p>
-                  <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{item.role}</p>
-               </div>
-            </div>
+             <Quote className="w-12 h-12 text-blue-500/20 absolute top-8 right-8" />
+             <p className="text-lg text-slate-300 font-medium leading-relaxed mb-10 relative z-10 italic">"{item.text}"</p>
+             <div className="flex items-center gap-6">
+                <div className="w-16 h-16 rounded-2xl overflow-hidden border border-white/10 group-hover:scale-105 transition-transform">
+                   <Image 
+                      src={`/${item.img}`} 
+                      alt={item.author} 
+                      width={64} 
+                      height={64} 
+                      className="w-full h-full object-cover"
+                   />
+                </div>
+                <div>
+                   <p className="text-xl font-black text-white">{item.author}</p>
+                   <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">{item.role}</p>
+                </div>
+             </div>
           </motion.div>
         ))}
       </div>
@@ -1242,6 +1289,7 @@ export default function Home() {
         <TemplateShowcase />
         <HowItWorks />
         <PortfolioShowcase />
+        <AuthoritySearch />
         <ATSIntelligence />
         <AICoverLetter />
         <AnalyticsShowcase />
