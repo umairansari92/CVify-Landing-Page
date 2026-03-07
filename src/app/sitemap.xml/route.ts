@@ -7,8 +7,8 @@ const APP_URL = "https://app-cvifypro.vercel.app";
 export async function GET() {
   const staticPaths = [
     { url: LANDING_URL, priority: "1.0", changefreq: "daily" },
-    { url: `${LANDING_URL}/signup`, priority: "0.8", changefreq: "monthly" },
-    { url: `${LANDING_URL}/login`, priority: "0.8", changefreq: "monthly" },
+    { url: `${APP_URL}/signup`, priority: "0.8", changefreq: "monthly" },
+    { url: `${APP_URL}/login`, priority: "0.8", changefreq: "monthly" },
   ];
 
   let dynamicPaths: any[] = [];
