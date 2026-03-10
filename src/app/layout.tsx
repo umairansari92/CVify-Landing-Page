@@ -46,6 +46,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://cvify.pro",
   },
+  verification: {
+    google: "XfPfjDgxxYvjhcuVe4FWWBtUToJ2JaYBoDGBNr3LXd8",
+  },
 };
 
 export default function RootLayout({
