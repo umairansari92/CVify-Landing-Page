@@ -115,17 +115,17 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 border border-white/5 backdrop-blur-md shadow-inner"
           >
             <Zap className="w-4 h-4 text-primary animate-pulse" />
-            <span className="text-primary-foreground text-xs font-black tracking-widest uppercase opacity-80">AI-Powered Resume Ecosystem</span>
+            <span className="text-primary-foreground text-xs font-black tracking-widest uppercase opacity-80">Free ATS Resume Builder</span>
           </motion.div>
 
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-9xl font-black leading-[0.9] tracking-tighter text-white font-outfit"
+            className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter text-white font-outfit"
           >
-            Build a <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent animate-shimmer bg-[length:200%_auto]">Job-Winning</span> <br />
-            Resume with AI
+            Create an <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent animate-shimmer bg-[length:200%_auto]">ATS-Optimized</span> <br />
+            Resume for Free
           </motion.h1>
 
           <motion.p 
@@ -134,7 +134,7 @@ const Hero = () => {
             transition={{ delay: 0.1 }}
             className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-medium leading-relaxed"
           >
-            Create professional resumes, generate tailored cover letters, and optimize your applications with AI-powered ATS analysis.
+            The best free CV maker designed to beat the Applicant Tracking Systems. Generate tailored cover letters, and optimize your applications with AI-powered ATS analysis.
           </motion.p>
 
           <motion.div 
@@ -459,8 +459,8 @@ const Features = () => {
     <section id="features" className="py-40 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24 space-y-4">
-          <h2 className="text-4xl md:text-7xl font-black text-white font-outfit tracking-tighter">Core Power Features</h2>
-          <p className="text-slate-400 font-medium text-lg max-w-2xl mx-auto">Everything you need to dominate your job applications and land your dream role.</p>
+          <h2 className="text-4xl md:text-7xl font-black text-white font-outfit tracking-tighter">The Ultimate Resume Builder Features</h2>
+          <p className="text-slate-400 font-medium text-lg max-w-2xl mx-auto">Everything you need to bypass ATS algorithms and land your dream role.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feat, i) => (

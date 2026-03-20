@@ -14,16 +14,16 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "CVify Pro | AI-Powered Elite Resume Builder & ATS Scanner",
-  description: "Build undeniable professional identities with CVify Pro. Features AI-powered ATS scanning, Gemini-driven cover letters, and premium native PDF export. Join the top 1% today.",
+  title: "Best Free ATS Resume Builder & CV Maker | CVify Pro",
+  description: "Create an undeniable professional identity with the best free ATS resume builder. Get instant AI-powered ATS scanning, Gemini AI cover letters, and premium native PDF exports to land your dream job faster. Try CVify Pro today.",
   keywords: [
-    "cvify", "cvifypro", "cvify pro", "resume builder", "CV maker", "ATS scanner", 
-    "AI resume audit", "ATS-friendly resume", "professional CV", "native PDF export",
-    "Gemini AI cover letter", "resume intelligence"
+    "ATS resume builder", "free CV maker", "online resume builder", "AI resume generator", 
+    "ATS friendly resume", "resume scanner", "best free resume builder", "build resume online", 
+    "ATS resume checker", "Gemini AI cover letter", "professional CV maker", "CVify", "CVify Pro"
   ],
   openGraph: {
-    title: "CVify Pro | Elevate Your Professional Identity",
-    description: "The ultimate AI ecosystem for modern professionals to build stunning, ATS-optimized resumes.",
+    title: "CVify Pro | The Ultimate ATS Resume Builder",
+    description: "The ultimate AI ecosystem for modern professionals to build stunning, ATS-optimized resumes that beat the algorithms.",
     url: "https://cvify.pro",
     siteName: "CVify Pro",
     images: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "CVify Pro Resume Intelligence",
+        alt: "CVify Pro - AI-Powered Free ATS Resume Builder",
       },
     ],
     locale: "en_US",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CVify Pro | AI Resume Builder",
-    description: "Modern CV builder with AI ATS scanning and premium templates. Build your future in minutes.",
+    title: "CVify Pro | AI ATS Resume Builder",
+    description: "The ultimate AI ecosystem for modern professionals to build stunning, ATS-optimized resumes that beat the algorithms.",
     images: ["/twitter-image.png"],
   },
   alternates: {
@@ -65,9 +65,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              "name": "CVify Pro",
+              "name": "CVify Pro - ATS Resume Builder",
               "url": "https://cvify.pro",
-              "description": "AI-powered professional resume builder and ATS scanner.",
+              "description": "The best free AI-powered ATS resume builder and professional CV maker.",
               "applicationCategory": "BusinessApplication",
               "operatingSystem": "Web",
               "offers": {
