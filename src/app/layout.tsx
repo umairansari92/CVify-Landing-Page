@@ -49,6 +49,10 @@ export const metadata: Metadata = {
   verification: {
     google: "XfPfjDgxxYvjhcuVe4FWWBtUToJ2JaYBoDGBNr3LXd8",
   },
+  icons: {
+    icon: "/CVify Favicon.jpg",
+    apple: "/CVify Favicon.jpg",
+  },
 };
 
 export default function RootLayout({
