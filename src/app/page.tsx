@@ -52,13 +52,14 @@ const Nav = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className={`glass rounded-[2rem] px-8 py-4 flex items-center justify-between border-white/5 shadow-2xl ${isScrolled ? "bg-slate-950/80 backdrop-blur-xl" : ""}`}>
           <div className="flex items-center gap-3 group cursor-pointer">
-            <div className="relative">
-              <div className="p-2 bg-slate-900 rounded-xl border border-white/10 shadow-glow group-hover:shadow-primary/40 transition-all">
-                <Sparkles className="w-6 h-6 text-primary" />
-              </div>
-              <div className="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full animate-pulse shadow-glow" />
-            </div>
-            <span className="text-2xl font-black text-white font-outfit uppercase tracking-tighter italic group-hover:text-primary transition-colors">CVify</span>
+            <Image 
+              src="/CVify Logo Dark.jpg" 
+              alt="CVify Logo" 
+              width={160} 
+              height={40} 
+              className="h-10 w-auto object-contain transition-all group-hover:scale-105"
+              priority
+            />
           </div>
 
           <div className="hidden md:flex items-center gap-10 text-sm font-bold text-slate-400">
@@ -1228,10 +1229,13 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-16">
       <div className="space-y-8">
         <div className="flex items-center gap-3">
-           <div className="p-2 bg-slate-900 rounded-xl border border-white/10 shadow-glow">
-              <Sparkles className="w-6 h-6 text-primary" />
-           </div>
-           <span className="text-2xl font-black text-white font-outfit uppercase tracking-tighter italic">CVify</span>
+           <Image 
+              src="/CVify Logo Dark.jpg" 
+              alt="CVify Logo" 
+              width={140} 
+              height={35} 
+              className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
+            />
         </div>
         <p className="text-slate-500 font-medium leading-relaxed">
           The all-in-one professional ecosystem for modern builders, leaders, and dreamers.
