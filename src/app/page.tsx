@@ -16,7 +16,8 @@ import {
   CheckCircle2, 
   ArrowRight,
   Star,
-  Quote
+  Quote,
+  Palette
 } from "lucide-react";
 
 const APP_URL = "https://app-cvifypro.vercel.app";
@@ -26,9 +27,9 @@ const AnnouncementBar = () => (
     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
     <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-xs md:text-sm">
       <span className="bg-primary text-white px-2 py-0.5 rounded-[4px] font-black uppercase text-[10px] tracking-wider shadow-sm shadow-primary/40">New</span>
-      <p className="font-bold text-slate-300">AI-powered ATS scanner now available</p>
-      <a href={`${APP_URL}/signup`} className="text-primary font-black hover:underline inline-flex items-center gap-1 group/btn transition-all">
-        Try it now <MoveRight className="w-3 h-3 group-hover/btn:translate-x-1" />
+      <p className="font-bold text-slate-300 italic tracking-tight">Ab robots se darna choro — AI-powered ATS scanner is live!</p>
+      <a href={`${APP_URL}/signup`} className="text-primary font-black hover:underline inline-flex items-center gap-1 group/btn transition-all uppercase text-[10px] tracking-widest">
+        Duniya Ko Batao <MoveRight className="w-3 h-3 group-hover/btn:translate-x-1" />
       </a>
     </div>
   </div>
@@ -122,20 +123,20 @@ const Hero = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter text-white font-outfit"
+            className="text-6xl md:text-9xl font-black leading-[0.85] tracking-tighter text-white font-outfit uppercase"
           >
-            Create an <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent animate-shimmer bg-[length:200%_auto]">ATS-Optimized</span> <br />
-            Resume for Free
+            Build Your <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent animate-shimmer bg-[length:200%_auto]">Professional</span> <br />
+            Empire for Free
           </motion.h1>
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-medium leading-relaxed"
+            className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto font-medium leading-relaxed italic"
           >
-            The best free CV maker designed to beat the Applicant Tracking Systems. Generate tailored cover letters, and optimize your applications with AI-powered ATS analysis.
+            The only free CV maker designed to crush the Applicant Tracking Systems. Ab baqi apps se q alag hai? Because we focus on your hireability, not just the layout.
           </motion.p>
 
           <motion.div 
@@ -149,7 +150,7 @@ const Hero = () => {
                Create My Resume <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </a>
             <a href="https://app-cvifypro.vercel.app/p/demo" target="_blank" className="bg-white/5 hover:bg-white/10 text-white px-10 py-6 rounded-3xl text-xl font-black border border-white/5 hover:border-white/10 transition-all flex items-center gap-3 group backdrop-blur-sm">
-              View Live Profile Demo <UserCircle2 className="w-6 h-6 text-slate-500 group-hover:text-primary transition-colors" />
+              View Cyberpunk Profile <UserCircle2 className="w-6 h-6 text-slate-500 group-hover:text-primary transition-colors" />
             </a>
           </motion.div>
         </div>
@@ -439,8 +440,8 @@ const Features = () => {
     {
       icon: <Target className="w-8 h-8 text-accent" />,
       title: "ATS Scanner",
-      description: "Analyze your resume against job descriptions to see your matching score and keyword gaps.",
-      points: ["Real-time scoring", "Keyword suggestions"]
+      description: "Analyze your resume against job descriptions with a multi-dimensional scan to crush robot algorithms.",
+      points: ["Deep keyword analysis", "Recruiter-eye view"]
     },
     {
       icon: <MoveRight className="w-8 h-8 text-diamond" />,
@@ -451,8 +452,14 @@ const Features = () => {
     {
       icon: <UserCircle2 className="w-8 h-8 text-success" />,
       title: "Public Profile",
-      description: "A professional, live career page that recruiters can visit and interact with safely.",
-      points: ["Shareable link", "Recruiter analytics"]
+      description: "A professional, live 'Cyberpunk' career page that recruiters can interact with. Duniya ko batao your worth!",
+      points: ["Cyberpunk Project Grid", "Recruiter Analytics"]
+    },
+    {
+      icon: <Palette className="w-8 h-8 text-orange-500" />,
+      title: "6+ Designer Themes",
+      description: "Restored 6 classic presets like 'Midnight Dev' and 'Emerald Leader'. Switch styles in one click.",
+      points: ["Premium Layouts", "Full Customization"]
     }
   ];
 
@@ -460,10 +467,10 @@ const Features = () => {
     <section id="features" className="py-40 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-24 space-y-4">
-          <h2 className="text-4xl md:text-7xl font-black text-white font-outfit tracking-tighter">The Ultimate Resume Builder Features</h2>
-          <p className="text-slate-400 font-medium text-lg max-w-2xl mx-auto">Everything you need to bypass ATS algorithms and land your dream role.</p>
+          <h2 className="text-4xl md:text-7xl font-black text-white font-outfit tracking-tighter uppercase">The Ultimate <span className="text-primary italic">CVify</span> Ecosystem</h2>
+          <p className="text-slate-400 font-medium text-lg max-w-2xl mx-auto">Everything you need to bypass ATS algorithms and build your digital empire.</p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feat, i) => (
             <motion.div
               key={i}
@@ -609,12 +616,11 @@ const PortfolioShowcase = () => (
         viewport={{ once: true }}
         className="text-center mb-24 max-w-4xl"
       >
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 font-outfit">
-          <UserCircle2 className="w-4 h-4 text-primary" />
-          <span className="text-primary text-xs font-black tracking-widest uppercase">Real-World Impact</span>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 font-outfit font-black uppercase tracking-[0.2em] text-[10px] text-primary">
+          Cyberpunk Showcase
         </div>
-        <h2 className="text-4xl md:text-8xl font-black text-white font-outfit mb-6 tracking-tighter leading-[0.9]">Meet Our <br /><span className="text-action">Power Users.</span></h2>
-        <p className="text-xl text-slate-400 font-medium max-w-2xl mx-auto">See how CVify helps top-tier professionals like Umair build an undeniable online presence.</p>
+        <h2 className="text-4xl md:text-8xl font-black text-white font-outfit mb-6 tracking-tighter leading-[0.9] uppercase italic">Duniya ko <br /><span className="text-action">Batao.</span></h2>
+        <p className="text-xl text-slate-400 font-medium max-w-2xl mx-auto italic">Your portfolio is not just a link; it's a statement. Show off your projects with a premium Cyberpunk grid.</p>
         <div className="mt-12 p-4 rounded-3xl bg-white/5 border border-white/5 inline-flex items-center gap-6 text-lg font-black text-primary hover:bg-white/10 transition-colors group cursor-pointer">
            app-cvifypro.vercel.app/p/umairansari92 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </div>
@@ -801,7 +807,7 @@ const AICoverLetter = () => (
           <MoveRight className="w-4 h-4 text-diamond" />
           <span className="text-diamond text-xs font-black tracking-widest uppercase">Tailored Impact</span>
         </div>
-        <h2 className="text-4xl md:text-8xl font-black text-white font-outfit mb-6 tracking-tighter leading-[0.9]">Instant AI <br /><span className="text-diamond">Cover Letters.</span></h2>
+        <h2 className="text-4xl md:text-8xl font-black text-white font-outfit mb-6 tracking-tighter leading-[0.9] uppercase">Tailored for <br /><span className="text-diamond">Victory.</span></h2>
         <p className="text-xl text-slate-400 font-medium max-w-2xl mx-auto">Generate persuasive, job-specific cover letters in seconds using advanced Gemini AI that understands both your profile and the recruiter's needs.</p>
       </motion.div>
 
@@ -950,10 +956,10 @@ const HowItWorks = () => (
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {[
-          { icon: <ShieldCheck />, title: "Create Identity", text: "Sign up and build your secure professional profile." },
-          { icon: <Zap />, title: "Add Assets", text: "Import your experience, skills, and proudest achievements." },
-          { icon: <Sparkles />, title: "Generate & Polish", text: "Use AI to write resumes and optimize for ATS match." },
-          { icon: <Target />, title: "Launch & Share", text: "Publish your live portfolio and track recruiter views." }
+          { icon: <ShieldCheck />, title: "Create Identity", text: "Sign up and build your secure professional profile. Bas shuruwaat karein!" },
+          { icon: <Zap />, title: "Import Assets", text: "Apne experience, skills, aur projects dalo. Rest is AI magic." },
+          { icon: <Sparkles />, title: "Optimize & Style", text: "Crush those ATS robots and pick from 6+ premium themes." },
+          { icon: <Target />, title: "Go Global", text: "Publish your link and let the world see what you can do." }
         ].map((step, i) => (
           <motion.div
             key={i}
@@ -987,12 +993,12 @@ const ChoosingCVify = () => (
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {[
-        { title: "AI Guided Writing", desc: "No more writer's block. AI suggests high-impact bullet points." },
-        { title: "Deep ATS Analysis", desc: "Understand exactly how robots read your resume." },
-        { title: "Recruiter Portfolio", desc: "Manage your professional brand from one central dashboard." },
-        { title: "Interactive Previews", desc: "See your resume change instantly as you build it." },
-        { title: "Premium Templates", desc: "Exclusive layouts designed to stand out in the pile." },
-        { title: "Secure & Verified", desc: "Your data is encrypted and protected by enterprise-grade security." }
+        { title: "AI Guided Writing", desc: "No more writer's block. AI suggests high-impact, professional bullet points." },
+        { title: "Superior ATS Tech", desc: "Unlike basic scanners, we use multi-dimensional analysis to beat modern algorithms." },
+        { title: "6+ Restored Themes", desc: "Classic pixel-perfect designs like 'Corporate Gold' are back and better than ever." },
+        { title: "Cyberpunk Showcase", desc: "The boldest public portfolio grid in the industry. Stand out or stay hidden." },
+        { title: "Gemini AI Power", desc: "Leverage advanced AI for resumes and cover letters that actually sound human." },
+        { title: "Secure & Verified", desc: "Encryption and verified recruiter access keep your professional assets safe." }
       ].map((item, i) => (
         <motion.div
           key={i}
