@@ -8,7 +8,7 @@ import {
   FileText, Globe, ArrowLeft, Users, Sparkles, Eye,
   Brain, Layers, Briefcase, Rocket, Layout,
   Database, Star, Award, MessageSquare, Shield, Menu, X,
-  BarChart3, GitBranch, TrendingUp
+  BarChart3, GitBranch, TrendingUp, Heart
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -159,6 +159,10 @@ const Documentation = () => {
         </p>
       </div>
 
+      <div className="border-l-4 border-emerald-500 pl-5 py-3 my-6 bg-emerald-500/5 rounded-r-2xl">
+        <p className="text-white font-black text-[15px] italic">&quot;Giant platforms sell you a Template. CVify Pro sells you Verifiable Proof and AI-driven Mentorship.&quot;</p>
+      </div>
+
       <p className="text-slate-400 text-[15px] leading-relaxed mb-6">
         Because the giants solve <em>one piece</em> of the puzzle. LinkedIn is a network, not an ATS auditor. Canva makes pretty resumes that 
         <strong className="text-red-400"> fail ATS parsing</strong> (75% rejection before human eyes). Jobscan matches keywords but doesn&apos;t know if you&apos;re a fresher 
@@ -171,6 +175,8 @@ const Documentation = () => {
         <InfoCard icon={<Eye size={16} />} color="blue" title="You See What Recruiters See" desc="6-Second Impression, strong bullet highlights, exact before→after rewrites. You KNOW what's wrong." />
         <InfoCard icon={<Shield size={16} />} color="purple" title="No Lies, No Inflation" desc="6 strict anti-hallucination rules. Every feedback quotes YOUR actual resume. Score 45? We say 45, then show HOW to reach 85." />
         <InfoCard icon={<Sparkles size={16} />} color="amber" title="Complete Career Ecosystem" desc="ATS + Cover Letters + Portfolio + GitHub + SEO + Themes — all in one. No switching between 5 tools." />
+        <InfoCard icon={<Heart size={16} />} color="red" title="Empathy-First Coaching" desc="Strengths FIRST, then improvements with rewritten examples. You'll never feel crushed — you'll feel guided." />
+        <InfoCard icon={<Globe size={16} />} color="blue" title="Globally Inclusive" desc="Optimized for English, Urdu, Dutch. Market-specific scoring: Pakistani HR, European Remote, Freelance. Not western-centric." />
       </div>
 
       <SectionTitle>Why Recruiters Trust Us</SectionTitle>
@@ -198,14 +204,17 @@ const Documentation = () => {
       </div>
 
       <SectionTitle>Feature-by-Feature Comparison</SectionTitle>
-      <div className="overflow-x-auto rounded-2xl border border-white/5"><table className="w-full text-left border-collapse"><thead><tr className="bg-white/[0.03]"><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Feature</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-blue-400">CVify Pro</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Canva/Zety</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Rezi/Jobscan</th></tr></thead><tbody className="text-[13px]">{[["ATS Intelligence","v4.0 Precision Engine","❌ None/Basic","✅ Basic"],["Context-Aware","✅ Fresher → Senior","❌ No","❌ No"],["Anti-Hallucination","✅ 6 Rules","❌ No","❌ No"],["Hybrid Calibration","✅ AI×0.6+NLP×0.4","❌ No","❌ No"],["Live Portfolio","✅ SEO + JSON-LD","❌ No","❌ No"],["Cover Letter AI","✅ 3 Styles","✅ Basic","✅ Basic"],["GitHub Integration","✅ Live Stats","❌ No","❌ No"],["Before→After","✅ AI Rewrite","❌ No","❌ No"],["Universal Agency","✅ Peon to CEO","❌ Tech Only","❌ Tech Only"],["Score Justification","✅ WHY per metric","❌ No","❌ No"],["Coaching Tone","✅ Empathetic+Strict","❌ N/A","❌ Generic"]].map(([f,c,z,r],i)=>(<tr key={i} className="border-t border-white/5 hover:bg-white/[0.02]"><td className="py-3.5 px-5 text-white font-bold">{f}</td><td className="py-3.5 px-5 text-emerald-400">{c}</td><td className="py-3.5 px-5 text-red-400/70">{z}</td><td className="py-3.5 px-5 text-amber-400/70">{r}</td></tr>))}</tbody></table></div>
+      <div className="overflow-x-auto rounded-2xl border border-white/5"><table className="w-full text-left border-collapse"><thead><tr className="bg-white/[0.03]"><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Feature</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-blue-400">CVify Pro</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Canva/Zety</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Rezi/Jobscan</th></tr></thead><tbody className="text-[13px]">{[["ATS Intelligence","v4.0 Precision Engine","❌ None/Basic","✅ Basic"],["Context-Aware","✅ Fresher → Senior","❌ No","❌ No"],["Anti-Hallucination","✅ 6 Rules","❌ No","❌ No"],["Hybrid Calibration","✅ AI×0.6+NLP×0.4","❌ No","❌ No"],["Live Portfolio","✅ SEO + JSON-LD","❌ No","❌ No"],["Cover Letter AI","✅ 3 Styles","✅ Basic","✅ Basic"],["GitHub Integration","✅ Live Stats","❌ No","❌ No"],["Before→After","✅ AI Rewrite","❌ No","❌ No"],["Universal Agency","✅ Peon to CEO","❌ Tech Only","❌ Tech Only"],["Score Justification","✅ WHY per metric","❌ No","❌ No"],["Coaching Tone","✅ Empathetic+Strict","❌ N/A","❌ Generic"],["Recruiter Trust","✅ API-Verified Proof","❌ Self-Reported","❌ Self-Reported"],["Digital Presence","✅ Live SEO Profile","❌ Dead PDF Only","❌ Dead PDF Only"],["Global Markets","✅ EN, UR, NL + 4 Modes","❌ Western Only","❌ Western Only"]].map(([f,c,z,r],i)=>(<tr key={i} className="border-t border-white/5 hover:bg-white/[0.02]"><td className="py-3.5 px-5 text-white font-bold">{f}</td><td className="py-3.5 px-5 text-emerald-400">{c}</td><td className="py-3.5 px-5 text-red-400/70">{z}</td><td className="py-3.5 px-5 text-amber-400/70">{r}</td></tr>))}</tbody></table></div>
 
       <div className="mt-8 p-6 bg-blue-600/5 border border-blue-600/10 rounded-2xl text-center">
         <p className="text-white font-black text-lg mb-2">The Bottom Line</p>
-        <p className="text-slate-400 text-[14px] leading-relaxed max-w-2xl mx-auto">
+        <p className="text-slate-400 text-[14px] leading-relaxed max-w-2xl mx-auto mb-4">
           Giants build platforms. We build <strong className="text-blue-400">precision</strong>. They give you templates — we give you 
           intelligence. They count keywords — we understand careers. If you want a pretty PDF, use Canva. 
           If you want to <strong className="text-blue-400">actually get hired</strong>, use CVify Pro.
+        </p>
+        <p className="text-slate-500 text-[12px] italic">
+          Giants are reliable. CVify Pro is reliable <strong className="text-blue-400">AND</strong> empathetic, context-aware, proof-based, recruiter-ready, and globally inclusive.
         </p>
       </div>
     </>),
