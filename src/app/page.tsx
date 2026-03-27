@@ -64,8 +64,12 @@ const Nav = () => {
           </div>
 
           <div className="hidden md:flex items-center gap-10 text-sm font-bold text-slate-400">
-            {["Features", "ATS Scanner", "Templates", "Pricing"].map((item) => (
-              <a key={item} href={`#${item.toLowerCase().replace(" ", "-")}`} className="hover:text-white transition-colors relative group">
+            {["Features", "ATS Scanner", "Templates", "Documentation"].map((item) => (
+              <a 
+                key={item} 
+                href={item === "Documentation" ? "/documentation" : `#${item.toLowerCase().replace(" ", "-")}`} 
+                className="hover:text-white transition-colors relative group"
+              >
                 {item}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
               </a>
