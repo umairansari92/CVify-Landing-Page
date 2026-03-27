@@ -147,7 +147,68 @@ const Documentation = () => {
 
     diamonds: (<><DocHeader title="Diamond Economy 💎" badge="Business" /><p className="text-slate-400 text-[15px] leading-relaxed mb-6">Post-success billing only. Never charged for failed requests.</p><CT items={[{left:"ATS Audit",right:"50 💎"},{left:"Cover Letter",right:"20 💎"},{left:"Storage Slots",right:"30 💎"},{left:"Signup Bonus",right:"100 💎 free"}]} /></>),
 
-    competitors: (<><DocHeader title="Why CVify Pro Stands Out" badge="Comparison" /><div className="overflow-x-auto rounded-2xl border border-white/5"><table className="w-full text-left border-collapse"><thead><tr className="bg-white/[0.03]"><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Feature</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-blue-400">CVify Pro</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Canva/Zety</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Rezi/Jobscan</th></tr></thead><tbody className="text-[13px]">{[["ATS Intelligence","v4.0 Precision Engine","❌ None/Basic","✅ Basic"],["Context-Aware","✅ Fresher → Senior","❌ No","❌ No"],["Anti-Hallucination","✅ 6 Rules","❌ No","❌ No"],["Hybrid Calibration","✅ AI×0.6+NLP×0.4","❌ No","❌ No"],["Live Portfolio","✅ SEO + JSON-LD","❌ No","❌ No"],["Cover Letter AI","✅ 3 Styles","✅ Basic","✅ Basic"],["GitHub Integration","✅ Live Stats","❌ No","❌ No"],["Before→After Bullets","✅ AI Rewrite","❌ No","❌ No"],["Universal Agency","✅ Peon to CEO","❌ Tech Only","❌ Tech Only"]].map(([f,c,z,r],i)=>(<tr key={i} className="border-t border-white/5 hover:bg-white/[0.02]"><td className="py-3.5 px-5 text-white font-bold">{f}</td><td className="py-3.5 px-5 text-emerald-400">{c}</td><td className="py-3.5 px-5 text-red-400/70">{z}</td><td className="py-3.5 px-5 text-amber-400/70">{r}</td></tr>))}</tbody></table></div></>),
+    competitors: (<>
+      <DocHeader title="Why Choose CVify Pro?" badge="The Honest Truth" />
+      
+      <div className="p-6 bg-amber-500/5 border border-amber-500/10 rounded-2xl mb-8">
+        <h4 className="font-black text-amber-400 text-sm mb-3 flex items-center gap-2"><Award size={16} /> Let&apos;s Be Real</h4>
+        <p className="text-slate-400 text-[14px] leading-relaxed">
+          Giants like <strong className="text-white">LinkedIn</strong>, <strong className="text-white">Indeed</strong>, <strong className="text-white">Canva</strong>, <strong className="text-white">Zety</strong>, <strong className="text-white">Jobscan</strong>, and <strong className="text-white">Rezi</strong> exist — 
+          they&apos;re reliable, credible, trustworthy, and backed by billions. We respect them.
+          <strong className="text-blue-400"> So why should you choose us?</strong>
+        </p>
+      </div>
+
+      <p className="text-slate-400 text-[15px] leading-relaxed mb-6">
+        Because the giants solve <em>one piece</em> of the puzzle. LinkedIn is a network, not an ATS auditor. Canva makes pretty resumes that 
+        <strong className="text-red-400"> fail ATS parsing</strong> (75% rejection before human eyes). Jobscan matches keywords but doesn&apos;t know if you&apos;re a fresher 
+        or a senior. <strong className="text-white">No single platform combines all of these — except CVify Pro.</strong>
+      </p>
+
+      <SectionTitle>Why Job Seekers Choose Us</SectionTitle>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+        <InfoCard icon={<Brain size={16} />} color="emerald" title="Your Resume Gets UNDERSTOOD" desc="3-Layer Engine understands context — fresher missing AWS gets encouragement, senior gets critical alert." />
+        <InfoCard icon={<Eye size={16} />} color="blue" title="You See What Recruiters See" desc="6-Second Impression, strong bullet highlights, exact before→after rewrites. You KNOW what's wrong." />
+        <InfoCard icon={<Shield size={16} />} color="purple" title="No Lies, No Inflation" desc="6 strict anti-hallucination rules. Every feedback quotes YOUR actual resume. Score 45? We say 45, then show HOW to reach 85." />
+        <InfoCard icon={<Sparkles size={16} />} color="amber" title="Complete Career Ecosystem" desc="ATS + Cover Letters + Portfolio + GitHub + SEO + Themes — all in one. No switching between 5 tools." />
+      </div>
+
+      <SectionTitle>Why Recruiters Trust Us</SectionTitle>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+        <InfoCard icon={<Award size={16} />} color="emerald" title="Proof-Based Candidates" desc="Skills backed by live GitHub repos, project counts, and ATS scores. PROOF, not promises." />
+        <InfoCard icon={<Target size={16} />} color="blue" title="Pre-Screened Resumes" desc="Candidates already passed 3-layer AI audit. Less screening, better matches." />
+        <InfoCard icon={<BarChart3 size={16} />} color="purple" title="Transparent Scoring" desc="Every score has justification. Know WHY a candidate scored 85 in keywords." />
+        <InfoCard icon={<Rocket size={16} />} color="amber" title="One-Click Discovery" desc="10 seconds: repos, projects, ATS score, contact — one HUD dashboard." />
+      </div>
+
+      <SectionTitle>What NOBODY Else Does</SectionTitle>
+      <div className="space-y-3 mb-8">
+        {[
+          { t: "Context-Aware Scoring", d: "Only platform scoring differently for fresher vs senior. 22-year-old missing Docker? Fine. 35-year-old? Red flag.", c: "text-emerald-400" },
+          { t: "Hybrid Score Calibration", d: "AI × 0.6 + Server NLP × 0.4. AI inflates? Server catches it. AI lowballs? Server corrects. Mathematical honesty.", c: "text-blue-400" },
+          { t: "Before → After Rewrites", d: "Not 'fix this' — we rewrite using Google XYZ formula and tell you WHERE to paste it.", c: "text-purple-400" },
+          { t: "Universal Agency", d: "Teacher, banker, receptionist, CEO — AI adapts for ALL professions. Not just tech.", c: "text-amber-400" },
+          { t: "Live SEO Portfolio", d: "Profile on Google with JSON-LD. Share on LinkedIn → auto rich preview card. No coding.", c: "text-red-400" },
+        ].map((item, i) => (
+          <div key={i} className="p-5 bg-white/[0.02] rounded-2xl border border-white/5">
+            <p className={`font-black text-sm mb-1 ${item.c}`}>{item.t}</p>
+            <p className="text-slate-400 text-[12px] font-medium leading-relaxed">{item.d}</p>
+          </div>
+        ))}
+      </div>
+
+      <SectionTitle>Feature-by-Feature Comparison</SectionTitle>
+      <div className="overflow-x-auto rounded-2xl border border-white/5"><table className="w-full text-left border-collapse"><thead><tr className="bg-white/[0.03]"><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Feature</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-blue-400">CVify Pro</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Canva/Zety</th><th className="py-4 px-5 text-[11px] font-black uppercase tracking-widest text-slate-500">Rezi/Jobscan</th></tr></thead><tbody className="text-[13px]">{[["ATS Intelligence","v4.0 Precision Engine","❌ None/Basic","✅ Basic"],["Context-Aware","✅ Fresher → Senior","❌ No","❌ No"],["Anti-Hallucination","✅ 6 Rules","❌ No","❌ No"],["Hybrid Calibration","✅ AI×0.6+NLP×0.4","❌ No","❌ No"],["Live Portfolio","✅ SEO + JSON-LD","❌ No","❌ No"],["Cover Letter AI","✅ 3 Styles","✅ Basic","✅ Basic"],["GitHub Integration","✅ Live Stats","❌ No","❌ No"],["Before→After","✅ AI Rewrite","❌ No","❌ No"],["Universal Agency","✅ Peon to CEO","❌ Tech Only","❌ Tech Only"],["Score Justification","✅ WHY per metric","❌ No","❌ No"],["Coaching Tone","✅ Empathetic+Strict","❌ N/A","❌ Generic"]].map(([f,c,z,r],i)=>(<tr key={i} className="border-t border-white/5 hover:bg-white/[0.02]"><td className="py-3.5 px-5 text-white font-bold">{f}</td><td className="py-3.5 px-5 text-emerald-400">{c}</td><td className="py-3.5 px-5 text-red-400/70">{z}</td><td className="py-3.5 px-5 text-amber-400/70">{r}</td></tr>))}</tbody></table></div>
+
+      <div className="mt-8 p-6 bg-blue-600/5 border border-blue-600/10 rounded-2xl text-center">
+        <p className="text-white font-black text-lg mb-2">The Bottom Line</p>
+        <p className="text-slate-400 text-[14px] leading-relaxed max-w-2xl mx-auto">
+          Giants build platforms. We build <strong className="text-blue-400">precision</strong>. They give you templates — we give you 
+          intelligence. They count keywords — we understand careers. If you want a pretty PDF, use Canva. 
+          If you want to <strong className="text-blue-400">actually get hired</strong>, use CVify Pro.
+        </p>
+      </div>
+    </>),
 
     recruiter: (<><DocHeader title="For Recruiters & HR" badge="Recruiter Guide" /><div className="grid grid-cols-1 md:grid-cols-2 gap-3"><InfoCard icon={<Award size={16} />} color="emerald" title="Verified Skills" desc="Backed by live project data and GitHub metrics." /><InfoCard icon={<Target size={16} />} color="blue" title="ATS-Friendly" desc="95%+ parse rate guaranteed." /><InfoCard icon={<Brain size={16} />} color="purple" title="Contextual Fit" desc="AI-matched history saves screening time." /><InfoCard icon={<Eye size={16} />} color="amber" title="10-Second Discovery" desc="Repos, Projects, ATS Score — one dashboard." /></div></>),
 
