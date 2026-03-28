@@ -27,9 +27,9 @@ const AnnouncementBar = () => (
     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
     <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-xs md:text-sm">
       <span className="bg-primary text-white px-2 py-0.5 rounded-[4px] font-black uppercase text-[10px] tracking-wider shadow-sm shadow-primary/40">New</span>
-      <p className="font-bold text-slate-300 italic tracking-tight">Ab robots se darna choro — AI-powered ATS scanner is live!</p>
+      <p className="font-bold text-slate-300 italic tracking-tight">AI Resume Coach is here — Don't just scan, get a scientific action plan!</p>
       <a href={`${APP_URL}/signup`} className="text-primary font-black hover:underline inline-flex items-center gap-1 group/btn transition-all uppercase text-[10px] tracking-widest">
-        Duniya Ko Batao <MoveRight className="w-3 h-3 group-hover/btn:translate-x-1" />
+        Optimize Now <MoveRight className="w-3 h-3 group-hover/btn:translate-x-1" />
       </a>
     </div>
   </div>
@@ -443,9 +443,9 @@ const Features = () => {
     },
     {
       icon: <Target className="w-8 h-8 text-accent" />,
-      title: "ATS Scanner",
-      description: "Analyze your resume against job descriptions with a multi-dimensional scan to crush robot algorithms.",
-      points: ["Deep keyword analysis", "Recruiter-eye view"]
+      title: "AI Resume Coach PRO",
+      description: "Beyond scanning. Get an interactive checklist and a scientific 'Potential Score' meter to hit that 90+ mark.",
+      points: ["Interactive Optimization HUD", "Recruiter Logic Simulation"]
     },
     {
       icon: <MoveRight className="w-8 h-8 text-diamond" />,
@@ -724,7 +724,7 @@ const ATSIntelligence = () => {
   const points = [
     { title: "Keyword Detection", icon: <Sparkles className="w-5 h-5 text-accent" /> },
     { title: "Quantifiable Impact", icon: <BarChart3 className="w-5 h-5 text-accent" /> },
-    { title: "Structure Validation", icon: <ShieldCheck className="w-5 h-5 text-accent" /> }
+    { title: "Interactive Coach HUD", icon: <Brain className="w-5 h-5 text-accent" /> }
   ];
 
   return (
