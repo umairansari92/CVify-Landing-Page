@@ -17,7 +17,8 @@ import {
   ArrowRight,
   Star,
   Quote,
-  Palette
+  Palette,
+  Brain
 } from "lucide-react";
 
 const APP_URL = "https://app-cvifypro.vercel.app";
