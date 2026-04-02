@@ -128,7 +128,7 @@ const Documentation = () => {
 
   // ─── CONTENT ───
   const content: Record<string, React.ReactNode> = {
-    overview: (<><DocHeader title="Platform Overview" badge="Introduction" /><p className="text-slate-400 text-[15px] leading-relaxed mb-8">CVify Pro is not just a resume builder — it is a <strong className="text-white">Career Intelligence Ecosystem</strong>. The platform solves the &quot;Black Box&quot; problem of ATS by giving users a real-time, AI-backed auditor that mimics Fortune 500 hiring pipelines.</p><div className="grid grid-cols-1 md:grid-cols-2 gap-4"><InfoCard icon={<Target size={18} />} color="emerald" title="For Job Seekers" desc="Build ATS-friendly resumes, generate targeted cover letters, and host a live, SEO-optimized digital portfolio with zero coding." /><InfoCard icon={<Briefcase size={18} />} color="blue" title="For Recruiters" desc="View candidates with verified GitHub data, actual project proof, and transparent AI-matched skill alignments." /><InfoCard icon={<Brain size={18} />} color="purple" title="Context-Aware Intelligence" desc="AI adapts scoring, keywords, and coaching tone based on experience level and market mode." /><InfoCard icon={<Shield size={18} />} color="amber" title="Anti-Hallucination Guarantee" desc="6 strict rules ensure AI only references actual resume content. Hybrid scoring prevents random inflation." /></div></>),
+    overview: (<><DocHeader title="Platform Overview" badge="Introduction" /><p className="text-slate-300 text-[15px] leading-relaxed mb-8">CVify Pro is not just a resume builder — it is a <strong className="text-white">Career Intelligence Ecosystem</strong>. The platform solves the &quot;Black Box&quot; problem of ATS by giving users a real-time, AI-backed auditor that mimics Fortune 500 hiring pipelines.</p><div className="grid grid-cols-1 md:grid-cols-2 gap-4"><InfoCard icon={<Target size={18} />} color="emerald" title="For Job Seekers" desc="Build ATS-friendly resumes, generate targeted cover letters, and host a live, SEO-optimized digital portfolio with zero coding." /><InfoCard icon={<Briefcase size={18} />} color="blue" title="For Recruiters" desc="View candidates with verified GitHub data, actual project proof, and transparent AI-matched skill alignments." /><InfoCard icon={<Brain size={18} />} color="purple" title="Context-Aware Intelligence" desc="AI adapts scoring, keywords, and coaching tone based on experience level and market mode." /><InfoCard icon={<Shield size={18} />} color="amber" title="Anti-Hallucination Guarantee" desc="6 strict rules ensure AI only references actual resume content. Hybrid scoring prevents random inflation." /></div></>),
 
     setup: (<><DocHeader title="Quick Setup (3 Min)" badge="Getting Started" /><Steps items={[{step:"1",title:"Create Account",desc:"Click Signup and verify your email. You get 100 free diamonds."},{step:"2",title:"Complete Profile",desc:"Add name, headline, summary, experience, education, and skills."},{step:"3",title:"Sync GitHub (Optional)",desc:"Connect GitHub to pull repo counts, languages, and stats."},{step:"4",title:"Go Live!",desc:"Portfolio is live at app-cvifypro.vercel.app/p/your-username."}]} /></>),
 
@@ -270,7 +270,7 @@ const Documentation = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
       {/* ── TOP BAR ── */}
-      <nav className="fixed top-0 left-0 w-full z-50 p-4 backdrop-blur-xl border-b border-white/5 bg-slate-950/80 flex justify-between items-center px-4 lg:px-8">
+      <nav className="fixed top-0 left-0 w-full z-50 p-4 glass border-b border-white/5 bg-slate-950/80 flex justify-between items-center px-4 lg:px-8">
         <div className="flex items-center gap-4">
           <button onClick={() => router.push("/")} className="p-2 hover:bg-white/5 rounded-full transition-colors"><ArrowLeft size={18} /></button>
           <Image src="/CVify Logo Dark.jpg" alt="CVify Logo" width={120} height={30} className="h-7 md:h-8 w-auto object-contain" />
@@ -281,7 +281,7 @@ const Documentation = () => {
 
       <div className="flex pt-16">
         {/* Sidebar (Desktop) */}
-        <aside className="hidden lg:block w-72 h-[calc(100vh-64px)] sticky top-16 overflow-y-auto border-r border-white/5 p-4 space-y-6 bg-slate-950">
+        <aside className="hidden lg:block w-72 h-[calc(100vh-64px)] sticky top-16 overflow-y-auto border-r border-white/5 p-4 space-y-6 glass bg-slate-950/40">
           {navGroups.map(g => (
             <div key={g.label}>
               <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 mb-2 px-4">{g.label}</p>
