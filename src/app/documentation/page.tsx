@@ -39,6 +39,7 @@ const Documentation = () => {
       label: "Intelligence",
       items: [
         { id: "engine", icon: <Brain size={16} />, label: "3-Layer ATS Engine" },
+        { id: "bff", icon: <GitBranch size={16} />, label: "BFF v1 Architecture" },
         { id: "architecture", icon: <Layers size={16} />, label: "System Architecture" },
         { id: "security", icon: <Shield size={16} />, label: "Security & Privacy" },
       ]
@@ -175,6 +176,42 @@ const Documentation = () => {
     profile: (<><DocHeader title="User Profile & Dashboard" badge="Core Feature" /><p className="text-slate-400 text-[15px] leading-relaxed mb-6">Command center for your career brand. Every change reflects on your live portfolio instantly. HUD Analytics shows profile views, contact clicks, and downloads.</p><div className="grid grid-cols-1 md:grid-cols-2 gap-3"><InfoCard icon={<FileText size={16} />} color="blue" title="Core Info" desc="Name, headline, summary, location, contact." /><InfoCard icon={<Briefcase size={16} />} color="emerald" title="Experience" desc="Multiple positions with editable bullet points." /><InfoCard icon={<Book size={16} />} color="purple" title="Education" desc="Degrees, certifications, institutions." /><InfoCard icon={<Zap size={16} />} color="amber" title="Skills" desc="Categorized with proficiency sliders." /><InfoCard icon={<Eye size={16} />} color="red" title="Projects" desc="Images, tech stacks, live/source links." /><InfoCard icon={<Star size={16} />} color="blue" title="Testimonials" desc="Client logos and quotes with ratings." /></div></>),
 
     engine: (<><DocHeader title="3-Layer ATS Intelligence Engine" badge="Technical" /><div className="space-y-4"><div className="p-5 bg-blue-500/5 border border-blue-500/10 rounded-2xl"><h4 className="font-black text-blue-400 text-sm mb-2">Layer 1: Structural Parsing</h4><p className="text-slate-400 text-[13px] leading-relaxed">Regex scans for headers, dates, contact info. Penalizes non-standard formatting.</p></div><div className="p-5 bg-purple-500/5 border border-purple-500/10 rounded-2xl"><h4 className="font-black text-purple-400 text-sm mb-2">Layer 2: NLP Keyword Engine</h4><p className="text-slate-400 text-[13px] leading-relaxed">Extracts JD nouns, cross-references with synonyms database. Quantification scanning.</p></div><div className="p-5 bg-emerald-500/5 border border-emerald-500/10 rounded-2xl"><h4 className="font-black text-emerald-400 text-sm mb-2">Layer 3: AI Deep Audit (Gemini 2.5)</h4><p className="text-slate-400 text-[13px] leading-relaxed">Contextual analysis using <strong>Content-Aware Hashing (SHA-256)</strong> to track version improvements and version-specific scores.</p></div></div><SectionTitle>Hybrid Calibration</SectionTitle><div className="p-5 bg-blue-600/5 border border-blue-600/10 rounded-2xl"><p className="text-slate-400 text-[13px]"><code className="text-blue-400 bg-blue-600/10 px-2 py-0.5 rounded-lg text-xs">Score = AI × 0.6 + Server NLP × 0.4</code></p></div><SectionTitle>Dynamic Weights</SectionTitle><CT items={[{left:"Fresher",right:"Keywords 35% | Formatting 30% | Quant 10% | Impact 10% | X 15%"},{left:"Junior",right:"Keywords 30% | Formatting 25% | Quant 15% | Impact 15% | X 15%"},{left:"Mid-Level",right:"Keywords 25% | Formatting 20% | Quant 25% | Impact 20% | X 10%"},{left:"Senior",right:"Keywords 20% | Formatting 15% | Quant 30% | Impact 30% | X 5%"}]} /></>),
+
+    bff: (
+      <>
+        <DocHeader title="BFF v1: High-Performance Architecture" badge="Major Update" />
+        <p className="text-slate-400 text-[15px] leading-relaxed mb-6">
+          In April 2026, we successfully transitioned CVify Pro from a fragmented API model to a <strong className="text-white">Backend For Frontend (BFF)</strong> architecture. This is a senior-grade system design that prioritizes user experience above all else.
+        </p>
+
+        <SectionTitle>The Problem (Before v1.0)</SectionTitle>
+        <div className="p-5 bg-red-500/5 border border-red-500/10 rounded-2xl mb-6">
+          <p className="text-slate-400 text-[13px] leading-relaxed italic">
+            &quot;Previously, the dashboard had to hit 5 alag-alag APIs (Profile, Resumes, Letters, Stats, Economy) to render a single screen. This caused &apos;Network Waterfalls&apos;, where if one service was slow, the whole UI felt broken or &apos;jiggly&apos; due to constant layout shifts.&quot;
+          </p>
+        </div>
+
+        <SectionTitle>The Solution (BFF v1.0)</SectionTitle>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <InfoCard icon={<Zap size={18} />} color="emerald" title="Unified v1 Endpoint" 
+            desc="One single request (/api/v1/bff/dashboard) now returns a custom-pruned View Model containing everything your screen needs." />
+          <InfoCard icon={<Heart size={18} />} color="red" title="Heart vs Makeup Resilience" 
+            desc="The system distinguishes between &apos;Heart&apos; services (Resumes/Profile) and &apos;Makeup&apos; services (Stats). If Stats fail, your dashboard still loads instantly." />
+          <InfoCard icon={<Cpu size={18} />} color="blue" title="SWR Strategy" 
+            desc="Stale-While-Revalidate logic allows the UI to show cached data instantly while refreshing in the background — Zero waiting." />
+          <InfoCard icon={<Layers size={18} />} color="purple" title="Section-Aware Caching" 
+            desc="Advanced caching keys ensure that editing one resume doesn&apos;t wipe your entire dashboard cache. Only relevant segments refresh." />
+        </div>
+
+        <SectionTitle>Performance Impact</SectionTitle>
+        <CT items={[
+          { left: "Network Requests", right: "Reduced from 5+ to exactly 1" },
+          { left: "Payload Size", right: "70% smaller (Data Pruning removed 100+ unused fields)" },
+          { left: "Loading State", right: "Shifted from &apos;Multiple Spinners&apos; to &apos;Instant-Render&apos;" },
+          { left: "Reliability", right: "Service-level isolation prevents platform-wide crashes" },
+        ]} />
+      </>
+    ),
 
     architecture: (<><DocHeader title="System Architecture" badge="Technical" /><CT items={[{left:"Runtime",right:"Node.js (Non-Blocking I/O)"},{left:"Framework",right:"Express.js (REST)"},{left:"Database",right:"MongoDB Atlas (NoSQL)"},{left:"Frontend",right:"React 18 + Vite + Redux Toolkit"},{left:"Intelligence",right:"Gemini 2.5 Flash"},{left:"Styling",right:"Tailwind CSS 4.0 + Glassmorphism"},{left:"PDF",right:"@react-pdf/renderer"},{left:"Landing",right:"Next.js (SSR)"},{left:"Deploy",right:"Vercel + Cloud VPS"}]} /></>),
 
