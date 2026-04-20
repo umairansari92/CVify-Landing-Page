@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Github, MoveRight } from "lucide-react";
+import { Github, MoveRight, ExternalLink } from "lucide-react";
 
 const APP_URL = "https://app-cvifypro.vercel.app";
 
@@ -27,23 +27,57 @@ const Footer = () => (
         </div>
       </div>
 
+      {/* Product links — all working anchors */}
       <div className="space-y-6">
         <h4 className="text-white font-black uppercase tracking-widest text-xs">Product</h4>
         <ul className="space-y-4 text-slate-500 font-bold text-sm">
-          <li><a href="#features" className="hover:text-primary transition-colors flex items-center gap-2 group">AI Builder <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-          <li><a href="#ats" className="hover:text-primary transition-colors flex items-center gap-2 group">ATS Scanner <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-          <li><a href="#demo" className="hover:text-primary transition-colors flex items-center gap-2 group">Try Demo <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
-          <li><a href="#pricing" className="hover:text-primary transition-colors flex items-center gap-2 group">Pricing <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
+          <li>
+            <a href="#features" className="hover:text-primary transition-colors flex items-center gap-2 group">
+              Features <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
+          <li>
+            <a href="#how-it-works" className="hover:text-primary transition-colors flex items-center gap-2 group">
+              How It Works <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
+          <li>
+            <a href="#demo" className="hover:text-primary transition-colors flex items-center gap-2 group">
+              Try the Demo <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
+          <li>
+            <a href="#pricing" className="hover:text-primary transition-colors flex items-center gap-2 group">
+              Pricing <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
         </ul>
       </div>
 
+      {/* Platform links — working pages only */}
       <div className="space-y-6">
-        <h4 className="text-white font-black uppercase tracking-widest text-xs">Resources</h4>
+        <h4 className="text-white font-black uppercase tracking-widest text-xs">Platform</h4>
         <ul className="space-y-4 text-slate-500 font-bold text-sm">
-          <li><a href="/documentation" className="hover:text-primary transition-colors">Documentation</a></li>
-          <li><a href="#" className="hover:text-primary transition-colors">Resume Tips</a></li>
-          <li><a href="#" className="hover:text-primary transition-colors">ATS Guide</a></li>
-          <li><a href="#" className="hover:text-primary transition-colors">FAQ</a></li>
+          <li>
+            <a href={`${APP_URL}/signup`} className="hover:text-primary transition-colors flex items-center gap-2 group">
+              Create Account <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
+          <li>
+            <a href={`${APP_URL}/login`} className="hover:text-primary transition-colors flex items-center gap-2 group">
+              Sign In <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
+          <li>
+            <a href="https://app-cvifypro.vercel.app/p/umairansari92" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 group">
+              Sample Profile <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
+          <li>
+            <a href="/documentation" className="hover:text-primary transition-colors flex items-center gap-2 group">
+              Documentation <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+          </li>
         </ul>
       </div>
 
@@ -61,8 +95,8 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto pt-20 border-t border-white/5 mt-20 flex flex-col md:flex-row justify-between items-center gap-8">
       <p className="text-slate-600 text-sm font-medium">© 2026 CVify. All rights reserved.</p>
       <div className="flex gap-8 text-slate-600 text-sm font-medium">
-        <a href="#" className="hover:text-white transition-colors">Privacy</a>
-        <a href="#" className="hover:text-white transition-colors">Terms</a>
+        <a href={`${APP_URL}/privacy`} className="hover:text-white transition-colors">Privacy</a>
+        <a href={`${APP_URL}/terms`} className="hover:text-white transition-colors">Terms</a>
       </div>
     </div>
   </footer>

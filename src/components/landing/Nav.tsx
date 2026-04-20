@@ -19,8 +19,8 @@ const Nav = () => {
 
   const navLinks = [
     { name: "Features", href: "#features" },
-    { name: "ATS Scanner", href: "#ats" },
-    { name: "Templates", href: "#templates" },
+    { name: "How It Works", href: "#how-it-works" },
+    { name: "Demo", href: "#demo" },
     { name: "Documentation", href: "/documentation" },
   ];
 

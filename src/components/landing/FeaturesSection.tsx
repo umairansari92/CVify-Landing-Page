@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Wand2, TrendingUp, UserCircle2, CheckCircle2 } from "lucide-react";
+import { Search, Wand2, TrendingUp, UserCircle2, CheckCircle2, ExternalLink } from "lucide-react";
 
 const FeaturesSection = () => {
   const features = [
@@ -32,7 +32,8 @@ const FeaturesSection = () => {
       badge: "Career Profile",
       title: "Build a Recruiter-Ready Profile",
       description: "Create a clean, shareable resume that stands out. Your public career profile lets recruiters find and contact you directly.",
-      points: ["Live shareable link", "Recruiter analytics", "Cyberpunk showcase grid"]
+      points: ["Live shareable link", "Recruiter analytics", "Cyberpunk showcase grid"],
+      liveDemo: "https://app-cvifypro.vercel.app/p/umairansari92"
     }
   ];
 
@@ -75,7 +76,7 @@ const FeaturesSection = () => {
                   <p className="text-slate-400 font-medium leading-relaxed">{feat.description}</p>
                 </div>
 
-                <div className="pt-8 border-t border-white/5">
+                <div className="pt-8 border-t border-white/5 space-y-4">
                   <ul className="flex flex-wrap gap-3">
                     {feat.points.map((p, j) => (
                       <li key={j} className="flex items-center gap-2 text-[10px] font-black text-slate-500 uppercase tracking-widest bg-white/[0.03] border border-white/5 px-3 py-1.5 rounded-full">
@@ -83,6 +84,17 @@ const FeaturesSection = () => {
                       </li>
                     ))}
                   </ul>
+                  {feat.liveDemo && (
+                    <a
+                      href={feat.liveDemo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-black text-primary hover:text-white transition-colors border border-primary/20 bg-primary/10 hover:bg-primary hover:border-primary px-4 py-2 rounded-xl"
+                    >
+                      <ExternalLink className="w-3 h-3" />
+                      See a Live Profile Example
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
