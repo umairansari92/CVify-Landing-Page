@@ -167,3 +167,22 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #334155;
 }
+
+/* Explicit shadow utilities (Tailwind v4 doesn't auto-gen from @theme for shadow-*) */
+.shadow-glow {
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+.shadow-premium {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
+
+.shadow-accent-glow {
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Delayed float animation for staggered elements */
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 3s;
+}
