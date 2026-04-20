@@ -10,6 +10,7 @@ import ProblemSection from "@/components/landing/ProblemSection";
 import HowItWorks from "@/components/landing/HowItWorks";
 import ComparisonTable from "@/components/landing/ComparisonTable";
 import FeaturesSection from "@/components/landing/FeaturesSection";
+import ProfileShowcase from "@/components/landing/ProfileShowcase";
 import DemoSection from "@/components/landing/DemoSection";
 import Testimonials from "@/components/landing/Testimonials";
 import Pricing from "@/components/landing/Pricing";
@@ -68,16 +69,19 @@ export default function Home() {
         {/* 6 ── Features (Outcome-Based): Clarity on value */}
         <FeaturesSection />
 
-        {/* 7 ── Demo: Break hesitation */}
+        {/* 7 ── Live Profile: Show don't tell */}
+        <ProfileShowcase />
+
+        {/* 8 ── Demo: Break hesitation */}
         <DemoSection />
 
-        {/* 8 ── Testimonials: Trust + Social proof */}
+        {/* 9 ── Testimonials: Trust + Social proof */}
         <Testimonials />
 
-        {/* 9 ── Pricing: Transparent */}
+        {/* 10 ── Pricing: Transparent */}
         <Pricing />
 
-        {/* 10 ── Final CTA: Urgency + Loss aversion */}
+        {/* 11 ── Final CTA: Urgency + Loss aversion */}
         <CTASection />
       </main>
       <Footer />
