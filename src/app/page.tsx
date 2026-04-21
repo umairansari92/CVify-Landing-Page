@@ -17,7 +17,7 @@ import Pricing from "@/components/landing/Pricing";
 import CTASection from "@/components/landing/CTASection";
 import Footer from "@/components/landing/Footer";
 
-const APP_URL = "https://app-cvifypro.vercel.app";
+import { APP_URL } from "@/lib/constants";
 
 const AnnouncementBar = () => (
   <div className="bg-primary/10 border-b border-primary/20 py-2.5 px-6 relative overflow-hidden group z-50">

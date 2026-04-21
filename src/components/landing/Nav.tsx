@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MoveRight } from "lucide-react";
 
-const APP_URL = "https://app-cvifypro.vercel.app";
+import { APP_URL, DOCS_URL } from "@/lib/constants";
 
 const Nav = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,7 +21,7 @@ const Nav = () => {
     { name: "Features", href: "#features" },
     { name: "How It Works", href: "#how-it-works" },
     { name: "Demo", href: "#demo" },
-    { name: "Documentation", href: "/documentation" },
+    { name: "Documentation", href: DOCS_URL },
   ];
 
   return (

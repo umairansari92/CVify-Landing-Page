@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Zap, CheckCircle2, AlertCircle } from "lucide-react";
 
-const APP_URL = "https://app-cvifypro.vercel.app";
+import { APP_URL } from "@/lib/constants";
 
 const Hero = () => {
   return (

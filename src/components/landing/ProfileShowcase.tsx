@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, BarChart3, Eye, Users, ArrowRight } from "lucide-react";
 
-const LIVE_PROFILE = "https://app-cvifypro.vercel.app/p/umairansari92";
+import { SAMPLE_PROFILE_URL as LIVE_PROFILE } from "@/lib/constants";
 
 const ProfileShowcase = () => (
   <section id="portfolio" className="py-40 px-6 relative overflow-hidden">

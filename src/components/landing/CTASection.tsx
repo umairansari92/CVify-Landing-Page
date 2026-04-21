@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
-const APP_URL = "https://app-cvifypro.vercel.app";
+import { APP_URL } from "@/lib/constants";
 
 const CTASection = () => (
   <section className="py-40 px-6 relative overflow-hidden">

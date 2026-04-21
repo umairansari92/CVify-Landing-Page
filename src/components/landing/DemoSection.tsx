@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PlayCircle, Sparkles, CheckCircle2, ArrowRight, Cpu, BarChart3 } from "lucide-react";
 
-const APP_URL = "https://app-cvifypro.vercel.app";
+import { APP_URL } from "@/lib/constants";
 
 const sampleAnalysis = {
   score: 34,

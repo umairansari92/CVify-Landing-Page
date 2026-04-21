@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Github, MoveRight, ExternalLink } from "lucide-react";
 
-const APP_URL = "https://app-cvifypro.vercel.app";
+import { APP_URL, DOCS_URL, SAMPLE_PROFILE_URL } from "@/lib/constants";
 
 const Footer = () => (
   <footer className="py-32 px-6 border-t border-white/5 bg-slate-950">
@@ -69,12 +69,12 @@ const Footer = () => (
             </a>
           </li>
           <li>
-            <a href="https://app-cvifypro.vercel.app/p/umairansari92" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 group">
+            <a href={SAMPLE_PROFILE_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 group">
               Sample Profile <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
           </li>
           <li>
-            <a href="/documentation" className="hover:text-primary transition-colors flex items-center gap-2 group">
+            <a href={DOCS_URL} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-2 group">
               Documentation <MoveRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
           </li>
