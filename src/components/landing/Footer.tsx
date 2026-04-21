@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Github, MoveRight, ExternalLink } from "lucide-react";
 
-import { APP_URL, DOCS_URL, SAMPLE_PROFILE_URL } from "@/lib/constants";
+import { APP_URL, DOCS_URL, SAMPLE_PROFILE_URL, DATAVERSE_URL } from "@/lib/constants";
 
 const Footer = () => (
   <footer className="py-32 px-6 border-t border-white/5 bg-slate-950">
@@ -93,7 +93,15 @@ const Footer = () => (
     </div>
 
     <div className="max-w-7xl mx-auto pt-20 border-t border-white/5 mt-20 flex flex-col md:flex-row justify-between items-center gap-8">
-      <p className="text-slate-600 text-sm font-medium">© 2026 CVify. All rights reserved.</p>
+      <div className="flex flex-col gap-2">
+        <p className="text-slate-600 text-sm font-medium">© 2026 CVify. All rights reserved.</p>
+        <p className="text-[10px] font-black uppercase tracking-widest text-slate-700">
+          Design and Developed by{" "}
+          <a href={DATAVERSE_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            Dataverse Technologies
+          </a>
+        </p>
+      </div>
       <div className="flex gap-8 text-slate-600 text-sm font-medium">
         <a href={`${APP_URL}/privacy`} className="hover:text-white transition-colors">Privacy</a>
         <a href={`${APP_URL}/terms`} className="hover:text-white transition-colors">Terms</a>
