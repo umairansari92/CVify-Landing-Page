@@ -50,8 +50,8 @@ const Hero = () => {
               className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter text-white font-outfit uppercase"
             >
               Get More <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent animate-shimmer bg-[length:200%_auto]">Interviews</span> <br />
-              With An ATS-Optimized Resume
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent animate-shimmer bg-[length:200%_auto]">Job-Winning</span> <br />
+              Applications
             </motion.h1>
 
             <motion.p 
@@ -60,7 +60,7 @@ const Hero = () => {
               transition={{ delay: 0.1 }}
               className="text-xl md:text-2xl text-slate-400 max-w-xl font-medium leading-relaxed"
             >
-              Upload your resume, paste a job description, and CVify rewrites your application — resume, cover letter, and profile — optimized for that exact role.
+              Upload once. CVify analyzes, rewrites, and generates job-specific resumes, cover letters, and recruiter-ready profiles.
             </motion.p>
 
             <motion.div 
@@ -74,14 +74,14 @@ const Hero = () => {
                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                    Check My Resume Score <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <a href={`${APP_URL}/signup`} className="text-white/60 hover:text-white px-10 py-6 rounded-3xl text-xl font-black transition-all flex items-center gap-3 group underline decoration-white/20 underline-offset-8 decoration-2 hover:decoration-primary">
-                  Build New Resume
+                <a href="#demo" className="text-white/60 hover:text-white px-10 py-6 rounded-3xl text-xl font-black transition-all flex items-center gap-3 group underline decoration-white/20 underline-offset-8 decoration-2 hover:decoration-primary">
+                  Analyze Sample Resume
                 </a>
               </div>
               
               <div className="flex items-center gap-2 px-2">
                 <CheckCircle2 className="w-4 h-4 text-success" />
-                <span className="text-sm font-bold text-slate-500 uppercase tracking-widest italic">AI suggests improvements. You stay in control.</span>
+                <span className="text-sm font-bold text-slate-500 uppercase tracking-widest italic">No signup required. Get your ATS score instantly.</span>
               </div>
             </motion.div>
           </div>

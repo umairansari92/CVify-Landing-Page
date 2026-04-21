@@ -52,7 +52,7 @@ const steps = [
   }
 ];
 
-const ApplicationFlow = () => (
+const SystemFlow = () => (
   <section id="application-flow" className="py-40 px-6 relative overflow-hidden border-t border-white/5">
     <div className="max-w-7xl mx-auto">
       <motion.div
@@ -127,4 +127,4 @@ const ApplicationFlow = () => (
   </section>
 );
 
-export default ApplicationFlow;
+export default SystemFlow;

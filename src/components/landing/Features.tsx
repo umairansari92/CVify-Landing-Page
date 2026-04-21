@@ -2,9 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Wand2, TrendingUp, UserCircle2, CheckCircle2, ExternalLink } from "lucide-react";
+import { Search, Wand2, Package, BarChart3, CheckCircle2, ExternalLink } from "lucide-react";
 
-const FeaturesSection = () => {
+const Features = () => {
   const features = [
     {
       icon: <Search className="w-8 h-8" />,
@@ -21,18 +21,18 @@ const FeaturesSection = () => {
       points: ["Bullet point rewriting", "Industry-standard phrasing", "Achievement quantification"]
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
-      badge: "Score Optimizer",
-      title: "Increase Your Interview Chances",
-      description: "Optimize your resume to match job requirements and pass ATS filters. Every recommendation is based on real recruiter data.",
-      points: ["Job description matching", "ATS score simulation", "Priority action checklist"]
+      icon: <Package className="w-8 h-8" />,
+      badge: "Application System",
+      title: "Create Job-Specific Versions",
+      description: "Stop sending the same resume everywhere. One master profile automatically generates multiple tailored resumes optimized for every job.",
+      points: ["One profile → many resumes", "Job-specific tailoring", "Bulk version management"]
     },
     {
-      icon: <UserCircle2 className="w-8 h-8" />,
-      badge: "Career Profile",
-      title: "Build a Recruiter-Ready Profile",
-      description: "Create a clean, shareable resume that stands out. Your public career profile lets recruiters find and contact you directly.",
-      points: ["Live shareable link", "Recruiter analytics", "Cyberpunk showcase grid"],
+      icon: <BarChart3 className="w-8 h-8" />,
+      badge: "Recruiter Engagement",
+      title: "Track Recruiter Interest",
+      description: "See who views your resume and how much time they spend on your profile. Get real-time engagement data on your applications.",
+      points: ["Profile view notifications", "Interaction analytics", "Resume download tracking"],
       liveDemo: "https://app-cvifypro.vercel.app/p/umairansari92"
     }
   ];
@@ -105,4 +105,4 @@ const FeaturesSection = () => {
   );
 };
 
-export default FeaturesSection;
+export default Features;

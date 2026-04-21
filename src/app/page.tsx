@@ -8,9 +8,9 @@ import Nav from "@/components/landing/Nav";
 import Hero from "@/components/landing/Hero";
 import ProblemSection from "@/components/landing/ProblemSection";
 import HowItWorks from "@/components/landing/HowItWorks";
-import ApplicationFlow from "@/components/landing/ApplicationFlow";
-import ComparisonTable from "@/components/landing/ComparisonTable";
-import FeaturesSection from "@/components/landing/FeaturesSection";
+import SystemFlow from "@/components/landing/SystemFlow";
+import Comparison from "@/components/landing/Comparison";
+import Features from "@/components/landing/Features";
 import ApplicationKit from "@/components/landing/ApplicationKit";
 import ProfileShowcase from "@/components/landing/ProfileShowcase";
 import DemoSection from "@/components/landing/DemoSection";
@@ -53,43 +53,43 @@ export default function Home() {
       <AnnouncementBar />
       <Nav />
       <main>
-        {/* 1 ── Promise: Hook them in 5 seconds */}
+        {/* 1 ── Hero: Hook + Promise + Action */}
         <Hero />
 
-        {/* 2 ── Social Proof: Credibility early */}
+        {/* 2 ── Social Proof: Credibility bar */}
         <SocialProof />
 
-        {/* 3 ── Problem: Emotional pain */}
+        {/* 3 ── Problem: Emotional Trigger (REJECTED stamp) */}
         <ProblemSection />
 
-        {/* 4 ── How It Works: Quick overview */}
+        {/* 4 ── System Flow: Core Differentiation (The 5-step reveal) */}
+        <SystemFlow />
+
+        {/* 5 ── How It Works: Simple Digestible Version */}
         <HowItWorks />
 
-        {/* 5 ── Application Flow: The full 5-step system */}
-        <ApplicationFlow />
+        {/* 6 ── Before vs After: Conversion Weapon (+65% Proof) */}
+        <Comparison />
 
-        {/* 6 ── Before vs After: Visual proof */}
-        <ComparisonTable />
+        {/* 7 ── Features: Outcome Based (Decision Engine) */}
+        <Features />
 
-        {/* 7 ── Features (Outcome-Based): Clarity on value */}
-        <FeaturesSection />
-
-        {/* 8 ── Application Kit: Resume + Cover Letter + Profile */}
-        <ApplicationKit />
-
-        {/* 9 ── Live Profile: Show don't tell */}
-        <ProfileShowcase />
-
-        {/* 10 ── Demo: Break hesitation */}
+        {/* 8 ── Demo Section: See it in Action */}
         <DemoSection />
 
-        {/* 11 ── Testimonials: Trust + Social proof */}
+        {/* 9 ── Trust / Testimonials: Real Results */}
         <Testimonials />
 
-        {/* 12 ── Pricing: Transparent */}
+        {/* 10 ── Application Kit: Everything You Need to Apply (Resume + Letter + Profile) */}
+        <ApplicationKit />
+
+        {/* 11 ── Live Profile: Proof of Concept */}
+        <ProfileShowcase />
+
+        {/* 12 ── Pricing: Diamond Economy */}
         <Pricing />
 
-        {/* 13 ── Final CTA: Urgency + Loss aversion */}
+        {/* 13 ── Final CTA: Conversion Push */}
         <CTASection />
       </main>
       <Footer />

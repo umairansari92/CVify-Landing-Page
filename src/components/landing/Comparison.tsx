@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle, BarChart3, Target, Sparkles, AlertCircle } from "lucide-react";
 
-const ComparisonTable = () => {
+const Comparison = () => {
   return (
     <section id="comparison" className="py-40 px-6 relative overflow-hidden bg-slate-900/10">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
@@ -144,4 +144,4 @@ const ComparisonTable = () => {
   );
 };
 
-export default ComparisonTable;
+export default Comparison;
