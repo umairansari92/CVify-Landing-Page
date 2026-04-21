@@ -10,28 +10,28 @@ const Features = () => {
       icon: <Search className="w-8 h-8" />,
       badge: "ATS Intelligence",
       title: "See Why Your Resume Fails",
-      description: "Detailed ATS breakdown with clear reasons for rejection. Know exactly which keywords are missing and why the bot filtered you out.",
+      description: "Get a detailed 24-point ATS breakdown. Know exactly which keywords are missing and why the bot is filtering you out.",
       points: ["Keyword gap analysis", "Formatting error detection", "Section-by-section score"]
     },
     {
       icon: <Wand2 className="w-8 h-8" />,
       badge: "AI Writing",
       title: "Fix Weak Content Instantly",
-      description: "AI rewrites your resume like a professional to improve clarity and impact. Stop guessing what to write — let Gemini AI do it.",
+      description: "Turn generic bullets into achievement-focused wins. Let Gemini AI rewrite your content for maximum impact automatically.",
       points: ["Bullet point rewriting", "Industry-standard phrasing", "Achievement quantification"]
     },
     {
       icon: <Package className="w-8 h-8" />,
       badge: "Application System",
       title: "Create Job-Specific Versions",
-      description: "Stop sending the same resume everywhere. One master profile automatically generates multiple tailored resumes optimized for every job.",
+      description: "One profile generates unlimited tailored resumes. Optimized automatically for every job description you paste.",
       points: ["One profile → many resumes", "Job-specific tailoring", "Bulk version management"]
     },
     {
       icon: <BarChart3 className="w-8 h-8" />,
       badge: "Recruiter Engagement",
       title: "Track Recruiter Interest",
-      description: "See who views your resume and how much time they spend on your profile. Get real-time engagement data on your applications.",
+      description: "See who views your resume and for how long. Get real-time engagement data to know when to follow up.",
       points: ["Profile view notifications", "Interaction analytics", "Resume download tracking"],
       liveDemo: "https://app-cvifypro.vercel.app/p/umairansari92"
     }

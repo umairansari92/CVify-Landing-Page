@@ -48,7 +48,7 @@ const ApplicationKit = () => (
           Everything You <br /><span className="text-success">Need to Apply.</span>
         </h2>
         <p className="text-xl text-slate-400 font-medium max-w-2xl mx-auto">
-          One profile. One click. Three outputs. Resume + Cover Letter + Live Profile — all optimized for your target job.
+          One profile. One click. Three outputs. Resume + Cover Letter + Live Profile — generated for every job you apply to.
         </p>
       </motion.div>
 
@@ -95,15 +95,15 @@ const ApplicationKit = () => (
       >
         <div className="flex-1 space-y-2">
           <p className="text-2xl font-black text-white italic">
-            "CVify matches your resume to the job and rewrites it to fit."
+            "Stop sending the same resume everywhere. Start sending the right one."
           </p>
-          <p className="text-slate-500 text-sm font-bold">Stop sending the same resume everywhere. Start sending the right one.</p>
+          <p className="text-slate-500 text-sm font-bold italic">Generated instantly for every job role you target.</p>
         </div>
         <a
           href={`${APP_URL}/signup`}
           className="group flex-shrink-0 bg-primary text-white px-10 py-5 rounded-2xl font-black shadow-xl shadow-primary/20 hover:scale-105 transition-all flex items-center gap-3"
         >
-          Build My Kit <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          Check My Resume Score <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </a>
       </motion.div>
     </div>

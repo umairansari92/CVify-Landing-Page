@@ -2,7 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FileUp, Briefcase, Sparkles, Package, Rocket, ArrowDown } from "lucide-react";
+import { FileUp, Briefcase, Sparkles, Package, Rocket, ArrowDown, ArrowRight } from "lucide-react";
+
+import { APP_URL } from "@/lib/constants";
 
 const steps = [
   {
@@ -44,7 +46,7 @@ const steps = [
   {
     icon: <Rocket className="w-7 h-7" />,
     step: "05",
-    title: "Apply with Confidence",
+    title: "Apply & Track",
     desc: "Your complete application passes ATS filters and impresses the human reviewer. No more guessing.",
     color: "from-emerald-500/20 to-teal-500/20",
     border: "border-emerald-500/20",
@@ -114,14 +116,22 @@ const SystemFlow = () => (
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mt-20 text-center"
+        className="mt-20 text-center space-y-10"
       >
-        <p className="text-2xl font-black text-white italic max-w-2xl mx-auto">
-          "Create job-specific resumes from one master profile."
-        </p>
-        <p className="text-slate-600 text-xs font-black uppercase tracking-[0.3em] mt-4">
-          This is what separates CVify from every other tool
-        </p>
+        <div className="space-y-4">
+          <p className="text-2xl font-black text-white italic max-w-2xl mx-auto">
+            "One profile → multiple job-specific resumes"
+          </p>
+          <p className="text-slate-600 text-xs font-black uppercase tracking-[0.3em]">
+            This is what separates CVify from every other tool
+          </p>
+        </div>
+
+        <div className="flex justify-center pt-8">
+          <a href={`${APP_URL}/signup`} className="group inline-flex items-center gap-3 bg-primary hover:bg-blue-600 text-white px-10 py-5 rounded-2xl text-xl font-black shadow-2xl shadow-primary/20 transition-all hover:scale-105">
+            Check My Resume Score <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </a>
+        </div>
       </motion.div>
     </div>
   </section>

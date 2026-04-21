@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowRight, Zap, CheckCircle2, AlertCircle, ChevronRight } from "lucide-react";
 
 import { APP_URL } from "@/lib/constants";
 
@@ -49,9 +49,9 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter text-white font-outfit uppercase"
             >
-              Get More <br />
+              Turn Your Resume into a <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent animate-shimmer bg-[length:200%_auto]">Job-Winning</span> <br />
-              Applications
+              Application System
             </motion.h1>
 
             <motion.p 
@@ -61,6 +61,12 @@ const Hero = () => {
               className="text-xl md:text-2xl text-slate-400 max-w-xl font-medium leading-relaxed"
             >
               Upload once. CVify analyzes, rewrites, and generates job-specific resumes, cover letters, and recruiter-ready profiles.
+              <div className="mt-4 text-xs font-black text-primary uppercase tracking-[0.2em] flex items-center gap-2">
+                <span>Upload</span> <ChevronRight className="w-3 h-3" />
+                <span>Get ATS Score</span> <ChevronRight className="w-3 h-3" />
+                <span>Fix Issues</span> <ChevronRight className="w-3 h-3" />
+                <span>Get Interviews</span>
+              </div>
             </motion.p>
 
             <motion.div 
@@ -81,7 +87,7 @@ const Hero = () => {
               
               <div className="flex items-center gap-2 px-2">
                 <CheckCircle2 className="w-4 h-4 text-success" />
-                <span className="text-sm font-bold text-slate-500 uppercase tracking-widest italic">No signup required. Get your ATS score instantly.</span>
+                <span className="text-sm font-bold text-slate-500 uppercase tracking-widest italic">No signup required. Instant results.</span>
               </div>
             </motion.div>
           </div>

@@ -4,6 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle, BarChart3, Target, Sparkles, AlertCircle } from "lucide-react";
 
+import { APP_URL } from "@/lib/constants";
+
 const Comparison = () => {
   return (
     <section id="comparison" className="py-40 px-6 relative overflow-hidden bg-slate-900/10">
@@ -122,7 +124,7 @@ const Comparison = () => {
                  className="bg-white text-black px-8 py-8 rounded-full shadow-2xl flex flex-col items-center justify-center border-[12px] border-slate-950 min-w-[160px]"
                >
                  <span className="text-4xl font-black">+65%</span>
-                 <span className="text-[10px] font-black uppercase tracking-tight text-center leading-none">Improvement <br />Score</span>
+                 <span className="text-[10px] font-black uppercase tracking-tight text-center leading-none">ATS Improvement <br />Score</span>
                </motion.div>
             </div>
          </div>
@@ -137,7 +139,7 @@ const Comparison = () => {
                <p className="text-2xl font-black text-white italic">"Improve your ATS score by up to +65% in minutes"</p>
                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest italic">Based on 5,000+ optimized resumes this month alone.</p>
             </div>
-            <button className="bg-primary text-white p-5 px-10 rounded-2xl font-black text-sm shadow-xl shadow-primary/20 hover:scale-105 transition-all w-full sm:w-auto">TRY THE SCANNER</button>
+            <a href={`${APP_URL}/signup`} className="bg-primary text-white p-5 px-10 rounded-2xl font-black text-sm shadow-xl shadow-primary/20 hover:scale-105 transition-all w-full sm:w-auto">Check My Resume Score</a>
          </motion.div>
       </div>
     </section>

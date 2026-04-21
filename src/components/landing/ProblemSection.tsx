@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { AlertCircle, Bot, XCircle, Search, ShieldAlert } from "lucide-react";
+import { AlertCircle, Bot, XCircle, Search, ShieldAlert, ArrowRight } from "lucide-react";
+import { APP_URL } from "@/lib/constants";
 
 const ProblemSection = () => {
   const problems = [
@@ -40,12 +41,18 @@ const ProblemSection = () => {
             
             <div className="space-y-6">
               <h2 className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter text-white font-outfit uppercase italic">
-                Why Your Resume <br />
-                <span className="text-error">Gets Rejected.</span>
+                Most Resumes <br />
+                <span className="text-error">Never Reach a Human.</span>
               </h2>
               <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-xl">
-                Most resumes never reach a human. They are filtered out by ATS systems before a recruiter even sees them.
+                Most resumes get rejected before a human ever sees them. They are filtered out by ATS systems before a recruiter even looks.
               </p>
+              
+              <div className="pt-4">
+                <a href={`${APP_URL}/signup`} className="inline-flex items-center gap-3 bg-primary/10 hover:bg-primary/20 text-primary px-8 py-4 rounded-2xl font-black text-sm transition-all border border-primary/20 hover:border-primary/40 group">
+                  Check My Resume Score <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
             </div>
 
             <div className="space-y-10">

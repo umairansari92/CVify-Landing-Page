@@ -62,8 +62,8 @@ const Nav = () => {
             {/* Actions */}
             <div className="flex items-center gap-4">
               <a href={`${APP_URL}/login`} className="hidden sm:block text-sm font-bold text-slate-400 hover:text-white transition-colors">Sign In</a>
-              <a href={`${APP_URL}/signup`} className="bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-2xl text-sm font-black shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
-                Get Started
+               <a href={`${APP_URL}/signup`} className="bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-2xl text-sm font-black shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+                Check My Score
               </a>
               
               {/* Mobile Toggle */}
@@ -122,7 +122,7 @@ const Nav = () => {
 
               <div className="pt-10 border-t border-white/5 space-y-4">
                 <a href={`${APP_URL}/login`} className="block w-full py-4 text-center text-slate-400 font-bold hover:text-white transition-colors">Sign In</a>
-                <a href={`${APP_URL}/signup`} className="block w-full py-5 text-center bg-primary text-white font-black rounded-2xl shadow-xl shadow-primary/20">Get Started</a>
+                <a href={`${APP_URL}/signup`} className="block w-full py-5 text-center bg-primary text-white font-black rounded-2xl shadow-xl shadow-primary/20">Check My Resume Score</a>
               </div>
             </motion.div>
           </>

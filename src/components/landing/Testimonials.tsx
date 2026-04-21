@@ -6,24 +6,24 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "Got interview calls within a week after optimizing my resume. My ATS score jumped from 34% to 89%.",
+    quote: "Got 3 interview calls within a week after optimizing my resume. My ATS score jumped from 34% to 89% instantly.",
     author: "A. Ahmed",
     role: "Frontend Developer",
     result: "Landed interview at top fintech",
     rating: 5
   },
   {
-    quote: "My ATS score jumped from 40% to 85%. Huge difference. I finally understand why I was being ghosted.",
+    quote: "Applied to 5 jobs and got 3 callbacks in 48 hours. Before CVify, I was getting zero responses for months.",
     author: "K. Khan",
     role: "Software Engineer",
     result: "3x more callbacks in 2 weeks",
     rating: 5
   },
   {
-    quote: "Finally understood why my resume was getting rejected. The keyword analysis alone was worth it.",
+    quote: "My ATS score jumped from 45% to 92%. I was hired at a top agency within 3 weeks of using the system.",
     author: "F. Siddiqui",
     role: "UI/UX Designer",
-    result: "Hired within 1 month",
+    result: "Hired within 3 weeks",
     rating: 5
   }
 ];

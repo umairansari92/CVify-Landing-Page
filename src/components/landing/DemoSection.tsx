@@ -41,7 +41,7 @@ const DemoSection = () => {
             <PlayCircle className="w-4 h-4" /> Interactive Demo
           </div>
           <h2 className="text-4xl md:text-8xl font-black text-white font-outfit mb-6 tracking-tighter leading-[0.9] uppercase italic">
-            See CVify <br /><span className="text-accent">in Action.</span>
+            Try It <br /><span className="text-accent">in 30 Seconds.</span>
           </h2>
           <p className="text-xl text-slate-400 font-medium max-w-2xl mx-auto">
             Not sure yet? Try a sample resume and see how CVify improves it instantly.
@@ -100,7 +100,7 @@ const DemoSection = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
               <Cpu className="w-6 h-6" />
-              Analyze a Sample Resume
+              Analyze Sample Resume Now
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           )}

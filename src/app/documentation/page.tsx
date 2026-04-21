@@ -8,7 +8,7 @@ import {
   FileText, Globe, ArrowLeft, Users, Sparkles, Eye,
   Brain, Layers, Briefcase, Rocket, Layout,
   Database, Star, Award, MessageSquare, Shield, Menu, X,
-  BarChart3, GitBranch, TrendingUp, Heart
+  BarChart3, GitBranch, TrendingUp, Heart, Package, Search, Wand2
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -28,7 +28,8 @@ const Documentation = () => {
     {
       label: "Core Features",
       items: [
-        { id: "ats", icon: <Target size={16} />, label: "ATS v4.0 Precision Engine" },
+        { id: "ats", icon: <Target size={16} />, label: "Decision Engine: ATS" },
+        { id: "kit", icon: <Package size={16} />, label: "The Application Kit" },
         { id: "coach", icon: <Brain size={16} />, label: "AI Resume Coach PRO" },
         { id: "cover-letter", icon: <MessageSquare size={16} />, label: "AI Cover Letters" },
         { id: "portfolio", icon: <Globe size={16} />, label: "Live Portfolio & SEO" },
@@ -129,11 +130,71 @@ const Documentation = () => {
 
   // ─── CONTENT ───
   const content: Record<string, React.ReactNode> = {
-    overview: (<><DocHeader title="Platform Overview" badge="Introduction" /><p className="text-slate-300 text-[15px] leading-relaxed mb-8">CVify Pro is not just a resume builder — it is a <strong className="text-white">Career Intelligence Ecosystem</strong>. The platform solves the &quot;Black Box&quot; problem of ATS by giving users a real-time, AI-backed auditor that mimics Fortune 500 hiring pipelines.</p><div className="grid grid-cols-1 md:grid-cols-2 gap-4"><InfoCard icon={<Target size={18} />} color="emerald" title="For Job Seekers" desc="Build ATS-friendly resumes, generate targeted cover letters, and host a live, SEO-optimized digital portfolio with zero coding." /><InfoCard icon={<Briefcase size={18} />} color="blue" title="For Recruiters" desc="View candidates with verified GitHub data, actual project proof, and transparent AI-matched skill alignments." /><InfoCard icon={<Brain size={18} />} color="purple" title="Context-Aware Intelligence" desc="AI adapts scoring, keywords, and coaching tone based on experience level and market mode." /><InfoCard icon={<Shield size={18} />} color="amber" title="Anti-Hallucination Guarantee" desc="6 strict rules ensure AI only references actual resume content. Hybrid scoring prevents random inflation." /></div></>),
+    overview: (
+      <>
+        <DocHeader title="Platform Overview" badge="Introduction" />
+        <p className="text-slate-300 text-[15px] leading-relaxed mb-8">
+          CVify is an <strong className="text-white">AI Job Application System</strong> designed to turn your career history into a high-converting job application bundle. The platform solves the &quot;Black Box&quot; problem of ATS by giving users a real-time, AI-backed auditor that mimics modern hiring pipelines.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <InfoCard icon={<Target size={18} />} color="emerald" title="Job Application System" desc="Not just a resume builder. It's an end-to-end engine that analyzes, rewrites, and prepares your entire kit for specific job roles." />
+          <InfoCard icon={<Brain size={18} />} color="blue" title="AI Trust & Control" desc="AI suggests improvements based on actual 24-point ATS benchmarks. You stay in control — approve or edit every change." />
+          <InfoCard icon={<Zap size={18} />} color="purple" title="Instant Results" desc="No signup required to start. Get your ATS score in 30 seconds and see exactly why you're being filtered out." />
+          <InfoCard icon={<Layers size={18} />} color="amber" title="The Application Kit" desc="One profile generates multiple job-specific versions. Get a tailored Resume + Cover Letter + Live Profile in one click." />
+        </div>
+      </>
+    ),
 
-    setup: (<><DocHeader title="Quick Setup (3 Min)" badge="Getting Started" /><Steps items={[{step:"1",title:"Create Account",desc:"Click Signup and verify your email. You get 100 free diamonds."},{step:"2",title:"Complete Profile",desc:"Add name, headline, summary, experience, education, and skills."},{step:"3",title:"Sync GitHub (Optional)",desc:"Connect GitHub to pull repo counts, languages, and stats."},{step:"4",title:"Go Live!",desc:"Portfolio is live at app-cvifypro.vercel.app/p/your-username."}]} /></>),
+    setup: (
+      <>
+        <DocHeader title="The Core Flow" badge="Getting Started" />
+        <p className="text-slate-400 text-[15px] leading-relaxed mb-6">
+          CVify works as a sequential system. Follow these 5 steps to go from a generic resume to a job-winning application kit.
+        </p>
+        <Steps items={[
+          { step: "1", title: "Upload Resume", desc: "Start with your existing master resume or build a fresh profile in our dashboard." },
+          { step: "2", title: "Add Target Job", desc: "Paste the exact job description you are targeting. Our AI analyzes company needs instantly." },
+          { step: "3", title: "AI Rewrites Content", desc: "AI optimizes your bullets, summary, and skills for that specific role. You approve every change." },
+          { step: "4", title: "Generate Application Kit", desc: "Get your tailored Resume, matching Cover Letter, and Live Profile in one click." },
+          { step: "5", title: "Apply & Track", desc: "Use your optimized kit to apply. Track recruiter views and downloads via your HUD." }
+        ]} />
+      </>
+    ),
 
-    ats: (<><DocHeader title="ATS v4.0 Precision Engine" badge="Core Feature" /><p className="text-slate-400 text-[15px] leading-relaxed mb-6">A 3-Layer Intelligence Engine that audits your resume like a Fortune 500 hiring pipeline with 99.99% accuracy.</p><SectionTitle>How to Scan</SectionTitle><Steps items={[{step:"1",title:"Select Source",desc:"Choose a Platform Resume or upload a PDF/DOCX."},{step:"2",title:"Paste Job Description",desc:"If empty, AI audits against general industry standards."},{step:"3",title:"Select Experience Level",desc:"Fresher, Junior, Mid-Level, or Senior."},{step:"4",title:"Select Market Mode",desc:"Standard, Pakistan HR, Freelance, or Remote."},{step:"5",title:"Start Scan",desc:"Fresh Scans: 50💎. Re-scans: Free/Discounted."}]} /><SectionTitle>What You Get</SectionTitle><div className="grid grid-cols-1 md:grid-cols-2 gap-3"><InfoCard icon={<Sparkles size={16} />} color="blue" title="AI Verdict" desc="One-line motivating summary of strengths and gaps." /><InfoCard icon={<BarChart3 size={16} />} color="purple" title="4-Dimension Score" desc="Formatting, Keywords, Quantification, Impact — with WHY tooltips." /><InfoCard icon={<Zap size={16} />} color="emerald" title="Strong Bullets ✅" desc="Best resume lines highlighted with reasons." /><InfoCard icon={<FileText size={16} />} color="amber" title="Weak Bullets → Rewritten" desc="Weakest lines with AI-rewritten versions." /><InfoCard icon={<Target size={16} />} color="red" title="Keyword Gap Analyzer" desc="Missing skills with exact placement advice." /><InfoCard icon={<Eye size={16} />} color="purple" title="Recruiter 6-Second Impression" desc="What a recruiter thinks first." /></div><SectionTitle>Context-Aware Intelligence</SectionTitle><CT items={[{left:"Fresher Missing AWS",right:"Growth Opportunity — not penalized"},{left:"Senior Missing AWS",right:"Critical Gap — heavily weighted"},{left:"No JD",right:"Industry standards for your level"},{left:"JD Provided",right:"Matches against specific role"}]} /></>),
+    ats: (
+      <>
+        <DocHeader title="Decision Engine: ATS Precision" badge="Core Feature" />
+        <p className="text-slate-400 text-[15px] leading-relaxed mb-6">
+          Our 3-Layer Intelligence Engine audits your resume like a Fortune 500 hiring pipeline. 
+          <strong className="text-white block mt-2">Rule: AI suggests improvements. You stay in control.</strong>
+        </p>
+        <SectionTitle>Key Outcomes</SectionTitle>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <InfoCard icon={<Search size={16} />} color="blue" title="See Why You Fail" desc="Detailed 24-point ATS breakdown with exact reasons for rejection." />
+          <InfoCard icon={<Wand2 size={16} />} color="purple" title="Fix Content Instantly" desc="One-click AI rewrites for weak bullets and generic summaries." />
+          <InfoCard icon={<Package size={16} />} color="emerald" title="Job-Specific Versions" desc="One master profile generates unlimited tailored versions for any job." />
+          <InfoCard icon={<BarChart3 size={16} />} color="amber" title="Track Interest" desc="Real-time analytics on who is viewing and downloading your profile." />
+        </div>
+      </>
+    ),
+
+    kit: (
+      <>
+        <DocHeader title="The Application Kit" badge="Core Feature" />
+        <p className="text-slate-400 text-[15px] leading-relaxed mb-6">
+          CVify generates a complete 3-piece application bundle for every job you apply to. This ensures 100% consistency between your resume, cover letter, and online presence.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <InfoCard icon={<FileText size={18} />} color="blue" title="Tailored Resume" desc="Rewritten bullet-by-bullet for the specific job description." />
+          <InfoCard icon={<MessageSquare size={18} />} color="purple" title="Matching Cover Letter" desc="Bridges the gap between your skills and the company's specific needs." />
+          <InfoCard icon={<Globe size={18} />} color="emerald" title="Live Profile" desc="A dynamic portfolio that recruiters can visit to verify your proof." />
+        </div>
+        <SectionTitle>How it Works</SectionTitle>
+        <p className="text-slate-400 text-[13px] leading-relaxed mb-4 italic">
+          &quot;One profile → multiple job-specific resumes. Each version is saved in your dashboard with its own ATS score and history.&quot;
+        </p>
+      </>
+    ),
 
     "cover-letter": (<><DocHeader title="AI Cover Letter Generator" badge="Core Feature" /><p className="text-slate-400 text-[15px] leading-relaxed mb-6">Generate personalized cover letters in seconds. The AI creates a &quot;Handshake&quot; between your achievements and the company&apos;s mission.</p><div className="grid grid-cols-1 md:grid-cols-3 gap-3"><InfoCard icon={<Briefcase size={16} />} color="blue" title="Professional" desc="Formal, corporate tone for enterprise roles." /><InfoCard icon={<Sparkles size={16} />} color="purple" title="Creative" desc="Bold, engaging tone for startups and design." /><InfoCard icon={<Zap size={16} />} color="emerald" title="Enthusiastic" desc="High-energy for culture-fit roles." /></div><Steps items={[{step:"1",title:"Select Style",desc:"Professional, Creative, or Enthusiastic."},{step:"2",title:"Paste JD",desc:"AI extracts company, role, and requirements."},{step:"3",title:"Generate",desc:"Ready in 10-15 seconds. Cost: 20💎."}]} /></>),
 
