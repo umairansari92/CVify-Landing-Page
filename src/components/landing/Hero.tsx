@@ -41,7 +41,7 @@ const Hero = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 border border-white/5 backdrop-blur-md shadow-inner"
             >
               <Zap className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-slate-300 text-xs font-black tracking-widest uppercase opacity-80">Instant Results in Seconds</span>
+              <span className="text-slate-300 text-xs font-black tracking-widest uppercase opacity-80">AI Job Application System</span>
             </motion.div>
 
             <motion.h1 
@@ -60,7 +60,7 @@ const Hero = () => {
               transition={{ delay: 0.1 }}
               className="text-xl md:text-2xl text-slate-400 max-w-xl font-medium leading-relaxed"
             >
-              Upload your resume and get an instant ATS score, fixes, and improvements in seconds.
+              Upload your resume, paste a job description, and CVify rewrites your application — resume, cover letter, and profile — optimized for that exact role.
             </motion.p>
 
             <motion.div 
@@ -81,7 +81,7 @@ const Hero = () => {
               
               <div className="flex items-center gap-2 px-2">
                 <CheckCircle2 className="w-4 h-4 text-success" />
-                <span className="text-sm font-bold text-slate-500 uppercase tracking-widest italic">No signup required. Get your score instantly.</span>
+                <span className="text-sm font-bold text-slate-500 uppercase tracking-widest italic">AI suggests improvements. You stay in control.</span>
               </div>
             </motion.div>
           </div>

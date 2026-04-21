@@ -8,8 +8,10 @@ import Nav from "@/components/landing/Nav";
 import Hero from "@/components/landing/Hero";
 import ProblemSection from "@/components/landing/ProblemSection";
 import HowItWorks from "@/components/landing/HowItWorks";
+import ApplicationFlow from "@/components/landing/ApplicationFlow";
 import ComparisonTable from "@/components/landing/ComparisonTable";
 import FeaturesSection from "@/components/landing/FeaturesSection";
+import ApplicationKit from "@/components/landing/ApplicationKit";
 import ProfileShowcase from "@/components/landing/ProfileShowcase";
 import DemoSection from "@/components/landing/DemoSection";
 import Testimonials from "@/components/landing/Testimonials";
@@ -60,28 +62,34 @@ export default function Home() {
         {/* 3 ── Problem: Emotional pain */}
         <ProblemSection />
 
-        {/* 4 ── How It Works: Effortless process */}
+        {/* 4 ── How It Works: Quick overview */}
         <HowItWorks />
 
-        {/* 5 ── Before vs After: Visual proof */}
+        {/* 5 ── Application Flow: The full 5-step system */}
+        <ApplicationFlow />
+
+        {/* 6 ── Before vs After: Visual proof */}
         <ComparisonTable />
 
-        {/* 6 ── Features (Outcome-Based): Clarity on value */}
+        {/* 7 ── Features (Outcome-Based): Clarity on value */}
         <FeaturesSection />
 
-        {/* 7 ── Live Profile: Show don't tell */}
+        {/* 8 ── Application Kit: Resume + Cover Letter + Profile */}
+        <ApplicationKit />
+
+        {/* 9 ── Live Profile: Show don't tell */}
         <ProfileShowcase />
 
-        {/* 8 ── Demo: Break hesitation */}
+        {/* 10 ── Demo: Break hesitation */}
         <DemoSection />
 
-        {/* 9 ── Testimonials: Trust + Social proof */}
+        {/* 11 ── Testimonials: Trust + Social proof */}
         <Testimonials />
 
-        {/* 10 ── Pricing: Transparent */}
+        {/* 12 ── Pricing: Transparent */}
         <Pricing />
 
-        {/* 11 ── Final CTA: Urgency + Loss aversion */}
+        {/* 13 ── Final CTA: Urgency + Loss aversion */}
         <CTASection />
       </main>
       <Footer />
