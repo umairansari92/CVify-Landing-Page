@@ -1,61 +1,77 @@
 @import "tailwindcss";
 
 /* ============================================================
-   CVifyPro Experience System v1.0 — Design Token Layer
-   NEVER use raw color/spacing values in components.
-   Always reference these CSS custom properties.
+   CVify Design System v1 — Token Architecture
+   Category: Linear + Vercel + Cursor + Raycast
+   Philosophy: Professional for recruiters, modern for developers.
    ============================================================ */
 
 :root {
-  /* ── Core Palette ── */
-  --color-primary: #3b82f6;
-  --color-primary-glow: rgba(59, 130, 246, 0.35);
-  --color-secondary: #6366f1;
-  --color-secondary-glow: rgba(99, 102, 241, 0.35);
-  --color-accent: #06b6d4;
-  --color-accent-glow: rgba(6, 182, 212, 0.35);
+  /* ── Core Palette (Indigo & Violet) ── */
+  --color-primary: #6366f1;           /* Indigo 500 */
+  --color-primary-hover: #4f46e5;     /* Indigo 600 */
+  --color-primary-active: #4338ca;    /* Indigo 700 */
+  --color-primary-glow: rgba(99, 102, 241, 0.25);
 
-  /* ── Status ── */
-  --color-success: #10b981;
+  --color-secondary: #818cf8;         /* Indigo 400 */
+  --color-secondary-glow: rgba(129, 140, 248, 0.2);
+  --color-accent: #06b6d4;            /* Cyan 500 */
+  --color-accent-glow: rgba(6, 182, 212, 0.2);
+
+  /* ── Status Indicators ── */
+  --color-success: #22c55e;
   --color-warning: #f59e0b;
-  --color-error: #ef4444;
+  --color-danger: #ef4444;
   --color-diamond: #00d2ff;
 
-  /* ── Surfaces ── */
-  --color-background: #020617;
-  --color-surface: #0f172a;
-  --color-surface-raised: #1e293b;
-  --color-surface-overlay: rgba(15, 23, 42, 0.8);
-  --color-foreground: #f8fafc;
-  --color-muted: #94a3b8;
-  --color-border: rgba(255, 255, 255, 0.07);
+  /* ── ATS Score Range Tokens ── */
+  --ats-critical: #ef4444;
+  --ats-at-risk: #f97316;
+  --ats-fair: #eab308;
+  --ats-strong: #22c55e;
+  --ats-elite: #10b981;
 
-  /* ── Chapter Accent Colors (Sprint 2) ── */
-  --color-chapter-resume: #3b82f6;      /* Blue */
-  --color-chapter-ats: #10b981;         /* Green */
-  --color-chapter-portfolio: #a855f7;   /* Purple */
-  --color-chapter-interview: #f97316;   /* Orange */
-  --color-chapter-analytics: #06b6d4;   /* Cyan */
-  --color-chapter-roadmap: #eab308;     /* Yellow */
-  --color-chapter-recruiter: #ec4899;   /* Pink */
+  /* ── Warm Dark Theme Palette (Default) ── */
+  --color-background: #0f1117;        /* Warm Dark Base */
+  --color-surface: #171923;           /* Surface Layer */
+  --color-surface-raised: #1d2230;    /* Card Layer */
+  --color-border: #2b3245;            /* Subtle Border */
+  --color-foreground: #f8fafc;        /* Primary Text */
+  --color-secondary-text: #cbd5e1;    /* Secondary Text */
+  --color-muted-text: #94a3b8;        /* Muted Text */
 
-  /* ── Spacing Scale ── */
-  --space-xl: 140px;
-  --space-lg: 120px;
-  --space-md: 100px;
-  --space-sm: 80px;
+  /* ── Chapter Accent Colors ── */
+  --color-chapter-resume: #6366f1;    /* Indigo */
+  --color-chapter-ats: #22c55e;       /* Green */
+  --color-chapter-portfolio: #a855f7; /* Purple */
+  --color-chapter-interview: #f97316; /* Orange */
+  --color-chapter-analytics: #06b6d4; /* Cyan */
+  --color-chapter-roadmap: #eab308;   /* Amber */
+  --color-chapter-recruiter: #ec4899; /* Pink */
 
-  /* ── Radius ── */
-  --radius-xl: 3.5rem;
-  --radius-lg: 2rem;
-  --radius-md: 1.5rem;
-  --radius-sm: 1rem;
+  /* ── Radius Scale ── */
+  --radius-button: 12px;
+  --radius-input: 12px;
+  --radius-card: 16px;
+  --radius-dialog: 20px;
+  --radius-hero: 24px;
 
-  /* ── Typography ── */
-  --prose-width: 680px;
-  --heading-tight: 0.9;
+  /* ── Spacing Scale (8px Grid Compliance) ── */
+  --space-xl: 120px;
+  --space-lg: 96px;
+  --space-md: 64px;
+  --space-sm: 48px;
 
-  /* ── Z-Index ── */
+  /* ── Motion Speeds ── */
+  --motion-fast: 150ms;
+  --motion-normal: 250ms;
+  --motion-slow: 350ms;
+
+  /* ── Typography & Layout ── */
+  --prose-width: 720px;
+  --container-width: 1280px;
+
+  /* ── Z-Index Scale ── */
   --z-sticky-nav: 40;
   --z-nav: 50;
   --z-modal: 100;
@@ -70,16 +86,16 @@
   --color-accent: var(--color-accent);
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);
-  --color-error: var(--color-error);
+  --color-error: var(--color-danger);
   --color-diamond: var(--color-diamond);
 
-  --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
   --shadow-glow: 0 0 20px var(--color-primary-glow);
   --shadow-accent-glow: 0 0 20px var(--color-accent-glow);
 }
 
 /* ============================================================
-   BASE
+   BASE STYLES
    ============================================================ */
 
 body {
@@ -95,134 +111,126 @@ body {
    BACKGROUND SYSTEM
    ============================================================ */
 
-/* Primary page background — radial mesh gradient */
 .bg-mesh {
   background-color: var(--color-background);
   background-image:
-    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 45%),
-    radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 45%),
-    radial-gradient(at 50% 100%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 45%);
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 45%),
+    radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.08) 0px, transparent 45%),
+    radial-gradient(at 50% 100%, rgba(6, 182, 212, 0.06) 0px, transparent 50%);
 }
 
-/* Subtle dot-grid overlay — add as child or pseudo element */
 .bg-grid {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* SVG noise texture — very subtle organic depth */
-.bg-noise {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-}
-
-/* Top-of-page radial hero glow */
 .bg-hero-glow::before {
   content: '';
   position: absolute;
-  top: -200px;
+  top: -150px;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
-  height: 600px;
-  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.12) 0%, rgba(59, 130, 246, 0.06) 40%, transparent 70%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
 /* ============================================================
-   CARD ELEVATION SYSTEM (3-tier)
+   CVIFY DESIGN SYSTEM CARD ELEVATIONS
    ============================================================ */
 
-/* Tier 1: Flat — information cards, secondary content */
+/* Tier 1: Flat Card */
 .card-flat {
-  background: rgba(15, 23, 42, 0.4);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  transition: border-color 0.3s ease;
+  border-radius: var(--radius-card);
+  transition: border-color var(--motion-fast) ease;
 }
-
 .card-flat:hover {
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* Tier 2: Raised — feature cards, primary content blocks */
+/* Tier 2: Raised Card (Default Interactive Card) */
 .card-raised {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.5) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--color-surface-raised);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: var(--radius-card);
+  transition: all var(--motion-normal) cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .card-raised:hover {
-  border-color: rgba(59, 130, 246, 0.25);
-  transform: translateY(-6px);
-  box-shadow:
-    0 20px 40px -10px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(59, 130, 246, 0.08);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.5);
 }
 
-/* Tier 3: Feature — hero cards, main showcase blocks */
+/* Tier 3: Feature Card (Hero/Showcase Container) */
 .card-feature {
-  background: linear-gradient(
-    135deg,
-    rgba(59, 130, 246, 0.08) 0%,
-    rgba(30, 41, 59, 0.8) 30%,
-    rgba(15, 23, 42, 0.6) 100%
-  );
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  border-radius: var(--radius-xl);
-  box-shadow:
-    0 0 0 1px rgba(59, 130, 246, 0.05) inset,
-    0 25px 50px -12px rgba(0, 0, 0, 0.6);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, var(--color-surface-raised) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: var(--radius-dialog);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  transition: all var(--motion-slow) cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .card-feature:hover {
-  border-color: rgba(59, 130, 246, 0.35);
-  box-shadow:
-    0 0 0 1px rgba(59, 130, 246, 0.1) inset,
-    0 30px 60px -15px rgba(0, 0, 0, 0.7),
-    0 0 40px rgba(59, 130, 246, 0.1);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 0 0 30px var(--color-primary-glow);
 }
 
 /* ============================================================
-   LEGACY GLASS UTILITIES (kept for backward compat)
+   LEGACY GLASS UTILITIES
    ============================================================ */
 
 .glass {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(23, 25, 35, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border);
 }
 
 .glass-card {
-  background: linear-gradient(
-    135deg,
-    rgba(30, 41, 59, 0.7) 0%,
-    rgba(15, 23, 42, 0.5) 100%
-  );
-  backdrop-filter: blur(12px);
+  background: var(--color-surface-raised);
   border: 1px solid var(--color-border);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--motion-normal) cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-4px);
 }
 
-.glass-card:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(30, 41, 59, 0.8) 0%,
-    rgba(15, 23, 42, 0.6) 100%
-  );
-  border-color: rgba(59, 130, 246, 0.3);
-  transform: translateY(-8px);
-  box-shadow:
-    0 20px 40px -10px rgba(0, 0, 0, 0.5),
-    0 0 20px rgba(59, 130, 246, 0.1);
+/* ============================================================
+   BUTTON VARIANTS (12px Radius)
+   ============================================================ */
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-button);
+  font-weight: 800;
+  transition: all var(--motion-fast) ease;
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px var(--color-primary-glow);
+}
+.btn-primary:active {
+  background-color: var(--color-primary-active);
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-foreground);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  font-weight: 700;
+  transition: all var(--motion-fast) ease;
+}
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ============================================================
@@ -234,96 +242,26 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(to bottom right, #ffffff 30%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-action {
-  background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+  background: linear-gradient(to bottom right, #ffffff 30%, #cbd5e1 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* ============================================================
-   ANIMATIONS
+   ANIMATIONS & SCROLLBAR
    ============================================================ */
 
-/* Float — hero decorative elements */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-}
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-float-delayed { animation: float 6s ease-in-out infinite; animation-delay: 3s; }
-
-/* Shimmer — gradient text animation */
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
 .animate-shimmer { animation: shimmer 2.5s infinite; }
 
-/* Skeleton loading */
-@keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-.skeleton {
-  background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
-  background-size: 200% 100%;
-  animation: skeleton-loading 1.5s infinite;
-}
-
-/* Progress bar fill — ATS score bars */
-@keyframes progress-fill {
-  from { width: 0%; }
-  to { width: var(--target-width, 100%); }
-}
-
-/* Stage appear — sequential chip/label reveal */
-@keyframes stage-appear {
-  from { opacity: 0; transform: translateY(8px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-/* Pulse dot — live indicator */
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
-}
-
-/* ============================================================
-   COMPONENT UTILITIES
-   ============================================================ */
-
-.glow-btn {
-  position: relative;
-  transition: all 0.3s ease;
-}
-.glow-btn:hover {
-  box-shadow: 0 0 25px var(--color-primary-glow);
-  transform: scale(1.02);
-}
-
-/* ============================================================
-   SHADOW UTILITIES
-   ============================================================ */
-
-.shadow-glow { box-shadow: 0 0 20px var(--color-primary-glow); }
-.shadow-premium { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); }
-.shadow-accent-glow { box-shadow: 0 0 20px var(--color-accent-glow); }
-
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
-
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--color-background); }
-::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #334155; }
+::-webkit-scrollbar-thumb { background: #2b3245; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #3b4255; }
 
 .scrollbar-none {
   scrollbar-width: none;
