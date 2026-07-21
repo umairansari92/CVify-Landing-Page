@@ -9,6 +9,7 @@ interface FooterLink {
   label: string;
   href: string;
   external?: boolean;
+  badge?: string;
 }
 
 const Footer = () => {
@@ -21,6 +22,7 @@ const Footer = () => {
         { label: "Resume Studio", href: "#showcase" },
         { label: "ATS Scanner", href: "#ats-engine" },
         { label: "AI Representative", href: "#ai-rep" },
+        { label: "Portfolio Lab", href: "#live-portfolio" },
         { label: "Pricing Packages", href: "#pricing" }
       ]
     },
@@ -30,21 +32,24 @@ const Footer = () => {
         { label: "Documentation", href: DOCS_URL, external: true },
         { label: "Developer API", href: `${DOCS_URL}/api`, external: true },
         { label: "Release Notes", href: `${DOCS_URL}/releases`, external: true },
-        { label: "System Status", href: `${DOCS_URL}/status`, external: true }
+        { label: "Roadmap", href: `${DOCS_URL}/roadmap`, external: true },
+        { label: "Blog", href: "#", badge: "Soon" },
+        { label: "System Status", href: `${DOCS_URL}/status`, external: true },
+        { label: "Security & Privacy", href: `${APP_URL}/privacy`, external: true }
       ]
     },
     {
       title: "Company",
       items: [
-        { label: "Dataverse Tech", href: DATAVERSE_URL },
-        { label: "Privacy Policy", href: `${APP_URL}/privacy` },
-        { label: "Terms of Service", href: `${APP_URL}/terms` }
+        { label: "Dataverse Tech", href: DATAVERSE_URL, external: true },
+        { label: "Privacy Policy", href: `${APP_URL}/privacy`, external: true },
+        { label: "Terms of Service", href: `${APP_URL}/terms`, external: true }
       ]
     }
   ];
 
   return (
-    <footer className="py-20 px-6 border-t border-white/5 bg-slate-950 relative overflow-hidden text-left">
+    <footer className="py-20 px-6 border-t border-white/5 bg-slate-950 bg-noise relative overflow-hidden text-left">
       <div className="max-w-7xl mx-auto space-y-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
           {/* Logo & Description */}
@@ -82,9 +87,14 @@ const Footer = () => {
                     <a 
                       href={item.href} 
                       {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="text-xs text-slate-500 hover:text-white font-bold transition-colors"
+                      className="text-xs text-slate-500 hover:text-white font-bold transition-colors inline-flex items-center gap-1.5"
                     >
-                      {item.label}
+                      <span>{item.label}</span>
+                      {item.badge && (
+                        <span className="text-[8px] font-black uppercase tracking-wider bg-primary/20 text-primary border border-primary/30 px-1.5 py-0.5 rounded">
+                          {item.badge}
+                        </span>
+                      )}
                     </a>
                   </li>
                 ))}

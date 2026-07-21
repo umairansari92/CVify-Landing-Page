@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Zap, CheckCircle2, Monitor, Code, Target, MessageSquare, BarChart3 } from "lucide-react";
+import { ArrowRight, Zap, CheckCircle2, Monitor, Code, Target, MessageSquare, BarChart3, Check } from "lucide-react";
 import { APP_URL } from "@/lib/constants";
 
 const tabs = [
@@ -13,11 +13,66 @@ const tabs = [
   { id: "analytics", label: "Analytics HUD" }
 ];
 
+const atsSteps = [
+  "Uploading Resume...",
+  "Reading Experience...",
+  "Matching Keywords...",
+  "Calculating ATS Score..."
+];
+
+const keywords = ["React", "Node.js", "AWS", "TypeScript"];
+
 const Hero = () => {
   const [activeTab, setActiveTab] = useState("resume");
+  const [atsStage, setAtsStage] = useState(0);
+  const [atsScore, setAtsScore] = useState(32);
+  const [showKeywords, setShowKeywords] = useState(false);
+
+  // ATS AI Workflow simulation runner
+  useEffect(() => {
+    if (activeTab !== "ats") {
+      setAtsStage(0);
+      setAtsScore(32);
+      setShowKeywords(false);
+      return;
+    }
+
+    let interval: NodeJS.Timeout;
+    const stepDuration = 700; // ms per step
+
+    const timer = setTimeout(() => {
+      interval = setInterval(() => {
+        setAtsStage((prev) => {
+          if (prev < atsSteps.length - 1) {
+            return prev + 1;
+          } else {
+            clearInterval(interval);
+            // Count up score to 91
+            let current = 32;
+            const scoreInterval = setInterval(() => {
+              current += 3;
+              if (current >= 91) {
+                setAtsScore(91);
+                clearInterval(scoreInterval);
+                setShowKeywords(true);
+              } else {
+                setAtsScore(current);
+              }
+            }, 30);
+            return prev;
+          }
+        });
+      }, stepDuration);
+    }, 400);
+
+    return () => {
+      clearTimeout(timer);
+      if (interval) clearInterval(interval);
+    };
+  }, [activeTab]);
 
   return (
-    <section className="relative pt-44 pb-32 px-6 overflow-hidden min-h-screen flex flex-col justify-center">
+    <section className="relative pt-44 pb-32 px-6 overflow-hidden min-h-screen flex flex-col justify-center bg-hero-glow">
       {/* Background blobs */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <motion.div
@@ -70,9 +125,9 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-slate-400 max-w-xl font-medium leading-relaxed"
+              className="text-lg md:text-xl text-slate-400 prose-block font-medium leading-relaxed"
             >
-              Build resumes, optimize ATS matching, publish a live portfolio, prepare for interviews, and track recruiter views from one coordinated platform.
+              One intelligent platform to build, optimize, and launch your career — powered by AI.
             </motion.p>
 
             <motion.div
@@ -90,10 +145,10 @@ const Hero = () => {
                   Start Free <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
-                  href="#showcase"
+                  href="#career-journey"
                   className="text-white/60 hover:text-white px-8 py-5 rounded-2xl text-lg font-black transition-all border border-white/5 hover:border-white/10 w-full sm:w-auto text-center"
                 >
-                  Watch Demo
+                  Explore System
                 </a>
               </div>
 
@@ -111,14 +166,14 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right Column: Dynamic Candidate Storytelling Preview */}
+          {/* Right Column: Dynamic Storytelling Preview */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
             className="lg:col-span-6 w-full"
           >
-            <div className="glass-card rounded-[3.5rem] border-white/5 bg-slate-950 p-6 shadow-premium relative space-y-6">
+            <div className="card-feature p-6 shadow-premium relative space-y-6">
               {/* Tabs controls inside visual box */}
               <div className="flex overflow-x-auto gap-2 pb-3 border-b border-white/5 scrollbar-none">
                 {tabs.map((tab) => (
@@ -174,18 +229,60 @@ const Hero = () => {
                       className="w-full h-full flex flex-col justify-between text-left space-y-4"
                     >
                       <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
-                        <span>ATS Compliance Score</span>
+                        <span>ATS Hybrid Scanner v4.0</span>
                         <Target className="w-3.5 h-3.5 text-slate-500" />
                       </div>
-                      <div className="flex-1 flex flex-col items-center justify-center space-y-3">
-                        <div className="text-4xl font-black text-white font-outfit">91% Match</div>
-                        <p className="text-[10px] font-black text-success uppercase tracking-widest bg-success/10 border border-success/20 px-3 py-1 rounded-full">
-                          ✓ Aligned to target JD requirements
-                        </p>
+
+                      <div className="flex-1 flex flex-col items-center justify-center space-y-4">
+                        {/* Live Workflow Status */}
+                        <div className="w-full max-w-sm space-y-2">
+                          <div className="flex justify-between text-[11px] font-mono font-bold text-slate-400">
+                            <span className="flex items-center gap-2">
+                              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                              {atsSteps[atsStage]}
+                            </span>
+                            <span>{atsScore}%</span>
+                          </div>
+
+                          <div className="h-2 bg-slate-900 rounded-full overflow-hidden p-0.5 border border-white/5">
+                            <motion.div
+                              className="h-full bg-gradient-to-r from-blue-500 to-emerald-400 rounded-full"
+                              animate={{ width: `${atsScore}%` }}
+                              transition={{ ease: "easeOut" }}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Keyword Chips Fade In */}
+                        <AnimatePresence>
+                          {showKeywords && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              className="space-y-3 text-center"
+                            >
+                              <p className="text-[10px] font-black text-success uppercase tracking-widest bg-success/10 border border-success/20 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+                                <Check className="w-3 h-3" /> 91% Match — Aligned to target JD
+                              </p>
+                              <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+                                {keywords.map((kw, i) => (
+                                  <motion.span
+                                    key={kw}
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ delay: i * 0.1 }}
+                                    className="text-[9px] font-black uppercase tracking-wider bg-slate-900 border border-white/10 text-cyan-400 px-2.5 py-1 rounded-lg"
+                                  >
+                                    + {kw}
+                                  </motion.span>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
-                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden">
-                        <div className="h-full bg-success w-11/12 animate-pulse" />
-                      </div>
+
+                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden" />
                     </motion.div>
                   )}
 

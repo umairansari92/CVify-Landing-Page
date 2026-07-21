@@ -5,6 +5,7 @@ import { MoveRight } from "lucide-react";
 
 // Modern Conversion-Engine Components
 import Nav from "@/components/landing/Nav";
+import ScrollNav from "@/components/landing/ScrollNav";
 import Hero from "@/components/landing/Hero";
 import TrustBar from "@/components/landing/TrustBar";
 import ProblemSection from "@/components/landing/ProblemSection";
@@ -42,6 +43,7 @@ export default function Home() {
     <div className="bg-background text-foreground bg-mesh selection:bg-primary/30 min-h-screen">
       <AnnouncementBar />
       <Nav />
+      <ScrollNav />
       <main>
         {/* 1 ── Hero: Outcome hook + Storytelling tabs */}
         <Hero />
