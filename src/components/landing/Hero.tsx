@@ -1,184 +1,270 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
-import { ArrowRight, Zap, CheckCircle2, AlertCircle, ChevronRight } from "lucide-react";
-
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Zap, CheckCircle2, Monitor, Code, Target, MessageSquare, BarChart3 } from "lucide-react";
 import { APP_URL } from "@/lib/constants";
 
+const tabs = [
+  { id: "resume", label: "Resume Studio" },
+  { id: "ats", label: "ATS Scan" },
+  { id: "portfolio", label: "Live Portfolio" },
+  { id: "interview", label: "AI Interview" },
+  { id: "analytics", label: "Analytics HUD" }
+];
+
 const Hero = () => {
+  const [activeTab, setActiveTab] = useState("resume");
+
   return (
-    <section className="relative pt-48 pb-32 px-6 overflow-hidden min-h-screen flex flex-col justify-center">
+    <section className="relative pt-44 pb-32 px-6 overflow-hidden min-h-screen flex flex-col justify-center">
       {/* Background blobs */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <motion.div 
-          animate={{ 
-            y: [0, -40, 0],
-            rotate: [0, 5, 0],
-            scale: [1, 1.05, 1]
+        <motion.div
+          animate={{
+            y: [0, -45, 0],
+            rotate: [0, 4, 0],
+            scale: [1, 1.04, 1]
           }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] opacity-30"
+          transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] opacity-35"
         />
-        <motion.div 
-          animate={{ 
-            y: [0, 50, 0],
-            rotate: [0, -8, 0],
-            scale: [1, 1.1, 1]
+        <motion.div
+          animate={{
+            y: [0, 45, 0],
+            rotate: [0, -6, 0],
+            scale: [1, 1.08, 1]
           }}
-          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-1/4 -left-20 w-[700px] h-[700px] bg-accent/10 rounded-full blur-[140px] opacity-20"
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-1/4 -left-20 w-[700px] h-[700px] bg-accent/10 rounded-full blur-[140px] opacity-25"
         />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          {/* Left Content */}
-          <div className="space-y-10 text-left">
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
+          {/* Left Column: Messaging */}
+          <div className="lg:col-span-6 space-y-10 text-left">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 border border-white/5 backdrop-blur-md shadow-inner"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 border border-white/5 backdrop-blur-md"
             >
               <Zap className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-slate-300 text-xs font-black tracking-widest uppercase opacity-80">AI Job Application System</span>
+              <span className="text-slate-300 text-[10px] font-black tracking-widest uppercase opacity-85">
+                AI Career Operating System
+              </span>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter text-white font-outfit uppercase"
+              className="text-4xl md:text-7xl font-black leading-[0.9] tracking-tighter text-white font-outfit uppercase"
             >
-              Turn Your Resume into a <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent animate-shimmer bg-[length:200%_auto]">Job-Winning</span> <br />
-              Application System
+              Everything You <br /> Need to Get Hired. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent animate-shimmer bg-[length:200%_auto]">
+                Powered by AI.
+              </span>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-xl md:text-2xl text-slate-400 max-w-xl font-medium leading-relaxed"
+              className="text-lg md:text-xl text-slate-400 max-w-xl font-medium leading-relaxed"
             >
-              Upload once. CVify analyzes, rewrites, and generates job-specific resumes, cover letters, and recruiter-ready profiles.
-              <div className="mt-4 text-xs font-black text-primary uppercase tracking-[0.2em] flex items-center gap-2">
-                <span>Upload</span> <ChevronRight className="w-3 h-3" />
-                <span>Get ATS Score</span> <ChevronRight className="w-3 h-3" />
-                <span>Fix Issues</span> <ChevronRight className="w-3 h-3" />
-                <span>Get Interviews</span>
-              </div>
+              Build resumes, optimize ATS matching, publish a live portfolio, prepare for interviews, and track recruiter views from one coordinated platform.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               className="space-y-6"
             >
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                <a href={`${APP_URL}/signup`} className="group relative bg-primary hover:bg-blue-600 text-white px-10 py-6 rounded-3xl text-xl font-black shadow-2xl shadow-primary/30 transition-all hover:scale-105 hover:-translate-y-1 flex items-center gap-3 overflow-hidden w-full sm:w-auto justify-center">
-                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                   Check My Resume Score <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <a
+                  href={`${APP_URL}/signup`}
+                  className="group relative bg-primary hover:bg-blue-600 text-white px-10 py-5 rounded-2xl text-lg font-black shadow-2xl shadow-primary/30 transition-all hover:scale-105 flex items-center justify-center gap-3 overflow-hidden w-full sm:w-auto"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  Start Free <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <a href="#demo" className="text-white/60 hover:text-white px-10 py-6 rounded-3xl text-xl font-black transition-all flex items-center gap-3 group underline decoration-white/20 underline-offset-8 decoration-2 hover:decoration-primary">
-                  Analyze Sample Resume
+                <a
+                  href="#showcase"
+                  className="text-white/60 hover:text-white px-8 py-5 rounded-2xl text-lg font-black transition-all border border-white/5 hover:border-white/10 w-full sm:w-auto text-center"
+                >
+                  Watch Demo
                 </a>
               </div>
-              
-              <div className="flex items-center gap-2 px-2">
-                <CheckCircle2 className="w-4 h-4 text-success" />
-                <span className="text-sm font-bold text-slate-500 uppercase tracking-widest italic">No signup required. Instant results.</span>
+
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 px-2 text-slate-500 text-xs font-black uppercase tracking-wider italic">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-success" /> 100 Free Diamonds
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-success" /> Portfolio Included
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="w-4 h-4 text-success" /> No Credit Card Required
+                </span>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Visual (Before vs After) */}
+          {/* Right Column: Dynamic Candidate Storytelling Preview */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4, type: "spring", stiffness: 50 }}
-            className="relative"
+            transition={{ delay: 0.3 }}
+            className="lg:col-span-6 w-full"
           >
-            <div className="glass-card p-4 rounded-[4rem] border-white/5 shadow-premium relative overflow-hidden group">
-               {/* Grid line background */}
-               <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-white/5 z-0" />
-               <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-white/5 z-0" />
+            <div className="glass-card rounded-[3.5rem] border-white/5 bg-slate-950 p-6 shadow-premium relative space-y-6">
+              {/* Tabs controls inside visual box */}
+              <div className="flex overflow-x-auto gap-2 pb-3 border-b border-white/5 scrollbar-none">
+                {tabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all ${
+                      activeTab === tab.id
+                        ? "bg-primary text-white"
+                        : "bg-slate-900 text-slate-500 hover:text-slate-300"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
 
-               <div className="relative z-10 grid grid-cols-2 gap-4 h-[500px]">
-                  {/* Before */}
-                  <div className="bg-slate-950/50 rounded-[3rem] p-8 border border-white/5 flex flex-col justify-between group-hover:translate-y-2 transition-transform duration-700">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-error flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3" /> Before
-                        </span>
-                        <span className="text-xl font-black text-error">32%</span>
+              {/* Viewport content */}
+              <div className="h-[320px] relative overflow-hidden flex items-center justify-center">
+                <AnimatePresence mode="wait">
+                  {activeTab === "resume" && (
+                    <motion.div
+                      key="resume"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="w-full h-full flex flex-col justify-between text-left space-y-3"
+                    >
+                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
+                        <span>candidate_profile.json</span>
+                        <Code className="w-3.5 h-3.5 text-slate-500" />
                       </div>
-                      <div className="space-y-2 opacity-50">
-                        <div className="h-2 w-full bg-slate-800 rounded" />
-                        <div className="h-2 w-3/4 bg-slate-800 rounded" />
-                        <div className="h-2 w-1/2 bg-slate-800 rounded" />
+                      <div className="flex-1 font-mono text-xs text-slate-400 space-y-2 pt-2">
+                        <p className="text-primary font-black">{"{"}</p>
+                        <p className="pl-4">"fullName": <span className="text-accent">"Umair Ansari"</span>,</p>
+                        <p className="pl-4">"targetRole": <span className="text-accent">"Software Architect"</span>,</p>
+                        <p className="pl-4">"skills": [<span className="text-accent">"React", "Node.js", "AWS"</span>],</p>
+                        <p className="pl-4">"experience": [ ... ]</p>
+                        <p className="text-primary font-black">{"}"}</p>
                       </div>
-                      <div className="pt-6 space-y-3">
-                         <p className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Issues Found</p>
-                         <ul className="space-y-2">
-                            {["Missing keywords", "Weak summary", "Poor format"].map((txt, i) => (
-                              <li key={i} className="text-[10px] font-black text-slate-600 flex items-center gap-2">
-                                <span className="w-1 h-1 rounded-full bg-error" /> {txt}
-                              </li>
-                            ))}
-                         </ul>
+                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden">
+                        <div className="h-full bg-primary w-2/3" />
                       </div>
-                    </div>
-                  </div>
+                    </motion.div>
+                  )}
 
-                  {/* After */}
-                  <div className="bg-primary/5 rounded-[3rem] p-8 border border-primary/20 flex flex-col justify-between shadow-glow group-hover:-translate-y-2 transition-transform duration-700">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-[10px] font-black uppercase tracking-widest text-success flex items-center gap-1">
-                          <CheckCircle2 className="w-3 h-3" /> After
-                        </span>
-                        <motion.span 
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                          className="text-4xl font-black text-white"
-                        >
-                          91%
-                        </motion.span>
+                  {activeTab === "ats" && (
+                    <motion.div
+                      key="ats"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="w-full h-full flex flex-col justify-between text-left space-y-4"
+                    >
+                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
+                        <span>ATS Compliance Score</span>
+                        <Target className="w-3.5 h-3.5 text-slate-500" />
                       </div>
-                      <div className="space-y-2 relative">
-                        <div className="h-2 w-full bg-primary/40 rounded shadow-[0_0_10px_rgba(59,130,246,0.3)] animate-pulse" />
-                        <div className="h-2 w-5/6 bg-primary/20 rounded" />
-                        <div className="h-2 w-2/3 bg-primary/20 rounded" />
-                        
-                        {/* Shimmer overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-shimmer" />
+                      <div className="flex-1 flex flex-col items-center justify-center space-y-3">
+                        <div className="text-4xl font-black text-white font-outfit">91% Match</div>
+                        <p className="text-[10px] font-black text-success uppercase tracking-widest bg-success/10 border border-success/20 px-3 py-1 rounded-full">
+                          ✓ Aligned to target JD requirements
+                        </p>
                       </div>
-                      <div className="pt-6 space-y-3">
-                         <p className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">Optimized Results</p>
-                         <ul className="space-y-2">
-                            {["Optimized Keywords", "Strong Summary", "ATS Ready"].map((txt, i) => (
-                              <li key={i} className="text-[10px] font-black text-white flex items-center gap-2">
-                                <CheckCircle2 className="w-3 h-3 text-success" /> {txt}
-                              </li>
-                            ))}
-                         </ul>
+                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden">
+                        <div className="h-full bg-success w-11/12 animate-pulse" />
                       </div>
-                    </div>
-                  </div>
-               </div>
+                    </motion.div>
+                  )}
 
-               {/* Central "Improvement Badge" */}
-               <motion.div 
-                 initial={{ scale: 0 }}
-                 animate={{ scale: 1 }}
-                 transition={{ delay: 1, type: "spring" }}
-                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-black p-4 rounded-full shadow-2xl z-20 flex flex-col items-center justify-center min-w-[120px] aspect-square border-8 border-slate-950"
-               >
-                 <span className="text-2xl font-black">+65%</span>
-                 <span className="text-[8px] font-black uppercase tracking-tighter leading-tight text-center">Score <br />Increase</span>
-               </motion.div>
+                  {activeTab === "portfolio" && (
+                    <motion.div
+                      key="portfolio"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="w-full h-full flex flex-col justify-between text-left space-y-4"
+                    >
+                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
+                        <span>Live Portfolio Template</span>
+                        <Monitor className="w-3.5 h-3.5 text-slate-500" />
+                      </div>
+                      <div className="flex-1 border border-white/5 rounded-2xl bg-slate-900 p-5 flex items-center justify-between">
+                        <div className="space-y-2">
+                          <h4 className="text-lg font-black text-white font-outfit uppercase">Umair Ansari</h4>
+                          <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Solutions Architect</p>
+                        </div>
+                        <div className="w-12 h-12 rounded-xl bg-primary/20 border border-primary/20 flex items-center justify-center font-black text-primary">
+                          UA
+                        </div>
+                      </div>
+                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden" />
+                    </motion.div>
+                  )}
+
+                  {activeTab === "interview" && (
+                    <motion.div
+                      key="interview"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="w-full h-full flex flex-col justify-between text-left space-y-3"
+                    >
+                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
+                        <span>AI Behavioral Screenings</span>
+                        <MessageSquare className="w-3.5 h-3.5 text-slate-500" />
+                      </div>
+                      <div className="flex-1 space-y-3 pt-2">
+                        <div className="bg-slate-900 p-3.5 rounded-xl border border-white/5 text-xs text-slate-400">
+                          <span className="font-black text-primary">Question:</span> "How do you handle Redis cache keys invalidation?"
+                        </div>
+                        <div className="bg-primary/5 p-3.5 rounded-xl border border-primary/10 text-xs text-slate-300">
+                          <span className="font-black text-primary">Answer:</span> "By mapping key patterns using binary event indicators."
+                        </div>
+                      </div>
+                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden" />
+                    </motion.div>
+                  )}
+
+                  {activeTab === "analytics" && (
+                    <motion.div
+                      key="analytics"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      className="w-full h-full flex flex-col justify-between text-left space-y-4"
+                    >
+                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
+                        <span>Candidate Analytics HUD</span>
+                        <BarChart3 className="w-3.5 h-3.5 text-slate-500" />
+                      </div>
+                      <div className="flex-1 grid grid-cols-2 gap-4 pt-2">
+                        <div className="bg-slate-900 p-4 rounded-xl border border-white/5 text-left">
+                          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Views</p>
+                          <p className="text-xl font-black text-white">2.4k</p>
+                        </div>
+                        <div className="bg-slate-900 p-4 rounded-xl border border-white/5 text-left">
+                          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Downloads</p>
+                          <p className="text-xl font-black text-white">842</p>
+                        </div>
+                      </div>
+                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </motion.div>
         </div>

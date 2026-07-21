@@ -3,19 +3,22 @@
 import React from "react";
 import { MoveRight } from "lucide-react";
 
-// New Conversion-Machine Components
+// Modern Conversion-Engine Components
 import Nav from "@/components/landing/Nav";
 import Hero from "@/components/landing/Hero";
+import TrustBar from "@/components/landing/TrustBar";
 import ProblemSection from "@/components/landing/ProblemSection";
-import HowItWorks from "@/components/landing/HowItWorks";
-import SystemFlow from "@/components/landing/SystemFlow";
+import CareerJourney from "@/components/landing/CareerJourney";
+import Ecosystem from "@/components/landing/Ecosystem";
+import ProductShowcase from "@/components/landing/ProductShowcase";
+import ATSIntelligence from "@/components/landing/ATSIntelligence";
+import ResumeCoach from "@/components/landing/ResumeCoach";
+import AIRepresentative from "@/components/landing/AIRepresentative";
+import LivePortfolio from "@/components/landing/LivePortfolio";
+import RecruiterExperience from "@/components/landing/RecruiterExperience";
 import Comparison from "@/components/landing/Comparison";
-import Features from "@/components/landing/Features";
-import ApplicationKit from "@/components/landing/ApplicationKit";
-import ProfileShowcase from "@/components/landing/ProfileShowcase";
-import DemoSection from "@/components/landing/DemoSection";
-import Testimonials from "@/components/landing/Testimonials";
 import Pricing from "@/components/landing/Pricing";
+import FAQ from "@/components/landing/FAQ";
 import CTASection from "@/components/landing/CTASection";
 import Footer from "@/components/landing/Footer";
 
@@ -34,62 +37,55 @@ const AnnouncementBar = () => (
   </div>
 );
 
-const SocialProof = () => (
-  <section className="py-20 border-y border-white/5 bg-slate-900/20 px-6">
-    <div className="max-w-7xl mx-auto">
-      <p className="text-center text-xs font-black uppercase tracking-[0.3em] text-slate-500 mb-12">Used by job seekers worldwide</p>
-      <div className="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
-        {["Google", "Amazon", "Microsoft", "Meta", "Tesla", "SpaceX"].map((logo) => (
-          <span key={logo} className="text-2xl md:text-3xl font-black text-white hover:text-primary transition-colors cursor-default select-none">{logo}</span>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
 export default function Home() {
   return (
     <div className="bg-background text-foreground bg-mesh selection:bg-primary/30 min-h-screen">
       <AnnouncementBar />
       <Nav />
       <main>
-        {/* 1 ── Hero: Hook + Promise + Action */}
+        {/* 1 ── Hero: Outcome hook + Storytelling tabs */}
         <Hero />
 
-        {/* 2 ── Social Proof: Credibility bar */}
-        <SocialProof />
+        {/* 2 ── Trust Proof Bar: Metrics & Company Logos */}
+        <TrustBar />
 
-        {/* 3 ── Problem: Emotional Trigger (REJECTED stamp) */}
+        {/* 3 ── Problem: Journey Lane Contrast (Red vs Green) */}
         <ProblemSection />
 
-        {/* 4 ── System Flow: Core Differentiation (The 5-step reveal) */}
-        <SystemFlow />
+        {/* 4 ── Career Journey: Funnel timeline */}
+        <CareerJourney />
 
-        {/* 5 ── How It Works: Simple Digestible Version */}
-        <HowItWorks />
+        {/* 5 ── Ecosystem Grid: Bento overview */}
+        <Ecosystem />
 
-        {/* 6 ── Before vs After: Conversion Weapon (+65% Proof) */}
+        {/* 6 ── Product Showcase: Visual Workspace pre-renders */}
+        <ProductShowcase />
+
+        {/* 7 ── ATS Intelligence: Sweep simulation & keyword calibration */}
+        <ATSIntelligence />
+
+        {/* 8 ── AI Resume Coach: Live Checkbox HUD simulation */}
+        <ResumeCoach />
+
+        {/* 9 ── AI Representative: Recruiter chat bot mock proofs */}
+        <AIRepresentative />
+
+        {/* 10 ── Live Portfolio: Theme selectors & Traffic logs */}
+        <LivePortfolio />
+
+        {/* 11 ── Recruiter Experience: 6-second verdict card */}
+        <RecruiterExperience />
+
+        {/* 12 ── Capabilities Comparison Matrix */}
         <Comparison />
 
-        {/* 7 ── Features: Outcome Based (Decision Engine) */}
-        <Features />
-
-        {/* 8 ── Demo Section: See it in Action */}
-        <DemoSection />
-
-        {/* 9 ── Trust / Testimonials: Real Results */}
-        <Testimonials />
-
-        {/* 10 ── Application Kit: Everything You Need to Apply (Resume + Letter + Profile) */}
-        <ApplicationKit />
-
-        {/* 11 ── Live Profile: Proof of Concept */}
-        <ProfileShowcase />
-
-        {/* 12 ── Pricing: Diamond Economy */}
+        {/* 13 ── Plans: Solo / Pro + nested Diamond Economy guide */}
         <Pricing />
 
-        {/* 13 ── Final CTA: Conversion Push */}
+        {/* 14 ── Dropdown FAQ accordions */}
+        <FAQ />
+
+        {/* 15 ── Final Conversion Push */}
         <CTASection />
       </main>
       <Footer />

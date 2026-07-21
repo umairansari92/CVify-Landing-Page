@@ -14,6 +14,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cvify.pro"),
   title: "Best Free ATS Resume Builder & CV Maker | CVify Pro",
   description: "Create an undeniable professional identity with the best free ATS resume builder. Get instant AI-powered ATS scanning, Gemini AI cover letters, and premium native PDF exports to land your dream job faster. Try CVify Pro today.",
   keywords: [

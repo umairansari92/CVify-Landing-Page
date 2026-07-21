@@ -18,10 +18,10 @@ const Nav = () => {
   }, []);
 
   const navLinks = [
-    { name: "Features", href: "#features" },
-    { name: "How It Works", href: "#how-it-works" },
-    { name: "Demo", href: "#demo" },
-    { name: "Documentation", href: DOCS_URL },
+    { name: "Ecosystem", href: "#ecosystem" },
+    { name: "Career Journey", href: "#career-journey" },
+    { name: "ATS Scanner", href: "#ats-engine" },
+    { name: "Documentation", href: DOCS_URL, external: true },
   ];
 
   return (
@@ -51,6 +51,7 @@ const Nav = () => {
                 <a 
                   key={item.name} 
                   href={item.href} 
+                  {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="hover:text-white transition-colors relative group"
                 >
                   {item.name}
@@ -62,7 +63,7 @@ const Nav = () => {
             {/* Actions */}
             <div className="flex items-center gap-4">
               <a href={`${APP_URL}/login`} className="hidden sm:block text-sm font-bold text-slate-400 hover:text-white transition-colors">Sign In</a>
-               <a href={`${APP_URL}/signup`} className="bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-2xl text-sm font-black shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+              <a href={`${APP_URL}/signup`} className="bg-primary hover:bg-blue-600 text-white px-6 py-3 rounded-2xl text-sm font-black shadow-lg shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                 Check My Score
               </a>
               
@@ -112,6 +113,7 @@ const Nav = () => {
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
+                    {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="text-2xl font-black text-slate-400 hover:text-white transition-colors flex items-center justify-between group"
                   >
                     {item.name}
