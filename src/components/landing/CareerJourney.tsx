@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, Cpu, CheckSquare, FileSignature, Monitor, Target, MessageSquare, Award, ArrowRight } from "lucide-react";
-import { APP_URL } from "@/lib/constants";
+import { APP_URL, SAMPLE_PROFILE_URL } from "@/lib/constants";
 
 const steps = [
   {
@@ -48,8 +48,10 @@ const steps = [
     icon: <Monitor className="w-6 h-6" />,
     detailTitle: "Step 5: Launch Live Portfolio Page",
     desc: "Go beyond flat files. Publish your professional profile as a responsive, SEO-ready web page featuring recruiter tracking details.",
-    actionText: "Launch Portfolio",
-    badge: "Deployment Layer"
+    actionText: "View Live Demo",
+    badge: "Deployment Layer",
+    actionUrl: SAMPLE_PROFILE_URL,
+    isDemo: true,
   },
   {
     title: "Job Match",
@@ -158,7 +160,9 @@ const CareerJourney = () => {
                 </p>
                 <div className="pt-4">
                   <a
-                    href={`${APP_URL}/signup`}
+                    href={steps[activeIndex].isDemo ? steps[activeIndex].actionUrl! : `${APP_URL}/signup`}
+                    target={steps[activeIndex].isDemo ? "_blank" : undefined}
+                    rel={steps[activeIndex].isDemo ? "noopener noreferrer" : undefined}
                     className="inline-flex items-center gap-2 bg-primary hover:bg-blue-600 text-white px-8 py-4 rounded-2xl font-black text-sm transition-all hover:scale-105"
                   >
                     {steps[activeIndex].actionText} <ArrowRight className="w-4 h-4" />
