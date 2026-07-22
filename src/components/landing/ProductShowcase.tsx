@@ -178,26 +178,29 @@ const ProductShowcase = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="w-full h-full flex flex-col justify-between p-6 space-y-4"
+                    className="w-full h-full flex flex-col"
                   >
-                    <div className="flex items-center gap-1.5 text-xs text-slate-500 border-b border-white/5 pb-3">
-                      <div className="w-2.5 h-2.5 rounded-full bg-error" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-warning" />
-                      <div className="w-2.5 h-2.5 rounded-full bg-success" />
-                      <span className="ml-4 font-mono">app-cvifypro.vercel.app/p/umair</span>
+                    {/* Mini browser chrome */}
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500 border-b border-white/5 pb-3 px-2 pt-2 flex-shrink-0">
+                      <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                      <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+                      <span className="ml-3 font-mono text-[10px]">app-cvifypro.vercel.app/p/sarahj</span>
+                      <span className="ml-auto text-[9px] text-emerald-400 font-black">● LIVE</span>
                     </div>
-                    <div className="flex-1 border border-white/5 rounded-2xl bg-slate-900/50 p-6 flex items-center justify-between">
-                      <div className="space-y-3 text-left">
-                        <div className="h-4 w-28 bg-white/20 rounded" />
-                        <div className="h-2.5 w-20 bg-slate-800 rounded" />
-                        <div className="h-2 w-32 bg-slate-800 rounded" />
-                      </div>
-                      <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/20 flex items-center justify-center text-primary font-black">
-                        UA
-                      </div>
+                    {/* Real screenshot */}
+                    <div className="flex-1 relative overflow-hidden rounded-b-xl">
+                      <img
+                        src="/demos/apex-sarahj-hero.png"
+                        alt="CVifyPro APEX theme — Sarah Jenkins live portfolio"
+                        className="w-full h-full object-cover object-top"
+                        draggable={false}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
                     </div>
                   </motion.div>
                 )}
+
 
                 {activeTab === "interview" && (
                   <motion.div

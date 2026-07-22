@@ -16,13 +16,20 @@ export const DEMO_PROFILES = [
     role: "Full Stack Developer & AI Engineer",
     initials: "UA",
     url: `${APP_URL}/p/umairansari92`,
+    theme: "NOIR",
+    themeAccent: "#FF2E0C",
+    screenshot: null, // use abstract UI
   },
   {
     username: "sarahj",
-    name: "Sarah Johnson",
-    role: "Senior UX Designer",
+    name: "Sarah Jenkins",
+    role: "Senior Frontend Engineer | React & 3D Web",
     initials: "SJ",
     url: `${APP_URL}/p/sarahj`,
+    theme: "APEX",
+    themeAccent: "#2D9881",
+    screenshot: "/demos/apex-sarahj-hero.png",
+    screenshotAbout: "/demos/apex-sarahj-about.png",
   },
   {
     username: "marcusw",
@@ -30,12 +37,18 @@ export const DEMO_PROFILES = [
     role: "Data Scientist & ML Engineer",
     initials: "MW",
     url: `${APP_URL}/p/marcusw`,
+    theme: "TERMINAL DARK",
+    themeAccent: "#915eff",
+    screenshot: null, // use abstract UI
   },
   {
     username: "aishap",
     name: "Aisha Patel",
-    role: "Product Manager",
+    role: "AI & Machine Learning Researcher",
     initials: "AP",
     url: `${APP_URL}/p/aishap`,
+    theme: "TERMINAL DARK",
+    themeAccent: "#915eff",
+    screenshot: "/demos/terminaldark-aishap-hero.png",
   },
 ];
