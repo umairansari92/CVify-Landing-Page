@@ -129,26 +129,28 @@ const ProductShowcase = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="w-full h-full flex flex-col justify-between p-6 space-y-4"
+                    className="w-full h-full relative overflow-hidden rounded-b-xl"
                   >
-                    <div className="flex justify-between items-center text-xs font-mono text-slate-500 border-b border-white/5 pb-3">
-                      <span>UmairAnsari_Resume.json</span>
-                      <span className="text-success">Validated</span>
+                    {/* Real dashboard screenshot */}
+                    <img
+                      src="/demos/dashboard-command-center.png"
+                      alt="CVifyPro Career OS Dashboard — Command Center with Resume Studio"
+                      className="w-full h-full object-cover object-top"
+                      draggable={false}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                    {/* Floating stat pill */}
+                    <div className="absolute top-3 right-3 flex items-center gap-2 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1.5 text-[8px] font-black uppercase tracking-widest text-white">
+                      <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                      Career Health: 100/100
                     </div>
-                    <div className="space-y-3 font-mono text-xs text-primary/80 flex-1 overflow-hidden pt-4 text-left">
-                      <p className="text-slate-400">{"{"}</p>
-                      <p className="pl-4"><span className="text-accent">"headline"</span>: "Full Stack Engineer & AI Specialist",</p>
-                      <p className="pl-4"><span className="text-accent">"experience"</span>: [{"{"}</p>
-                      <p className="pl-8"><span className="text-accent">"company"</span>: "Acme Corp",</p>
-                      <p className="pl-8"><span className="text-accent">"impact"</span>: "Scaled API queries by 300% and reduced token leakages"</p>
-                      <p className="pl-4">{"}]"}</p>
-                      <p className="text-slate-400">{"}"}</p>
-                    </div>
-                    <div className="h-2 bg-primary/20 w-full rounded-full overflow-hidden">
-                      <div className="h-full bg-primary w-4/5 animate-pulse" />
+                    <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-white">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                      99% Job-Ready · Live
                     </div>
                   </motion.div>
                 )}
+
 
                 {activeTab === "ats" && (
                   <motion.div

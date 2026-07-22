@@ -200,22 +200,25 @@ const Hero = () => {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      className="w-full h-full flex flex-col justify-between text-left space-y-3"
+                      className="w-full h-full relative overflow-hidden rounded-2xl"
                     >
-                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
-                        <span>candidate_profile.json</span>
-                        <Code className="w-3.5 h-3.5 text-slate-500" />
+                      {/* Real dashboard screenshot */}
+                      <img
+                        src="/demos/dashboard-command-center.png"
+                        alt="CVifyPro Career OS Dashboard — Command Center"
+                        className="w-full h-full object-cover object-top"
+                        draggable={false}
+                      />
+                      {/* Subtle bottom gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
+                      {/* Live badge */}
+                      <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-white">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                        Career OS · Live
                       </div>
-                      <div className="flex-1 font-mono text-xs text-slate-400 space-y-2 pt-2">
-                        <p className="text-primary font-black">{"{"}</p>
-                        <p className="pl-4">"fullName": <span className="text-accent">"Umair Ansari"</span>,</p>
-                        <p className="pl-4">"targetRole": <span className="text-accent">"Software Architect"</span>,</p>
-                        <p className="pl-4">"skills": [<span className="text-accent">"React", "Node.js", "AWS"</span>],</p>
-                        <p className="pl-4">"experience": [ ... ]</p>
-                        <p className="text-primary font-black">{"}"}</p>
-                      </div>
-                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden">
-                        <div className="h-full bg-primary w-2/3" />
+                      {/* 99% badge top right */}
+                      <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-primary">
+                        99% Job-Ready
                       </div>
                     </motion.div>
                   )}
@@ -292,22 +295,19 @@ const Hero = () => {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      className="w-full h-full flex flex-col justify-between text-left space-y-4"
+                      className="w-full h-full relative overflow-hidden rounded-2xl"
                     >
-                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
-                        <span>Live Portfolio Template</span>
-                        <Monitor className="w-3.5 h-3.5 text-slate-500" />
+                      <img
+                        src="/demos/apex-sarahj-hero.png"
+                        alt="CVifyPro APEX Portfolio — Sarah Jenkins"
+                        className="w-full h-full object-cover object-top"
+                        draggable={false}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-white">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                        APEX Theme · Live
                       </div>
-                      <div className="flex-1 border border-white/5 rounded-2xl bg-slate-900 p-5 flex items-center justify-between">
-                        <div className="space-y-2">
-                          <h4 className="text-lg font-black text-white font-outfit uppercase">Umair Ansari</h4>
-                          <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">Solutions Architect</p>
-                        </div>
-                        <div className="w-12 h-12 rounded-xl bg-primary/20 border border-primary/20 flex items-center justify-center font-black text-primary">
-                          UA
-                        </div>
-                      </div>
-                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden" />
                     </motion.div>
                   )}
 
