@@ -153,57 +153,104 @@ const LivePortfolio = () => {
                   </div>
                 ) : (
                   /* Abstract animated fallback for profiles without screenshot */
-                  <div className="w-full h-full min-h-[360px] bg-slate-950 p-8 flex flex-col justify-between">
+                  <div 
+                    className="w-full h-full min-h-[380px] p-8 flex flex-col justify-between transition-all duration-500 relative overflow-hidden"
+                    style={{
+                      backgroundColor: (activeProfile as any).theme === "NOIR" ? "#090A0F"
+                        : (activeProfile as any).theme === "CYBERNEON" ? "#050B0A"
+                        : (activeProfile as any).theme === "APEX" ? "#0B1120"
+                        : (activeProfile as any).theme === "AURA DARK" ? "#0D0B14"
+                        : (activeProfile as any).theme === "ORIENTAL LUXE" ? "#12100E"
+                        : "#0f172a"
+                    }}
+                  >
                     {/* Simulated nav */}
-                    <div className="flex items-center justify-between pb-4 border-b border-white/5">
+                    <div className="flex items-center justify-between pb-4 border-b border-white/10">
                       <div className="flex items-center gap-2">
-                        <div className="w-6 h-6 rounded-lg bg-primary/20 border border-primary/30" />
-                        <div className="h-3 w-20 bg-slate-800 rounded" />
+                        <div 
+                          className="w-6 h-6 rounded-lg flex items-center justify-center text-[10px] font-black text-white"
+                          style={{ backgroundColor: `${(activeProfile as any).themeAccent || "#10b981"}40` }}
+                        >
+                          {activeProfile.initials}
+                        </div>
+                        <span className="text-xs font-mono font-bold text-white/90">
+                          {activeProfile.username}.cvify
+                        </span>
                       </div>
-                      <div className="flex gap-4">
-                        {[...Array(4)].map((_, i) => (
-                          <div key={i} className="h-2 w-10 bg-slate-800 rounded" />
-                        ))}
+                      <div className="flex items-center gap-3 text-[10px] font-bold text-white/60">
+                        <span>Experience</span>
+                        <span>Showcase</span>
+                        <span>Dossier</span>
+                        <span>Contact</span>
                       </div>
                     </div>
+
                     {/* Simulated hero */}
-                    <div className="flex items-center justify-between flex-1 py-8 gap-8">
-                      <div className="space-y-4 flex-1">
-                        <div className="h-2 w-24 bg-slate-800 rounded" />
-                        <div className="space-y-2">
-                          <div className="h-7 w-56 bg-white/10 rounded" />
-                          <div className="h-7 w-44 bg-white/10 rounded" />
-                        </div>
-                        <div className="h-3 w-40 rounded"
-                          style={{ backgroundColor: `${(activeProfile as any).themeAccent || "#6366f1"}40` }} />
-                        <div className="space-y-1.5">
-                          <div className="h-2 w-52 bg-slate-800 rounded" />
-                          <div className="h-2 w-44 bg-slate-800 rounded" />
-                          <div className="h-2 w-36 bg-slate-800 rounded" />
-                        </div>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between flex-1 py-8 gap-6">
+                      <div className="space-y-3 flex-1 text-left">
+                        <span 
+                          className="text-[9px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-full border inline-block"
+                          style={{
+                            color: (activeProfile as any).themeAccent || "#10b981",
+                            borderColor: `${(activeProfile as any).themeAccent || "#10b981"}40`,
+                            backgroundColor: `${(activeProfile as any).themeAccent || "#10b981"}10`
+                          }}
+                        >
+                          {(activeProfile as any).theme} THEME ENGINE
+                        </span>
+                        
+                        <h4 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                          {activeProfile.name}
+                        </h4>
+                        
+                        <p 
+                          className="text-xs font-bold font-mono leading-relaxed max-w-sm"
+                          style={{ color: (activeProfile as any).themeAccent || "#10b981" }}
+                        >
+                          {activeProfile.role}
+                        </p>
+                        
+                        <p className="text-[11px] text-white/60 max-w-md leading-relaxed">
+                          {(activeProfile as any).tagline || "High-performance profile hydrated with CVify v4.0 design tokens."}
+                        </p>
+                        
                         <div className="flex gap-3 pt-2">
-                          <div className="h-8 w-24 rounded-full"
-                            style={{ backgroundColor: `${(activeProfile as any).themeAccent || "#6366f1"}30`,
-                              border: `1px solid ${(activeProfile as any).themeAccent || "#6366f1"}50` }} />
-                          <div className="h-8 w-28 bg-slate-800 rounded-full border border-white/5" />
+                          <a
+                            href={activeProfile.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider text-white shadow-lg transition-all hover:scale-105 inline-flex items-center gap-1.5"
+                            style={{ backgroundColor: (activeProfile as any).themeAccent || "#10b981" }}
+                          >
+                            <span>Open Profile</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                          <span className="px-3 py-2 rounded-xl text-[11px] font-mono text-white/70 bg-white/5 border border-white/10 inline-flex items-center gap-1">
+                            ✓ ATS Verified
+                          </span>
                         </div>
                       </div>
+
                       <div
-                        className="w-28 h-28 rounded-full border-4 flex-shrink-0 flex items-center justify-center font-black text-2xl"
+                        className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl border-2 flex-shrink-0 flex items-center justify-center font-black text-2xl shadow-2xl"
                         style={{
-                          borderColor: `${(activeProfile as any).themeAccent || "#6366f1"}60`,
-                          backgroundColor: `${(activeProfile as any).themeAccent || "#6366f1"}15`,
-                          color: (activeProfile as any).themeAccent || "#6366f1",
-                          boxShadow: `0 0 30px ${(activeProfile as any).themeAccent || "#6366f1"}30`,
+                          borderColor: `${(activeProfile as any).themeAccent || "#10b981"}70`,
+                          backgroundColor: `${(activeProfile as any).themeAccent || "#10b981"}15`,
+                          color: (activeProfile as any).themeAccent || "#10b981",
+                          boxShadow: `0 0 35px ${(activeProfile as any).themeAccent || "#10b981"}30`,
                         }}
                       >
                         {activeProfile.initials}
                       </div>
                     </div>
-                    {/* Live badge */}
-                    <div className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-slate-500">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                      Live · {(activeProfile as any).theme || "Custom"} Theme
+
+                    {/* Live telemetry badge */}
+                    <div className="flex items-center justify-between pt-3 border-t border-white/10 text-[9px] font-mono text-white/50">
+                      <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                        <span>Live Telemetry Engine v4.0 Active</span>
+                      </div>
+                      <span className="uppercase font-bold text-white/70">{(activeProfile as any).theme} Preset</span>
                     </div>
                   </div>
                 )}
