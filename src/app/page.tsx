@@ -30,7 +30,7 @@ const AnnouncementBar = () => (
     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
     <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-xs md:text-sm">
       <span className="bg-primary text-white px-2 py-0.5 rounded-[4px] font-black uppercase text-[10px] tracking-wider shadow-sm shadow-primary/40">New</span>
-      <p className="font-bold text-slate-300 italic tracking-tight">AI Resume Coach is here — Get an instant ATS score and action plan!</p>
+      <p className="font-bold text-slate-700 dark:text-slate-300 italic tracking-tight">AI Resume Coach is here — Get an instant ATS score and action plan!</p>
       <a href={`${APP_URL}/signup`} className="text-primary font-black hover:underline inline-flex items-center gap-1 group/btn transition-all uppercase text-[10px] tracking-widest">
         Check My Score <MoveRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
       </a>

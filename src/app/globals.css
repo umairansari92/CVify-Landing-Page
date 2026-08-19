@@ -1,48 +1,51 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 /* ============================================================
-   CVify Design System v1 — Token Architecture
-   Category: Linear + Vercel + Cursor + Raycast
-   Philosophy: Professional for recruiters, modern for developers.
+   CVify Design System v2.0 — Dual Theme Architecture
+   Light: Daylight Executive (Crisp Canvas & Sage Emerald)
+   Dark:  Midnight Obsidian (Deep Dark & Emerald Glow)
    ============================================================ */
 
+/* ── LIGHT MODE DEFAULTS ── */
 :root {
-  /* ── Core Palette (CVify Flagship Emerald & Indigo) ── */
+  /* ── Core Palette (Emerald & Indigo) ── */
   --color-primary: #10b981;           /* Emerald 500 */
   --color-primary-hover: #059669;     /* Emerald 600 */
   --color-primary-active: #047857;    /* Emerald 700 */
-  --color-primary-glow: rgba(16, 185, 129, 0.25);
+  --color-primary-glow: rgba(16, 185, 129, 0.2);
 
   --color-secondary: #6366f1;         /* Indigo 500 */
-  --color-secondary-glow: rgba(99, 102, 241, 0.2);
+  --color-secondary-glow: rgba(99, 102, 241, 0.15);
   --color-accent: #06b6d4;            /* Cyan 500 */
-  --color-accent-glow: rgba(6, 182, 212, 0.2);
+  --color-accent-glow: rgba(6, 182, 212, 0.15);
 
   /* ── Status Indicators ── */
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-danger: #ef4444;
-  --color-diamond: #00d2ff;
+  --color-diamond: #00b4d8;
 
   /* ── ATS Score Range Tokens ── */
   --ats-critical: #ef4444;
   --ats-at-risk: #f97316;
   --ats-fair: #eab308;
-  --ats-strong: #22c55e;
-  --ats-elite: #10b981;
+  --ats-strong: #10b981;
+  --ats-elite: #059669;
 
-  /* ── Warm Dark Theme Palette (Default) ── */
-  --color-background: #0f1117;        /* Warm Dark Base */
-  --color-surface: #171923;           /* Surface Layer */
-  --color-surface-raised: #1d2230;    /* Card Layer */
-  --color-border: #2b3245;            /* Subtle Border */
-  --color-foreground: #f8fafc;        /* Primary Text */
-  --color-secondary-text: #cbd5e1;    /* Secondary Text */
-  --color-muted-text: #94a3b8;        /* Muted Text */
+  /* ── Light Mode Surface Palette ── */
+  --color-background: #fafbfa;        /* Page Background */
+  --color-surface: #ffffff;           /* Cards & Panels */
+  --color-surface-raised: #f4f6f5;    /* Interactive Cards */
+  --color-border: #e2e8f0;            /* Subtle Borders */
+  --color-foreground: #0f172a;        /* Primary Text */
+  --color-secondary-text: #475569;    /* Secondary Text */
+  --color-muted-text: #64748b;        /* Muted Text */
 
   /* ── Chapter Accent Colors ── */
-  --color-chapter-resume: #6366f1;    /* Indigo */
-  --color-chapter-ats: #22c55e;       /* Green */
+  --color-chapter-resume: #3b82f6;    /* Blue */
+  --color-chapter-ats: #10b981;       /* Emerald */
   --color-chapter-portfolio: #a855f7; /* Purple */
   --color-chapter-interview: #f97316; /* Orange */
   --color-chapter-analytics: #06b6d4; /* Cyan */
@@ -56,7 +59,7 @@
   --radius-dialog: 20px;
   --radius-hero: 24px;
 
-  /* ── Spacing Scale (8px Grid Compliance) ── */
+  /* ── Spacing Scale ── */
   --space-xl: 120px;
   --space-lg: 96px;
   --space-md: 64px;
@@ -77,6 +80,32 @@
   --z-modal: 100;
 }
 
+/* ── DARK MODE OVERRIDES ── */
+.dark {
+  --color-primary: #10b981;           /* Emerald 500 */
+  --color-primary-hover: #059669;     /* Emerald 600 */
+  --color-primary-active: #047857;    /* Emerald 700 */
+  --color-primary-glow: rgba(16, 185, 129, 0.25);
+
+  --color-secondary: #6366f1;         /* Indigo 500 */
+  --color-secondary-glow: rgba(99, 102, 241, 0.2);
+  --color-accent: #06b6d4;            /* Cyan 500 */
+  --color-accent-glow: rgba(6, 182, 212, 0.2);
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-diamond: #00d2ff;
+
+  --color-background: #090a0f;        /* Deep Obsidian Base */
+  --color-surface: #0f172a;           /* Dark Surface */
+  --color-surface-raised: #1e293b;    /* Raised Surface */
+  --color-border: rgba(255, 255, 255, 0.08); /* Subtle Dark Border */
+  --color-foreground: #f8fafc;        /* Primary Light Text */
+  --color-secondary-text: #94a3b8;    /* Secondary Text */
+  --color-muted-text: #64748b;        /* Muted Text */
+}
+
 /* ── Tailwind v4 @theme bridge ── */
 @theme inline {
   --color-background: var(--color-background);
@@ -89,7 +118,7 @@
   --color-error: var(--color-danger);
   --color-diamond: var(--color-diamond);
 
-  --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
   --shadow-glow: 0 0 20px var(--color-primary-glow);
   --shadow-accent-glow: 0 0 20px var(--color-accent-glow);
 }
@@ -105,6 +134,7 @@ body {
   scroll-behavior: smooth;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ============================================================
@@ -114,13 +144,13 @@ body {
 .bg-mesh {
   background-color: var(--color-background);
   background-image:
-    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.1) 0px, transparent 45%),
-    radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.08) 0px, transparent 45%),
-    radial-gradient(at 50% 100%, rgba(6, 182, 212, 0.06) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 45%),
+    radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.06) 0px, transparent 45%),
+    radial-gradient(at 50% 100%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
 }
 
 .bg-grid {
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(120, 120, 120, 0.1) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -132,27 +162,27 @@ body {
   transform: translateX(-50%);
   width: 800px;
   height: 500px;
-  background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
 /* ============================================================
-   CVIFY DESIGN SYSTEM CARD ELEVATIONS
+   CARD ELEVATIONS
    ============================================================ */
 
-/* Tier 1: Flat Card */
+/* Flat Card */
 .card-flat {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
-  transition: border-color var(--motion-fast) ease;
+  transition: border-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
 }
 .card-flat:hover {
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
-/* Tier 2: Raised Card (Default Interactive Card) */
+/* Raised Card */
 .card-raised {
   background: var(--color-surface-raised);
   border: 1px solid var(--color-border);
@@ -160,42 +190,42 @@ body {
   transition: all var(--motion-normal) cubic-bezier(0.16, 1, 0.3, 1);
 }
 .card-raised:hover {
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(16, 185, 129, 0.35);
   transform: translateY(-4px);
-  box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.15);
 }
 
-/* Tier 3: Feature Card (Hero/Showcase Container) */
+/* Feature Card */
 .card-feature {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, var(--color-surface-raised) 100%);
-  border: 1px solid rgba(99, 102, 241, 0.25);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-dialog);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
   transition: all var(--motion-slow) cubic-bezier(0.16, 1, 0.3, 1);
 }
 .card-feature:hover {
-  border-color: rgba(99, 102, 241, 0.4);
-  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 0 0 30px var(--color-primary-glow);
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.2), 0 0 30px var(--color-primary-glow);
 }
 
 /* ============================================================
-   LEGACY GLASS UTILITIES
+   GLASS UTILITIES
    ============================================================ */
 
 .glass {
-  background: rgba(23, 25, 35, 0.75);
+  background: var(--color-surface);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--color-border);
 }
 
 .glass-card {
-  background: var(--color-surface-raised);
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   transition: all var(--motion-normal) cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-card:hover {
-  border-color: rgba(99, 102, 241, 0.3);
+  border-color: rgba(16, 185, 129, 0.3);
   transform: translateY(-4px);
 }
 
@@ -221,7 +251,7 @@ body {
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: var(--color-surface);
   color: var(--color-foreground);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-button);
@@ -229,8 +259,8 @@ body {
   transition: all var(--motion-fast) ease;
 }
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--color-surface-raised);
+  border-color: var(--color-primary);
 }
 
 /* ============================================================
@@ -242,7 +272,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(to bottom right, #ffffff 30%, #cbd5e1 100%);
+  background: linear-gradient(to bottom right, var(--color-foreground) 30%, var(--color-secondary-text) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -260,8 +290,8 @@ body {
 
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--color-background); }
-::-webkit-scrollbar-thumb { background: #2b3245; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #3b4255; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-secondary-text); }
 
 .scrollbar-none {
   scrollbar-width: none;

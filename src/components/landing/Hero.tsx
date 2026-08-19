@@ -102,10 +102,10 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/50 border border-white/5 backdrop-blur-md"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-white/5 backdrop-blur-md"
             >
-              <Zap className="w-4 h-4 text-primary animate-pulse" />
-              <span className="text-slate-300 text-[10px] font-black tracking-widest uppercase opacity-85">
+              <Zap className="w-4 h-4 text-emerald-500 dark:text-primary animate-pulse" />
+              <span className="text-slate-700 dark:text-slate-300 text-[10px] font-black tracking-widest uppercase opacity-85">
                 AI Career Operating System
               </span>
             </motion.div>
@@ -113,10 +113,10 @@ const Hero = () => {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-7xl font-black leading-[0.9] tracking-tighter text-white font-outfit uppercase"
+              className="text-4xl md:text-7xl font-black leading-[0.9] tracking-tighter text-slate-900 dark:text-white font-outfit uppercase"
             >
               Everything You <br /> Need to Get Hired. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-accent animate-shimmer bg-[length:200%_auto]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-500 to-indigo-500 animate-shimmer bg-[length:200%_auto]">
                 Powered by AI.
               </span>
             </motion.h1>
@@ -125,7 +125,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-slate-400 prose-block font-medium leading-relaxed"
+              className="text-lg md:text-xl text-slate-600 dark:text-slate-400 prose-block font-medium leading-relaxed"
             >
               One intelligent platform to build, optimize, and launch your career — powered by AI.
             </motion.p>
@@ -139,28 +139,28 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <a
                   href={`${APP_URL}/signup`}
-                  className="group relative bg-primary hover:bg-blue-600 text-white px-10 py-5 rounded-2xl text-lg font-black shadow-2xl shadow-primary/30 transition-all hover:scale-105 flex items-center justify-center gap-3 overflow-hidden w-full sm:w-auto"
+                  className="group relative bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-5 rounded-2xl text-lg font-black shadow-2xl shadow-emerald-500/30 transition-all hover:scale-105 flex items-center justify-center gap-3 overflow-hidden w-full sm:w-auto"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   Start Free <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
                   href="#career-journey"
-                  className="text-white/60 hover:text-white px-8 py-5 rounded-2xl text-lg font-black transition-all border border-white/5 hover:border-white/10 w-full sm:w-auto text-center"
+                  className="text-slate-700 dark:text-white/60 hover:text-slate-950 dark:hover:text-white px-8 py-5 rounded-2xl text-lg font-black transition-all border border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/10 w-full sm:w-auto text-center bg-slate-50 dark:bg-transparent"
                 >
                   Explore System
                 </a>
               </div>
 
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 px-2 text-slate-500 text-xs font-black uppercase tracking-wider italic">
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 px-2 text-slate-500 dark:text-slate-400 text-xs font-black uppercase tracking-wider italic">
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-success" /> 100 Free Diamonds
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" /> 100 Free Diamonds
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-success" /> Portfolio Included
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Portfolio Included
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-success" /> No Credit Card Required
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" /> No Credit Card Required
                 </span>
               </div>
             </motion.div>
@@ -173,17 +173,17 @@ const Hero = () => {
             transition={{ delay: 0.3 }}
             className="lg:col-span-6 w-full"
           >
-            <div className="card-feature p-6 shadow-premium relative space-y-6">
+            <div className="card-feature p-6 shadow-premium relative space-y-6 bg-white dark:bg-slate-950/80 border border-slate-200 dark:border-white/10">
               {/* Tabs controls inside visual box */}
-              <div className="flex overflow-x-auto gap-2 pb-3 border-b border-white/5 scrollbar-none">
+              <div className="flex overflow-x-auto gap-2 pb-3 border-b border-slate-100 dark:border-white/5 scrollbar-none">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
                     className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all ${
                       activeTab === tab.id
-                        ? "bg-primary text-white"
-                        : "bg-slate-900 text-slate-500 hover:text-slate-300"
+                        ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/20"
+                        : "bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-200"
                     }`}
                   >
                     {tab.label}
