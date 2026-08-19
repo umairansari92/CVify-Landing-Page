@@ -100,11 +100,19 @@ const Nav = () => {
             <div className="flex items-center gap-3 sm:gap-4">
               <a href="/" className="flex items-center group">
                 <Image 
+                  src="/CVify Logo Light.jpg" 
+                  alt="CVify Pro" 
+                  width={130} 
+                  height={32} 
+                  className="h-8 w-auto object-contain rounded-lg transition-transform group-hover:scale-105 dark:hidden block"
+                  priority
+                />
+                <Image 
                   src="/CVify Logo Dark.jpg" 
                   alt="CVify Pro" 
                   width={130} 
                   height={32} 
-                  className="h-8 w-auto object-contain rounded-lg transition-transform group-hover:scale-105"
+                  className="h-8 w-auto object-contain rounded-lg transition-transform group-hover:scale-105 hidden dark:block"
                   priority
                 />
               </a>
@@ -256,13 +264,22 @@ const Nav = () => {
             >
               <div className="space-y-6">
                 <div className="flex justify-between items-center pb-4 border-b border-slate-100 dark:border-white/10">
-                  <Image 
-                    src="/CVify Logo Dark.jpg" 
-                    alt="CVify" 
-                    width={110} 
-                    height={28} 
-                    className="h-7 w-auto object-contain"
-                  />
+                  <div className="flex items-center">
+                    <Image 
+                      src="/CVify Logo Light.jpg" 
+                      alt="CVify" 
+                      width={110} 
+                      height={28} 
+                      className="h-7 w-auto object-contain dark:hidden block"
+                    />
+                    <Image 
+                      src="/CVify Logo Dark.jpg" 
+                      alt="CVify" 
+                      width={110} 
+                      height={28} 
+                      className="h-7 w-auto object-contain hidden dark:block"
+                    />
+                  </div>
                   <div className="flex items-center gap-2">
                     <ThemeToggle />
                     <button 

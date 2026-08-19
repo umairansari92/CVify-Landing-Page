@@ -65,6 +65,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
+        <link rel="icon" type="image/jpeg" href="/CVify Favicon.jpg" />
+        <link rel="apple-touch-icon" href="/CVify Favicon.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
