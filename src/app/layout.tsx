@@ -72,17 +72,78 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "WebApplication",
-              "name": "CVify Pro - ATS Resume Builder",
-              "url": "https://cvify.pro",
-              "description": "The best free AI-powered ATS resume builder and professional CV maker.",
-              "applicationCategory": "BusinessApplication",
-              "operatingSystem": "Web",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-              }
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://cvifypro.vercel.app/#organization",
+                  "name": "DataVerse Technologies",
+                  "url": "https://cvifypro.vercel.app",
+                  "logo": "https://app-cvifypro.vercel.app/CVify%20Logo%20Dark.jpg",
+                  "founder": {
+                    "@id": "https://cvifypro.vercel.app/#founder"
+                  },
+                  "sameAs": [
+                    "https://github.com/umairansari92",
+                    "https://www.linkedin.com/in/umair-ahmed-dev"
+                  ]
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://cvifypro.vercel.app/#founder",
+                  "name": "Umair Ahmed",
+                  "jobTitle": "Lead Systems Architect & Founder",
+                  "worksFor": {
+                    "@id": "https://cvifypro.vercel.app/#organization"
+                  },
+                  "description": "Senior Full Stack Developer, Systems Architect, and Educator. Creator of CVify Pro.",
+                  "sameAs": [
+                    "https://github.com/umairansari92",
+                    "https://www.linkedin.com/in/umair-ahmed-dev"
+                  ]
+                },
+                {
+                  "@type": "SoftwareApplication",
+                  "@id": "https://cvifypro.vercel.app/#software",
+                  "name": "CVify Pro",
+                  "alternateName": ["CVify", "CVifyPro", "CVify Pro AI"],
+                  "applicationCategory": "BusinessApplication",
+                  "applicationSubCategory": "Career & Resume Intelligence Platform",
+                  "operatingSystem": "Web, Android, iOS, Windows, macOS, Linux",
+                  "url": "https://cvifypro.vercel.app",
+                  "image": "https://app-cvifypro.vercel.app/CVify%20Logo%20Dark.jpg",
+                  "description": "AI-powered Career Intelligence and Portfolio Ecosystem providing ATS-optimized resume building, 9-stage resume parsing, real-time job description matching, and customizable live portfolio themes.",
+                  "author": {
+                    "@id": "https://cvifypro.vercel.app/#founder"
+                  },
+                  "publisher": {
+                    "@id": "https://cvifypro.vercel.app/#organization"
+                  },
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "category": "Freemium"
+                  },
+                  "featureList": [
+                    "9-Stage Resume Intelligence Parsing & Auto-Healing",
+                    "Context-Aware ATS v2.0 Micro-SaaS Engine",
+                    "13 Live Portfolio Themes with Reactive Theme Engine v4.0",
+                    "Natural Language AI Intent Command Bar",
+                    "AI Job Description Matcher & Keyword Gap Analysis",
+                    "AI Role-Play Interview Simulator",
+                    "Dynamic Public Shareable Resumes & Portfolios"
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://cvifypro.vercel.app/#website",
+                  "url": "https://cvifypro.vercel.app",
+                  "name": "CVify Pro",
+                  "publisher": {
+                    "@id": "https://cvifypro.vercel.app/#organization"
+                  }
+                }
+              ]
             })
           }}
         />
