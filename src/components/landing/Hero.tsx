@@ -72,7 +72,7 @@ const Hero = () => {
   }, [activeTab]);
 
   return (
-    <section className="relative pt-44 pb-32 px-6 overflow-hidden min-h-screen flex flex-col justify-center bg-hero-glow">
+    <section className="relative pt-32 sm:pt-44 pb-20 sm:pb-32 px-4 sm:px-6 overflow-hidden min-h-screen flex flex-col justify-center bg-hero-glow">
       {/* Background blobs */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <motion.div
@@ -82,7 +82,7 @@ const Hero = () => {
             scale: [1, 1.04, 1]
           }}
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/4 -right-20 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] opacity-35"
+          className="absolute top-1/4 -right-20 w-[350px] sm:w-[600px] h-[350px] sm:h-[600px] bg-primary/10 rounded-full blur-[90px] sm:blur-[120px] opacity-35"
         />
         <motion.div
           animate={{
@@ -91,21 +91,21 @@ const Hero = () => {
             scale: [1, 1.08, 1]
           }}
           transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-1/4 -left-20 w-[700px] h-[700px] bg-accent/10 rounded-full blur-[140px] opacity-25"
+          className="absolute -bottom-1/4 -left-20 w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] bg-accent/10 rounded-full blur-[100px] sm:blur-[140px] opacity-25"
         />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Column: Messaging */}
-          <div className="lg:col-span-6 space-y-10 text-left">
+          <div className="lg:col-span-6 space-y-6 sm:space-y-10 text-left">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-white/5 backdrop-blur-md"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-white/10 backdrop-blur-md"
             >
-              <Zap className="w-4 h-4 text-emerald-500 dark:text-primary animate-pulse" />
-              <span className="text-slate-700 dark:text-slate-300 text-[10px] font-black tracking-widest uppercase opacity-85">
+              <Zap className="w-4 h-4 text-emerald-600 dark:text-primary animate-pulse" />
+              <span className="text-slate-800 dark:text-slate-300 text-[10px] font-black tracking-widest uppercase">
                 AI Career Operating System
               </span>
             </motion.div>
@@ -113,9 +113,9 @@ const Hero = () => {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-7xl font-black leading-[0.9] tracking-tighter text-slate-900 dark:text-white font-outfit uppercase"
+              className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight sm:leading-[0.95] tracking-tight sm:tracking-tighter text-slate-900 dark:text-white font-outfit uppercase"
             >
-              Everything You <br /> Need to Get Hired. <br />
+              Everything You <br className="hidden sm:inline" /> Need to Get Hired. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 via-teal-500 to-indigo-500 animate-shimmer bg-[length:200%_auto]">
                 Powered by AI.
               </span>
@@ -125,7 +125,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-slate-600 dark:text-slate-400 prose-block font-medium leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 prose-block font-medium leading-relaxed"
             >
               One intelligent platform to build, optimize, and launch your career — powered by AI.
             </motion.p>
@@ -136,23 +136,23 @@ const Hero = () => {
               transition={{ delay: 0.2 }}
               className="space-y-6"
             >
-              <div className="flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                 <a
                   href={`${APP_URL}/signup`}
-                  className="group relative bg-emerald-500 hover:bg-emerald-600 text-white px-10 py-5 rounded-2xl text-lg font-black shadow-2xl shadow-emerald-500/30 transition-all hover:scale-105 flex items-center justify-center gap-3 overflow-hidden w-full sm:w-auto"
+                  className="group relative bg-emerald-500 hover:bg-emerald-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl text-base sm:text-lg font-black shadow-xl sm:shadow-2xl shadow-emerald-500/30 transition-all hover:scale-[1.02] sm:hover:scale-105 flex items-center justify-center gap-3 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                   Start Free <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
                 <a
                   href="#career-journey"
-                  className="text-slate-700 dark:text-white/60 hover:text-slate-950 dark:hover:text-white px-8 py-5 rounded-2xl text-lg font-black transition-all border border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/10 w-full sm:w-auto text-center bg-slate-50 dark:bg-transparent"
+                  className="text-slate-800 dark:text-white/80 hover:text-slate-950 dark:hover:text-white px-6 sm:px-8 py-4 sm:py-5 rounded-2xl text-base sm:text-lg font-black transition-all border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/20 text-center bg-white dark:bg-transparent shadow-sm dark:shadow-none"
                 >
                   Explore System
                 </a>
               </div>
 
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 px-2 text-slate-500 dark:text-slate-400 text-xs font-black uppercase tracking-wider italic">
+              <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 text-slate-600 dark:text-slate-400 text-xs font-black uppercase tracking-wider">
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-500" /> 100 Free Diamonds
                 </span>
@@ -173,17 +173,17 @@ const Hero = () => {
             transition={{ delay: 0.3 }}
             className="lg:col-span-6 w-full"
           >
-            <div className="card-feature p-6 shadow-premium relative space-y-6 bg-white dark:bg-slate-950/80 border border-slate-200 dark:border-white/10">
+            <div className="p-4 sm:p-6 rounded-3xl sm:rounded-[2.5rem] bg-white dark:bg-slate-950/90 border border-slate-200 dark:border-white/10 shadow-xl dark:shadow-2xl relative space-y-4 sm:space-y-6">
               {/* Tabs controls inside visual box */}
-              <div className="flex overflow-x-auto gap-2 pb-3 border-b border-slate-100 dark:border-white/5 scrollbar-none">
+              <div className="flex overflow-x-auto gap-2 pb-3 border-b border-slate-200 dark:border-white/5 scrollbar-none">
                 {tabs.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all ${
+                    className={`px-3 sm:px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all whitespace-nowrap ${
                       activeTab === tab.id
                         ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/20"
-                        : "bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-200"
+                        : "bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-200"
                     }`}
                   >
                     {tab.label}
@@ -192,7 +192,7 @@ const Hero = () => {
               </div>
 
               {/* Viewport content */}
-              <div className="h-[320px] relative overflow-hidden flex items-center justify-center">
+              <div className="h-[280px] sm:h-[320px] relative overflow-hidden flex items-center justify-center rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-white/5 p-2 sm:p-4">
                 <AnimatePresence mode="wait">
                   {activeTab === "resume" && (
                     <motion.div
@@ -200,7 +200,7 @@ const Hero = () => {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      className="w-full h-full relative overflow-hidden rounded-2xl"
+                      className="w-full h-full relative overflow-hidden rounded-xl border border-slate-200 dark:border-white/10"
                     >
                       {/* Real dashboard screenshot */}
                       <img
@@ -212,12 +212,12 @@ const Hero = () => {
                       {/* Subtle bottom gradient */}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent pointer-events-none" />
                       {/* Live badge */}
-                      <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-white">
+                      <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/70 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-white">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                         Career OS · Live
                       </div>
                       {/* 99% badge top right */}
-                      <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-primary/20 backdrop-blur-sm border border-primary/30 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-primary">
+                      <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-emerald-500/20 backdrop-blur-sm border border-emerald-500/30 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-emerald-700 dark:text-emerald-400 bg-white/80 dark:bg-transparent">
                         99% Job-Ready
                       </div>
                     </motion.div>
@@ -229,25 +229,25 @@ const Hero = () => {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      className="w-full h-full flex flex-col justify-between text-left space-y-4"
+                      className="w-full h-full flex flex-col justify-between text-left space-y-4 p-2 sm:p-4"
                     >
-                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
+                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-500 dark:text-slate-400">
                         <span>ATS Hybrid Scanner v4.0</span>
-                        <Target className="w-3.5 h-3.5 text-slate-500" />
+                        <Target className="w-3.5 h-3.5 text-emerald-500" />
                       </div>
 
                       <div className="flex-1 flex flex-col items-center justify-center space-y-4">
                         {/* Live Workflow Status */}
                         <div className="w-full max-w-sm space-y-2">
-                          <div className="flex justify-between text-[11px] font-mono font-bold text-slate-400">
+                          <div className="flex justify-between text-[11px] font-mono font-bold text-slate-700 dark:text-slate-300">
                             <span className="flex items-center gap-2">
-                              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+                              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                               {atsSteps[atsStage]}
                             </span>
-                            <span>{atsScore}%</span>
+                            <span className="text-emerald-600 dark:text-emerald-400">{atsScore}%</span>
                           </div>
 
-                          <div className="h-2 bg-slate-900 rounded-full overflow-hidden p-0.5 border border-white/5">
+                          <div className="h-2.5 bg-slate-200 dark:bg-slate-900 rounded-full overflow-hidden p-0.5 border border-slate-300 dark:border-white/5">
                             <motion.div
                               className="h-full bg-gradient-to-r from-blue-500 to-emerald-400 rounded-full"
                               animate={{ width: `${atsScore}%` }}
@@ -264,17 +264,17 @@ const Hero = () => {
                               animate={{ opacity: 1, y: 0 }}
                               className="space-y-3 text-center"
                             >
-                              <p className="text-[10px] font-black text-success uppercase tracking-widest bg-success/10 border border-success/20 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
+                              <p className="text-[10px] font-black text-emerald-700 dark:text-emerald-400 uppercase tracking-widest bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full inline-flex items-center gap-1.5">
                                 <Check className="w-3 h-3" /> 91% Match — Aligned to target JD
                               </p>
-                              <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
+                              <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-1">
                                 {keywords.map((kw, i) => (
                                   <motion.span
                                     key={kw}
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="text-[9px] font-black uppercase tracking-wider bg-slate-900 border border-white/10 text-cyan-400 px-2.5 py-1 rounded-lg"
+                                    className="text-[9px] font-black uppercase tracking-wider bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 text-cyan-600 dark:text-cyan-400 px-2.5 py-1 rounded-lg"
                                   >
                                     + {kw}
                                   </motion.span>
@@ -285,7 +285,7 @@ const Hero = () => {
                         </AnimatePresence>
                       </div>
 
-                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden" />
+                      <div className="h-1 bg-slate-200 dark:bg-slate-900 rounded-full w-full overflow-hidden" />
                     </motion.div>
                   )}
 
@@ -295,7 +295,7 @@ const Hero = () => {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      className="w-full h-full relative overflow-hidden rounded-2xl"
+                      className="w-full h-full relative overflow-hidden rounded-xl border border-slate-200 dark:border-white/10"
                     >
                       <img
                         src="/demos/apex-sarahj-hero.png"
@@ -304,7 +304,7 @@ const Hero = () => {
                         draggable={false}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
-                      <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-white">
+                      <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/70 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-white">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                         APEX Theme · Live
                       </div>
@@ -317,21 +317,21 @@ const Hero = () => {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      className="w-full h-full flex flex-col justify-between text-left space-y-3"
+                      className="w-full h-full flex flex-col justify-between text-left space-y-3 p-2 sm:p-4"
                     >
-                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
+                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-500 dark:text-slate-400">
                         <span>AI Behavioral Screenings</span>
                         <MessageSquare className="w-3.5 h-3.5 text-slate-500" />
                       </div>
                       <div className="flex-1 space-y-3 pt-2">
-                        <div className="bg-slate-900 p-3.5 rounded-xl border border-white/5 text-xs text-slate-400">
-                          <span className="font-black text-primary">Question:</span> "How do you handle Redis cache keys invalidation?"
+                        <div className="bg-slate-100 dark:bg-slate-900 p-3.5 rounded-xl border border-slate-200 dark:border-white/5 text-xs text-slate-700 dark:text-slate-300">
+                          <span className="font-black text-emerald-600 dark:text-emerald-400">Question:</span> "How do you handle Redis cache keys invalidation?"
                         </div>
-                        <div className="bg-primary/5 p-3.5 rounded-xl border border-primary/10 text-xs text-slate-300">
-                          <span className="font-black text-primary">Answer:</span> "By mapping key patterns using binary event indicators."
+                        <div className="bg-emerald-500/10 p-3.5 rounded-xl border border-emerald-500/20 text-xs text-slate-800 dark:text-slate-200">
+                          <span className="font-black text-emerald-600 dark:text-emerald-400">Answer:</span> "By mapping key patterns using binary event indicators."
                         </div>
                       </div>
-                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden" />
+                      <div className="h-1 bg-slate-200 dark:bg-slate-900 rounded-full w-full overflow-hidden" />
                     </motion.div>
                   )}
 
@@ -341,23 +341,23 @@ const Hero = () => {
                       initial={{ opacity: 0, scale: 0.95 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
-                      className="w-full h-full flex flex-col justify-between text-left space-y-4"
+                      className="w-full h-full flex flex-col justify-between text-left space-y-4 p-2 sm:p-4"
                     >
-                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-600">
+                      <div className="flex justify-between items-center text-[10px] font-mono text-slate-500 dark:text-slate-400">
                         <span>Candidate Analytics HUD</span>
                         <BarChart3 className="w-3.5 h-3.5 text-slate-500" />
                       </div>
-                      <div className="flex-1 grid grid-cols-2 gap-4 pt-2">
-                        <div className="bg-slate-900 p-4 rounded-xl border border-white/5 text-left">
-                          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Views</p>
-                          <p className="text-xl font-black text-white">2.4k</p>
+                      <div className="flex-1 grid grid-cols-2 gap-3 sm:gap-4 pt-2">
+                        <div className="bg-slate-100 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-white/5 text-left">
+                          <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Views</p>
+                          <p className="text-xl font-black text-slate-900 dark:text-white font-outfit">2.4k</p>
                         </div>
-                        <div className="bg-slate-900 p-4 rounded-xl border border-white/5 text-left">
-                          <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Downloads</p>
-                          <p className="text-xl font-black text-white">842</p>
+                        <div className="bg-slate-100 dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-white/5 text-left">
+                          <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Downloads</p>
+                          <p className="text-xl font-black text-slate-900 dark:text-white font-outfit">842</p>
                         </div>
                       </div>
-                      <div className="h-1 bg-slate-900 rounded-full w-full overflow-hidden" />
+                      <div className="h-1 bg-slate-200 dark:bg-slate-900 rounded-full w-full overflow-hidden" />
                     </motion.div>
                   )}
                 </AnimatePresence>

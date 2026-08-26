@@ -17,53 +17,53 @@ const matrix = [
 
 const Comparison = () => {
   return (
-    <section id="comparison" className="py-40 px-6 border-t border-white/5 relative overflow-hidden">
-      <div className="max-w-4xl mx-auto space-y-24">
+    <section id="comparison" className="py-24 sm:py-36 px-4 sm:px-6 border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
+      <div className="max-w-4xl mx-auto space-y-12 sm:space-y-16">
         {/* Header */}
-        <div className="text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">
+        <div className="text-center space-y-4 sm:space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-black uppercase tracking-widest">
             Capabilities Matrix
           </div>
-          <h2 className="text-4xl md:text-7xl font-black text-white font-outfit tracking-tighter uppercase italic">
-            Why CVify <span className="text-primary">Pro.</span>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white font-outfit tracking-tight sm:tracking-tighter uppercase">
+            Why CVify <span className="text-emerald-500">Pro.</span>
           </h2>
-          <p className="text-slate-400 font-medium text-xl max-w-xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 font-medium text-base sm:text-lg max-w-xl mx-auto">
             Compare the core capabilities of the AI Career Operating System against standard single-file PDF generators.
           </p>
         </div>
 
         {/* Comparison Grid Table */}
-        <div className="glass-card rounded-[2.5rem] border-white/5 bg-slate-900/20 overflow-hidden text-left shadow-premium">
-          <div className="grid grid-cols-12 gap-4 px-8 py-6 border-b border-white/5 bg-white/[0.01] text-xs font-black uppercase tracking-widest text-slate-500">
+        <div className="rounded-3xl sm:rounded-[2.5rem] border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900/40 overflow-hidden text-left shadow-xl dark:shadow-none">
+          <div className="grid grid-cols-12 gap-2 sm:gap-4 px-4 sm:px-8 py-4 sm:py-6 border-b border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-white/[0.01] text-[10px] sm:text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
             <div className="col-span-6 sm:col-span-8">System Capabilities</div>
-            <div className="col-span-3 sm:col-span-2 text-center text-primary">CVify Pro</div>
-            <div className="col-span-3 sm:col-span-2 text-center">Traditional</div>
+            <div className="col-span-3 sm:col-span-2 text-center text-emerald-600 dark:text-emerald-400">CVify Pro</div>
+            <div className="col-span-3 sm:col-span-2 text-center text-slate-500">Traditional</div>
           </div>
 
-          <div className="divide-y divide-white/5">
+          <div className="divide-y divide-slate-100 dark:divide-white/5">
             {matrix.map((row, i) => (
-              <div key={i} className="grid grid-cols-12 gap-4 px-8 py-5 items-center hover:bg-white/[0.01] transition-colors">
-                <div className="col-span-6 sm:col-span-8 text-sm font-bold text-slate-300">{row.feature}</div>
+              <div key={i} className="grid grid-cols-12 gap-2 sm:gap-4 px-4 sm:px-8 py-3.5 sm:py-4.5 items-center hover:bg-slate-50 dark:hover:bg-white/[0.01] transition-colors">
+                <div className="col-span-6 sm:col-span-8 text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 leading-snug">{row.feature}</div>
                 
                 {/* CVify Pro mark */}
-                <div className="col-span-3 sm:col-span-2 flex justify-center text-primary">
+                <div className="col-span-3 sm:col-span-2 flex justify-center text-emerald-500">
                   {row.cvify ? (
-                    <div className="p-1 bg-primary/10 rounded-full border border-primary/20">
-                      <Check className="w-4 h-4" />
+                    <div className="p-1 sm:p-1.5 bg-emerald-500/10 rounded-full border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                      <Check className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                     </div>
                   ) : (
-                    <X className="w-4 h-4 text-slate-600" />
+                    <X className="w-4 h-4 text-slate-400 dark:text-slate-600" />
                   )}
                 </div>
 
                 {/* Traditional mark */}
                 <div className="col-span-3 sm:col-span-2 flex justify-center">
                   {row.traditional ? (
-                    <div className="p-1 bg-white/5 rounded-full border border-white/5 text-slate-400">
-                      <Check className="w-4 h-4" />
+                    <div className="p-1 sm:p-1.5 bg-slate-100 dark:bg-white/5 rounded-full border border-slate-200 dark:border-white/5 text-slate-500 dark:text-slate-400">
+                      <Check className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                     </div>
                   ) : (
-                    <X className="w-4 h-4 text-error" />
+                    <X className="w-4 h-4 text-rose-500" />
                   )}
                 </div>
               </div>
@@ -72,8 +72,8 @@ const Comparison = () => {
         </div>
 
         {/* CTA below table */}
-        <div className="text-center">
-          <a href={`${APP_URL}/signup`} className="inline-flex items-center gap-2 bg-primary hover:bg-blue-600 text-white px-10 py-5 rounded-2xl text-lg font-black shadow-xl">
+        <div className="text-center pt-2 sm:pt-4">
+          <a href={`${APP_URL}/signup`} className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl text-base sm:text-lg font-black shadow-xl shadow-emerald-500/25 transition-all hover:scale-105">
             Unlock Full Operating System <ArrowRight className="w-4 h-4" />
           </a>
         </div>

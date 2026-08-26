@@ -30,26 +30,26 @@ const timelineRows = [
 
 const ProblemSection = () => {
   return (
-    <section className="py-32 px-6 border-t border-white/5 relative overflow-hidden bg-slate-950/40">
-      <div className="max-w-7xl mx-auto space-y-20">
+    <section className="py-24 sm:py-32 px-4 sm:px-6 border-t border-slate-200 dark:border-white/5 relative overflow-hidden bg-slate-50/50 dark:bg-slate-950/40">
+      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-error/10 border border-error/20 text-error text-[10px] font-black uppercase tracking-widest">
+        <div className="text-center max-w-3xl mx-auto space-y-4 sm:space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 text-[10px] font-black uppercase tracking-widest">
             The Harsh Reality
           </div>
-          <h2 className="text-4xl md:text-6xl font-black text-white font-outfit tracking-tighter uppercase italic">
-            Stop Sending Resumes Into <span className="text-error">The Void.</span>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white font-outfit tracking-tight sm:tracking-tighter uppercase">
+            Stop Sending Resumes Into <span className="text-rose-500">The Void.</span>
           </h2>
-          <p className="text-slate-400 font-medium text-lg prose-block mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 font-medium text-base sm:text-lg prose-block mx-auto">
             Traditional job hunting is broken. Compare the outdated apply-and-pray method against the CVify Pro AI Operating System.
           </p>
         </div>
 
         {/* Contrast Table Container */}
-        <div className="grid lg:grid-cols-2 gap-8 items-start">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-start">
           {/* Left Column: Without CVify */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between p-4 rounded-2xl bg-error/10 border border-error/20 text-error font-black uppercase text-xs tracking-widest">
+          <div className="space-y-3 sm:space-y-4">
+            <div className="flex items-center justify-between p-4 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-600 dark:text-rose-400 font-black uppercase text-xs tracking-widest">
               <span>Without CVify Pro</span>
               <XCircle className="w-5 h-5" />
             </div>
@@ -61,22 +61,22 @@ const ProblemSection = () => {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="p-6 rounded-2xl bg-slate-950/80 border border-error/20 text-left space-y-1 hover:border-error/40 transition-colors"
+                  transition={{ delay: idx * 0.08 }}
+                  className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-950/80 border border-rose-500/20 text-left space-y-1 hover:border-rose-500/40 shadow-sm dark:shadow-none transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-black text-error/60">0{idx + 1}</span>
-                    <h4 className="text-base font-black text-slate-200 uppercase tracking-tight">{row.without.title}</h4>
+                    <span className="text-xs font-mono font-black text-rose-500/70">0{idx + 1}</span>
+                    <h4 className="text-sm sm:text-base font-black text-slate-900 dark:text-slate-200 uppercase tracking-tight">{row.without.title}</h4>
                   </div>
-                  <p className="text-xs font-medium text-slate-500 pl-7">{row.without.desc}</p>
+                  <p className="text-xs font-medium text-slate-600 dark:text-slate-400 pl-7 leading-relaxed">{row.without.desc}</p>
                 </motion.div>
               ))}
             </div>
           </div>
 
           {/* Right Column: With CVify */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between p-4 rounded-2xl bg-success/10 border border-success/20 text-success font-black uppercase text-xs tracking-widest">
+          <div className="space-y-3 sm:space-y-4">
+            <div className="flex items-center justify-between p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 font-black uppercase text-xs tracking-widest">
               <span>With CVify Pro</span>
               <CheckCircle2 className="w-5 h-5" />
             </div>
@@ -88,14 +88,14 @@ const ProblemSection = () => {
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="p-6 rounded-2xl bg-slate-900/60 border border-success/30 text-left space-y-1 hover:border-success/50 transition-colors"
+                  transition={{ delay: idx * 0.08 }}
+                  className="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-emerald-500/30 text-left space-y-1 hover:border-emerald-500/50 shadow-sm dark:shadow-none transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-xs font-mono font-black text-success/60">0{idx + 1}</span>
-                    <h4 className="text-base font-black text-white uppercase tracking-tight">{row.withCvify.title}</h4>
+                    <span className="text-xs font-mono font-black text-emerald-600 dark:text-emerald-400">0{idx + 1}</span>
+                    <h4 className="text-sm sm:text-base font-black text-slate-900 dark:text-white uppercase tracking-tight">{row.withCvify.title}</h4>
                   </div>
-                  <p className="text-xs font-medium text-slate-400 pl-7">{row.withCvify.desc}</p>
+                  <p className="text-xs font-medium text-slate-600 dark:text-slate-300 pl-7 leading-relaxed">{row.withCvify.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -103,10 +103,10 @@ const ProblemSection = () => {
         </div>
 
         {/* Bottom Call to Action */}
-        <div className="text-center pt-8">
+        <div className="text-center pt-4 sm:pt-6">
           <a
             href={`${APP_URL}/signup`}
-            className="inline-flex items-center gap-3 bg-primary hover:bg-blue-600 text-white px-10 py-5 rounded-2xl text-base font-black shadow-xl shadow-primary/20 transition-all hover:scale-105"
+            className="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl text-base font-black shadow-xl shadow-emerald-500/25 transition-all hover:scale-105"
           >
             Fix Your Resume Now <ArrowRight className="w-4 h-4" />
           </a>

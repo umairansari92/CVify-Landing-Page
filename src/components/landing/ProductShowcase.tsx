@@ -57,31 +57,31 @@ const ProductShowcase = () => {
   const selected = tabs.find(t => t.id === activeTab) || tabs[0];
 
   return (
-    <section id="showcase" className="py-40 px-6 border-t border-white/5 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto space-y-20">
+    <section id="showcase" className="py-24 sm:py-36 px-4 sm:px-6 border-t border-slate-200 dark:border-white/5 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto space-y-12 sm:space-y-16">
         {/* Header */}
-        <div className="text-center max-w-4xl mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">
+        <div className="text-center max-w-4xl mx-auto space-y-4 sm:space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-black uppercase tracking-widest">
             Guided Showcase
           </div>
-          <h2 className="text-4xl md:text-7xl font-black text-white font-outfit tracking-tighter uppercase italic">
-            See the OS <span className="text-primary">in Action.</span>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white font-outfit tracking-tight sm:tracking-tighter uppercase">
+            See the OS <span className="text-emerald-500">in Action.</span>
           </h2>
-          <p className="text-slate-400 font-medium text-xl max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 font-medium text-base sm:text-lg max-w-2xl mx-auto">
             Interact with the core subsystems. Witness the execution loops that optimize your application assets.
           </p>
         </div>
 
         {/* Tab Controls */}
-        <div className="flex flex-wrap justify-center gap-4 border-b border-white/5 pb-8">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 border-b border-slate-200 dark:border-white/5 pb-6 sm:pb-8">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-wider border transition-all ${
+              className={`px-4 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-black text-xs sm:text-sm uppercase tracking-wider border transition-all ${
                 activeTab === tab.id
-                  ? "bg-primary border-primary text-white shadow-glow"
-                  : "bg-slate-900 border-white/5 text-slate-500 hover:text-slate-300"
+                  ? "bg-emerald-500 border-emerald-500 text-white shadow-lg shadow-emerald-500/25"
+                  : "bg-white dark:bg-slate-900 border-slate-200 dark:border-white/5 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white"
               }`}
             >
               {tab.label}
@@ -90,27 +90,27 @@ const ProductShowcase = () => {
         </div>
 
         {/* Content Panel */}
-        <div className="grid lg:grid-cols-12 gap-12 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center max-w-6xl mx-auto">
           {/* Left info */}
-          <div className="lg:col-span-5 space-y-8 text-left">
-            <div className="space-y-4">
-              <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">{selected.tagline}</span>
-              <h3 className="text-3xl font-black text-white font-outfit uppercase tracking-tight">{selected.label}</h3>
+          <div className="lg:col-span-5 space-y-6 sm:space-y-8 text-left">
+            <div className="space-y-2 sm:space-y-4">
+              <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-[0.2em]">{selected.tagline}</span>
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-outfit uppercase tracking-tight">{selected.label}</h3>
             </div>
             
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {selected.features.map((feat, idx) => (
-                <li key={idx} className="flex items-start gap-3 text-slate-400 font-bold text-sm leading-relaxed">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <li key={idx} className="flex items-start gap-3 text-slate-600 dark:text-slate-300 font-bold text-xs sm:text-sm leading-relaxed">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="pt-6">
+            <div className="pt-2 sm:pt-4">
               <a
                 href={`${APP_URL}/signup`}
-                className="inline-flex items-center gap-2 bg-primary/10 hover:bg-primary/20 border border-primary/20 hover:border-primary text-primary px-8 py-4 rounded-2xl font-black text-sm transition-all"
+                className="inline-flex items-center gap-2 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 hover:border-emerald-500 text-emerald-600 dark:text-emerald-400 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-black text-xs sm:text-sm transition-all"
               >
                 Launch {selected.label} <ChevronRight className="w-4 h-4" />
               </a>
@@ -119,7 +119,7 @@ const ProductShowcase = () => {
 
           {/* Right Preview Visualization */}
           <div className="lg:col-span-7 w-full">
-            <div className="glass-card rounded-[3.5rem] border-white/5 bg-slate-950 p-4 h-[400px] relative overflow-hidden flex items-center justify-center shadow-premium">
+            <div className="rounded-3xl sm:rounded-[2.5rem] md:rounded-[3.5rem] border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-950 p-3 sm:p-4 h-[350px] sm:h-[400px] relative overflow-hidden flex items-center justify-center shadow-xl dark:shadow-none">
               <div className="absolute inset-0 bg-mesh opacity-10 pointer-events-none" />
               
               <AnimatePresence mode="wait">
@@ -129,7 +129,7 @@ const ProductShowcase = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="w-full h-full relative overflow-hidden rounded-b-xl"
+                    className="w-full h-full relative overflow-hidden rounded-xl sm:rounded-2xl border border-slate-100 dark:border-white/5"
                   >
                     {/* Real dashboard screenshot */}
                     <img
@@ -140,17 +140,16 @@ const ProductShowcase = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
                     {/* Floating stat pill */}
-                    <div className="absolute top-3 right-3 flex items-center gap-2 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1.5 text-[8px] font-black uppercase tracking-widest text-white">
+                    <div className="absolute top-3 right-3 flex items-center gap-2 bg-black/70 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1.5 text-[8px] font-black uppercase tracking-widest text-white">
                       <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
                       Career Health: 100/100
                     </div>
-                    <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/60 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-white">
+                    <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-black/70 backdrop-blur-sm border border-white/10 rounded-full px-2.5 py-1 text-[8px] font-black uppercase tracking-widest text-white">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                       99% Job-Ready · Live
                     </div>
                   </motion.div>
                 )}
-
 
                 {activeTab === "ats" && (
                   <motion.div
@@ -158,18 +157,18 @@ const ProductShowcase = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="w-full h-full flex flex-col justify-between p-6 text-center space-y-4"
+                    className="w-full h-full flex flex-col justify-between p-4 sm:p-6 text-center space-y-4 bg-slate-50 dark:bg-slate-900/50 rounded-2xl"
                   >
-                    <div className="text-xs font-mono text-slate-500 border-b border-white/5 pb-3">
+                    <div className="text-xs font-mono text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-white/5 pb-3">
                       <span>ATS Sweep Pipeline</span>
                     </div>
                     <div className="flex-1 flex flex-col items-center justify-center space-y-4">
-                      <div className="relative w-28 h-28 rounded-full border border-dashed border-primary/40 flex items-center justify-center">
-                        <div className="absolute inset-2 border border-dashed border-primary/20 rounded-full" />
-                        <span className="text-3xl font-black text-white font-outfit">91%</span>
-                        <div className="absolute inset-0 border-t-2 border-primary rounded-full animate-spin" />
+                      <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full border border-dashed border-emerald-500/40 flex items-center justify-center">
+                        <div className="absolute inset-2 border border-dashed border-emerald-500/20 rounded-full" />
+                        <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-outfit">91%</span>
+                        <div className="absolute inset-0 border-t-2 border-emerald-500 rounded-full animate-spin" />
                       </div>
-                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Scanning Keyword density against JD...</p>
+                      <p className="text-[10px] font-black text-slate-600 dark:text-slate-400 uppercase tracking-widest">Scanning Keyword density against JD...</p>
                     </div>
                   </motion.div>
                 )}
@@ -180,18 +179,18 @@ const ProductShowcase = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="w-full h-full flex flex-col"
+                    className="w-full h-full flex flex-col rounded-2xl overflow-hidden border border-slate-200 dark:border-white/10"
                   >
                     {/* Mini browser chrome */}
-                    <div className="flex items-center gap-1.5 text-xs text-slate-500 border-b border-white/5 pb-3 px-2 pt-2 flex-shrink-0">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-white/5 pb-2 px-3 pt-2 bg-slate-100 dark:bg-slate-900 flex-shrink-0">
                       <div className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
                       <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
                       <div className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
-                      <span className="ml-3 font-mono text-[10px]">app-cvifypro.vercel.app/p/sarahj</span>
-                      <span className="ml-auto text-[9px] text-emerald-400 font-black">● LIVE</span>
+                      <span className="ml-3 font-mono text-[10px] truncate">app-cvifypro.vercel.app/p/sarahj</span>
+                      <span className="ml-auto text-[9px] text-emerald-500 font-black">● LIVE</span>
                     </div>
                     {/* Real screenshot */}
-                    <div className="flex-1 relative overflow-hidden rounded-b-xl">
+                    <div className="flex-1 relative overflow-hidden">
                       <img
                         src="/demos/apex-sarahj-hero.png"
                         alt="CVifyPro APEX theme — Sarah Jenkins live portfolio"
@@ -203,24 +202,23 @@ const ProductShowcase = () => {
                   </motion.div>
                 )}
 
-
                 {activeTab === "interview" && (
                   <motion.div
                     key="interview"
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.95 }}
-                    className="w-full h-full flex flex-col justify-between p-6 space-y-4"
+                    className="w-full h-full flex flex-col justify-between p-4 sm:p-6 space-y-3 bg-slate-50 dark:bg-slate-900/50 rounded-2xl"
                   >
-                    <div className="text-xs font-mono text-slate-500 border-b border-white/5 pb-3">
+                    <div className="text-xs font-mono text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-white/5 pb-3">
                       <span>Screening Simulation</span>
                     </div>
-                    <div className="flex-1 space-y-4 text-left pt-2">
-                      <div className="bg-slate-900/80 p-4 rounded-2xl border border-white/5 text-xs text-slate-300">
-                        <span className="font-black text-primary">Interviewer AI:</span> "How did you scale the API routes by 300%?"
+                    <div className="flex-1 space-y-3 text-left pt-2">
+                      <div className="bg-white dark:bg-slate-900/80 p-3.5 sm:p-4 rounded-2xl border border-slate-200 dark:border-white/5 text-xs text-slate-700 dark:text-slate-300">
+                        <span className="font-black text-emerald-600 dark:text-emerald-400">Interviewer AI:</span> "How did you scale the API routes by 300%?"
                       </div>
-                      <div className="bg-primary/5 p-4 rounded-2xl border border-primary/20 text-xs text-white pl-8">
-                        <span className="font-black text-primary">Candidate (You):</span> "By implementing Redis cache layer and database indexing."
+                      <div className="bg-emerald-500/10 p-3.5 sm:p-4 rounded-2xl border border-emerald-500/20 text-xs text-slate-800 dark:text-white pl-6 sm:pl-8">
+                        <span className="font-black text-emerald-600 dark:text-emerald-400">Candidate (You):</span> "By implementing Redis cache layer and database indexing."
                       </div>
                     </div>
                   </motion.div>

@@ -63,42 +63,42 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-40 px-6 border-t border-white/5 relative overflow-hidden bg-slate-900/10">
-      <div className="max-w-4xl mx-auto space-y-20">
+    <section id="faq" className="py-24 sm:py-36 px-4 sm:px-6 border-t border-slate-200 dark:border-white/5 relative overflow-hidden bg-slate-50/50 dark:bg-slate-900/10">
+      <div className="max-w-4xl mx-auto space-y-12 sm:space-y-16">
         {/* Header */}
-        <div className="text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest">
+        <div className="text-center space-y-4 sm:space-y-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-black uppercase tracking-widest">
             Objection Handling
           </div>
-          <h2 className="text-4xl md:text-7xl font-black text-white font-outfit tracking-tighter uppercase italic">
-            Frequently Asked <span className="text-primary">Questions.</span>
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white font-outfit tracking-tight sm:tracking-tighter uppercase">
+            Frequently Asked <span className="text-emerald-500">Questions.</span>
           </h2>
-          <p className="text-slate-400 font-medium text-xl max-w-xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 font-medium text-base sm:text-lg max-w-xl mx-auto">
             Everything you need to know about the AI Career Operating System.
           </p>
         </div>
 
         {/* Accordions */}
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {FAQData.map((faq, idx) => {
             const isOpen = idx === openIndex;
             return (
               <div
                 key={idx}
-                className="bg-slate-950/60 border border-white/5 rounded-3xl overflow-hidden"
+                className="bg-white dark:bg-slate-950/60 border border-slate-200 dark:border-white/5 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm dark:shadow-none transition-colors"
               >
                 <button
                   onClick={() => toggleFAQ(idx)}
-                  className="w-full flex justify-between items-center p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+                  className="w-full flex justify-between items-center p-4 sm:p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/50"
                   aria-expanded={isOpen}
                 >
-                  <div className="flex gap-4 items-center">
-                    <HelpCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-sm font-black text-white uppercase tracking-tight">{faq.question}</span>
+                  <div className="flex gap-3 sm:gap-4 items-center pr-2">
+                    <HelpCircle className="w-4 sm:w-5 h-4 sm:h-5 text-emerald-500 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm font-black text-slate-900 dark:text-white uppercase tracking-tight">{faq.question}</span>
                   </div>
                   {isOpen
-                    ? <ChevronUp className="w-5 h-5 text-slate-500 flex-shrink-0" />
-                    : <ChevronDown className="w-5 h-5 text-slate-500 flex-shrink-0" />
+                    ? <ChevronUp className="w-4 sm:w-5 h-4 sm:h-5 text-slate-500 dark:text-slate-400 flex-shrink-0" />
+                    : <ChevronDown className="w-4 sm:w-5 h-4 sm:h-5 text-slate-500 dark:text-slate-400 flex-shrink-0" />
                   }
                 </button>
 
@@ -108,7 +108,7 @@ const FAQ = () => {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pb-6 pl-16 text-xs font-medium leading-relaxed text-slate-400 border-t border-white/[0.03]">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6 pl-11 sm:pl-16 text-xs sm:text-sm font-medium leading-relaxed text-slate-600 dark:text-slate-400 border-t border-slate-100 dark:border-white/[0.03]">
                     {faq.answer}
                   </div>
                 </motion.div>

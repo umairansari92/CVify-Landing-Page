@@ -26,13 +26,13 @@ import Footer from "@/components/landing/Footer";
 import { APP_URL } from "@/lib/constants";
 
 const AnnouncementBar = () => (
-  <div className="bg-primary/10 border-b border-primary/20 py-2.5 px-6 relative overflow-hidden group z-50">
-    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-    <div className="max-w-7xl mx-auto flex items-center justify-center gap-3 text-xs md:text-sm">
-      <span className="bg-primary text-white px-2 py-0.5 rounded-[4px] font-black uppercase text-[10px] tracking-wider shadow-sm shadow-primary/40">New</span>
-      <p className="font-bold text-slate-700 dark:text-slate-300 italic tracking-tight">AI Resume Coach is here — Get an instant ATS score and action plan!</p>
-      <a href={`${APP_URL}/signup`} className="text-primary font-black hover:underline inline-flex items-center gap-1 group/btn transition-all uppercase text-[10px] tracking-widest">
-        Check My Score <MoveRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
+  <div className="bg-emerald-500/10 border-b border-emerald-500/20 py-2 sm:py-2.5 px-4 sm:px-6 relative overflow-hidden group z-50">
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+    <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs md:text-sm text-center">
+      <span className="bg-emerald-500 text-white px-2 py-0.5 rounded-md font-black uppercase text-[9px] sm:text-[10px] tracking-wider shadow-sm shadow-emerald-500/30">New</span>
+      <p className="font-bold text-slate-800 dark:text-slate-200 tracking-tight">AI Resume Coach is here — Get an instant ATS score &amp; action plan!</p>
+      <a href={`${APP_URL}/signup`} className="text-emerald-600 dark:text-emerald-400 font-black hover:underline inline-flex items-center gap-1 group/btn transition-all uppercase text-[10px] tracking-widest">
+        Check Score <MoveRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
       </a>
     </div>
   </div>
