@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Book, Cpu, ShieldCheck, Zap, Target, Gem, ChevronRight,
@@ -9,7 +9,7 @@ import {
   Database, Star, Award, MessageSquare, Shield, Menu, X,
   BarChart3, GitBranch, TrendingUp, Heart,
   AlertCircle, Palette, Wand2, MousePointer, Settings2, Mail, Bot, Moon,
-  Wifi, WifiOff, SignalLow
+  Wifi, WifiOff, SignalLow, Search
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import ThemeToggle from "@/components/common/ThemeToggle";
@@ -18,12 +18,58 @@ const Documentation = () => {
   const router = useRouter();
   const [activeSection, setActiveSection] = useState("overview");
   const [mobileNav, setMobileNav] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
-  const navGroups = [
+  const handleSelect = (id: string) => {
+    setActiveSection(id);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (typeof window !== "undefined") {
+        window.history.replaceState(null, "", `#${id}`);
+      }
+    }
+    if (mobileNav) setMobileNav(false);
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        setTimeout(() => {
+          const el = document.getElementById(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+            setActiveSection(hash);
+          }
+        }, 100);
+      }
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -60% 0px" }
+    );
+
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+    const navGroups = [
     {
       label: "Getting Started",
       items: [
         { id: "overview", icon: <Rocket size={16} />, label: "Platform Overview" },
+        { id: "career-pipeline", icon: <Layers size={16} />, label: "🔄 8-Layer Career Lifecycle" },
+        { id: "master-profile", icon: <Gem size={16} />, label: "💎 Master Profile vs Resumes" },
         { id: "setup", icon: <Zap size={16} />, label: "Quick Setup (3 Min)" },
       ]
     },
@@ -31,55 +77,59 @@ const Documentation = () => {
       label: "Architecture & Tech",
       items: [
         { id: "structure-constitution", icon: <Layers size={16} />, label: "🏛️ Master Constitution (STRUCTURE.md)" },
-        { id: "doc-standards", icon: <FileText size={16} />, label: "⚡ Token & AI Docs Standard (New!)" },
-        { id: "design-system-v2", icon: <Palette size={16} />, label: "🎨 Light Design System v2.0 (New!)" },
-        { id: "resume-intelligence-v5", icon: <Cpu size={16} />, label: "🧠 Resume Intelligence v5.0 (New!)" },
+        { id: "doc-standards", icon: <FileText size={16} />, label: "⚡ Token & AI Docs Standard" },
+        { id: "design-system-v2", icon: <Palette size={16} />, label: "🎨 Light Design System v2.0" },
+        { id: "resume-intelligence-v5", icon: <Cpu size={16} />, label: "🧠 Resume Intelligence v5.0" },
         { id: "project-structure", icon: <Layers size={16} />, label: "Project Structure" },
         { id: "technology", icon: <Cpu size={16} />, label: "Tech Stack Overview" },
         { id: "bff", icon: <Layers size={16} />, label: "Backend For Frontend (BFF)" },
-        { id: "ai-gateway", icon: <ShieldCheck size={16} />, label: "Enterprise AI Gateway (New!)" },
+        { id: "ai-gateway", icon: <ShieldCheck size={16} />, label: "Enterprise AI Gateway" },
         { id: "theme-engine", icon: <Palette size={16} />, label: "🎨 Theme Engine v4.0" },
       ]
     },
     {
       label: "Core Features",
       items: [
-        { id: "ats", icon: <Target size={16} />, label: "ATS v2.0 Micro-SaaS Engine (New!)" },
+        { id: "ats", icon: <Target size={16} />, label: "ATS v2.0 Micro-SaaS Engine" },
         { id: "coach", icon: <Brain size={16} />, label: "AI Career Coach & Debrief HUD" },
         { id: "cover-letter", icon: <MessageSquare size={16} />, label: "AI Cover Letters" },
         { id: "portfolio", icon: <Globe size={16} />, label: "Live Portfolio & SEO" },
-        { id: "shareable-links", icon: <Globe size={16} />, label: "Public Shareable Links (New!)" },
-        { id: "document-identity", icon: <FileText size={16} />, label: "Document Identity (New!)" },
-        { id: "currently-learning", icon: <TrendingUp size={16} />, label: "🧠 Skills Engine & Learning (New!)" },
+        { id: "shareable-links", icon: <Globe size={16} />, label: "Public Shareable Links" },
+        { id: "document-identity", icon: <FileText size={16} />, label: "Document Identity" },
+        { id: "currently-learning", icon: <TrendingUp size={16} />, label: "🧠 Skills Engine & Learning" },
         { id: "profile", icon: <Layout size={16} />, label: "User Profile & Dashboard" },
         { id: "ai-representative", icon: <Bot size={16} />, label: "🤖 AI Representative" },
-        { id: "ai-representative-v2", icon: <Bot size={16} />, label: "🤖 AI Rep — Deep Dive (New!)" },
+        { id: "ai-representative-v2", icon: <Bot size={16} />, label: "🤖 AI Rep — Deep Dive" },
       ]
     },
     {
       label: "Intelligence Hub",
       items: [
-        { id: "magic-import", icon: <Sparkles size={16} />, label: "Magic AI Import" },
+        { id: "six-engines", icon: <Cpu size={16} />, label: "⚙️ Six Coordinated Career Engines" },
+        { id: "recruiter-simulation", icon: <Eye size={16} />, label: "⏱️ 6-Second Recruiter Simulation" },
+        { id: "magic-import", icon: <Sparkles size={16} />, label: "Magic AI Import & Parser Matrix" },
         { id: "intent-mode", icon: <Zap size={16} />, label: "AI Intent Mode" },
         { id: "job-matcher", icon: <Target size={16} />, label: "Job Matcher (JD Analysis)" },
         { id: "resume-audit", icon: <ShieldCheck size={16} />, label: "Resume Intelligence Audit" },
       ]
     },
     {
-      label: "Security & Anti-Abuse",
+      label: "Security & Privacy",
       items: [
+        { id: "security-v7", icon: <ShieldCheck size={16} />, label: "🛡️ Security v7.0 — Triple-Lock" },
+        { id: "telemetry-privacy", icon: <Eye size={16} />, label: "👁️ Recruiter Telemetry & Privacy" },
+        { id: "custom-domains", icon: <Globe size={16} />, label: "🌐 Custom Domain & DNS Setup" },
         { id: "helmet", icon: <Shield size={16} />, label: "Helmet Middleware" },
         { id: "disposable-email", icon: <Mail size={16} />, label: "Disposable Email Blocking" },
         { id: "security-v6", icon: <ShieldCheck size={16} />, label: "🔐 Security v6.0" },
-        { id: "security-v7", icon: <ShieldCheck size={16} />, label: "🛡️ Security v7.0 — Triple-Lock (New!)" },
-        { id: "device-fingerprint", icon: <Mail size={16} />, label: "📱 Device Fingerprint & Alert Email (New!)" },
+        { id: "device-fingerprint", icon: <Mail size={16} />, label: "📱 Device Fingerprint & Alert Email" },
       ]
     },
     {
       label: "Themes & Visual FX",
       items: [
         { id: "themes", icon: <Palette size={16} />, label: "All 13 Portfolio Themes" },
-        { id: "resume-templates", icon: <Layout size={16} />, label: "12 Resume PDF Templates (New!)" },
+        { id: "resume-templates", icon: <Layout size={16} />, label: "12 Resume PDF Templates" },
         { id: "noir", icon: <Moon size={16} />, label: "🌑 NOIR (Flagship)" },
         { id: "monograph", icon: <FileText size={16} />, label: "🖋️ MONOGRAPH (Premium)" },
         { id: "oriental-luxe", icon: <Wand2 size={16} />, label: "🕌 ORIENTAL LUXE" },
@@ -93,16 +143,17 @@ const Documentation = () => {
     {
       label: "UI & Performance",
       items: [
-        { id: "universal-navbar", icon: <Layout size={16} />, label: "Universal Floating Navbar (New!)" },
-        { id: "footer-branding", icon: <Globe size={16} />, label: "Footer Branding (New!)" },
-        { id: "perf-optimizations", icon: <Zap size={16} />, label: "⚡ Frontend Performance (New!)" },
-        { id: "network-status", icon: <Wifi size={16} />, label: "🌐 Network Resiliency & Offline UI (New!)" },
+        { id: "universal-navbar", icon: <Layout size={16} />, label: "Universal Floating Navbar" },
+        { id: "footer-branding", icon: <Globe size={16} />, label: "Footer Branding" },
+        { id: "perf-optimizations", icon: <Zap size={16} />, label: "⚡ Frontend Performance" },
+        { id: "network-status", icon: <Wifi size={16} />, label: "🌐 Network Resiliency & Offline UI" },
       ]
     },
     {
-      label: "Business",
+      label: "Business & Economy",
       items: [
         { id: "diamonds", icon: <Gem size={16} />, label: "Diamond Economy" },
+        { id: "diamond-architecture", icon: <Gem size={16} />, label: "💎 Complete Pricing Matrix" },
         { id: "competitors", icon: <Award size={16} />, label: "Why We Stand Out" },
         { id: "recruiter", icon: <Briefcase size={16} />, label: "For Recruiters & HR" },
       ]
@@ -119,6 +170,229 @@ const Documentation = () => {
 
   // ─── CONTENT SECTIONS ───
   const content = {
+    
+    "career-pipeline": (
+      <>
+        <DocHeader title="The 8-Layer Career Lifecycle: From Resume to Offer" badge="Core Pipeline Architecture" />
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
+          CVify Pro is engineered around an integrated <strong className="text-slate-900 dark:text-white">8-Layer Career Pipeline</strong>. Individual features (ATS, Resume Builder, Portfolio, Cover Letters) are not isolated tools — they operate as coordinated stages in a closed-loop hiring lifecycle.
+        </p>
+
+        <SectionTitle>The 8-Stage Lifecycle Diagram</SectionTitle>
+        <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-slate-800 p-5 rounded-2xl overflow-x-auto leading-relaxed text-emerald-400 mb-8">
+{`[Stage 1: Master Profile] ──▶ Single Source of Truth (SSOT) living career asset
+         │
+         ▼
+[Stage 2: AI Analysis]    ──▶ 9-Stage AST & Semantic Extraction Engine
+         │
+         ▼
+[Stage 3: ATS Alignment]  ──▶ Keyword Gap Matching against Target Job Descriptions
+         │
+         ▼
+[Stage 4: Cover Letter]   ──▶ Tailored Executive Narratives matched to Company & Role
+         │
+         ▼
+[Stage 5: Portfolio Lab]  ──▶ SEO-Optimized Web Presence with Live GitHub Telemetry
+         │
+         ▼
+[Stage 6: Job Matching]   ──▶ Real-Time Role Calibration & Qualification Benchmarking
+         │
+         ▼
+[Stage 7: AI Coach & HUD] ──▶ Loophole Identification & 6-Second Recruiter Simulation
+         │
+         ▼
+[Stage 8: Offer & Land]   ──▶ High-Confidence Application Delivery with Verified Proof`}
+        </pre>
+
+        <SectionTitle>Why the Coordinated Pipeline Matters</SectionTitle>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <InfoCard icon={<Layers size={18} />} color="emerald" title="Zero Disconnected Data"
+            desc="Fixing a skill gap in ATS Scan automatically updates your Master Profile, propagates to your live Portfolio, and recalibrates your AI Representative." />
+          <InfoCard icon={<Brain size={18} />} color="blue" title="Continuous Feedback Loop"
+            desc="ATS Scan ➔ Loophole Checklist ➔ Actionable AI Coach Fix ➔ Profile Rescan ➔ Quantified Score Improvement." />
+        </div>
+      </>
+    ),
+
+    "master-profile": (
+      <>
+        <DocHeader title="Master Profile Architecture vs. Derived Resumes" badge="Data Model" />
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
+          In CVify Pro, the <strong className="text-slate-900 dark:text-white">Master Profile</strong> is a permanent, living career database. Resumes, portfolios, cover letters, and AI knowledge bases are lightweight, specialized <strong className="text-emerald-500">projections</strong> derived from this single source of truth.
+        </p>
+
+        <SectionTitle>Master Profile Entity Relationship</SectionTitle>
+        <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-slate-800 p-5 rounded-2xl overflow-x-auto leading-relaxed text-blue-400 mb-8">
+{`                     ┌───────────────────────────────────┐
+                     │       MASTER PROFILE (SSOT)       │
+                     │  All verified career history,     │
+                     │  skills, metrics, and GitHub stats│
+                     └─────────────────┬─────────────────┘
+                                       │
+         ┌─────────────────────────────┼─────────────────────────────┐
+         ▼                             ▼                             ▼
+┌──────────────────┐          ┌──────────────────┐          ┌──────────────────┐
+│ Tailored Resumes │          │ Web Portfolio    │          │ AI Representative│
+│ Role-specific    │          │ 13 live themes,  │          │ Verified Q&A,    │
+│ ATS projections  │          │ custom domain DNS│          │ candidate proof  │
+└──────────────────┘          └──────────────────┘          └──────────────────┘`}
+        </pre>
+
+        <SectionTitle>Architectural Distinction</SectionTitle>
+        <ComparisonTable items={[
+          { left: "Master Profile", right: "Full career timeline, all projects, private notes, comprehensive skill taxonomy." },
+          { left: "Derived Resume", right: "Targeted 1-2 page projection customized for a specific Job Description." },
+          { left: "Live Portfolio", right: "Interactive web presentation designed for human recruiter evaluation." },
+          { left: "AI Knowledge Base", right: "Vectorized embeddings used by AI Representative to cite candidate evidence." },
+        ]} />
+      </>
+    ),
+
+    "six-engines": (
+      <>
+        <DocHeader title="The Six Coordinated AI Career Engines" badge="Platform Engine Architecture" />
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
+          CVify Pro hosts 6 autonomous, specialized AI and deterministic processing engines operating under a unified Career Operating System.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+          <InfoCard icon={<Target size={18} />} color="emerald" title="1. ATS Intelligence Engine"
+            desc="Hybrid evaluation combining deterministic heuristic scoring (40% Completeness, 35% Quantification, 25% Impact Verbs) with semantic LLM validation." />
+          <InfoCard icon={<Brain size={18} />} color="purple" title="2. AI Career Coach & Debrief HUD"
+            desc="Generates prescriptive loophole checklists, concrete bullet rewrites, and 6-second recruiter first-impression simulations." />
+          <InfoCard icon={<Globe size={18} />} color="blue" title="3. Portfolio Theme Engine v4.0"
+            desc="Pluggable 5-layer rendering pipeline hosting 13 modern themes with zero monolithic coupling." />
+          <InfoCard icon={<Bot size={18} />} color="cyan" title="4. AI Candidate Representative"
+            desc="Candidate-grounded representative bot citing verified GitHub commits and project repositories to answer recruiter questions." />
+          <InfoCard icon={<Cpu size={18} />} color="amber" title="5. Job Description Matcher"
+            desc="Parses employer job postings to compute stack alignment percentages and identify exact missing keywords." />
+          <InfoCard icon={<FileText size={18} />} color="red" title="6. Resume Studio & AST Sync"
+            desc="Bidirectional sync between visual drag-and-drop builder, structured JSON AST, and vector PDF template engines." />
+        </div>
+      </>
+    ),
+
+    "recruiter-simulation": (
+      <>
+        <DocHeader title="6-Second Recruiter First-Impression Simulation" badge="Recruiter Intelligence" />
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
+          While ATS engines check machine compliance, human recruiters scan resumes in <strong className="text-slate-900 dark:text-white">6 to 10 seconds</strong>. CVify Pro's Recruiter Simulation engine analyzes visual hierarchy, headline strength, and skimming friction.
+        </p>
+
+        <SectionTitle>Recruiter Review Metric Weights</SectionTitle>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+          <div className="p-4 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl text-center">
+            <span className="text-2xl font-black text-emerald-500">2.5s</span>
+            <p className="font-bold text-sm text-slate-900 dark:text-white mt-1">Header & Title Match</p>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">Headline clarity and seniority alignment</p>
+          </div>
+          <div className="p-4 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl text-center">
+            <span className="text-2xl font-black text-blue-500">2.0s</span>
+            <p className="font-bold text-sm text-slate-900 dark:text-white mt-1">Current Company & Role</p>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">Recent career trajectory and tenure</p>
+          </div>
+          <div className="p-4 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl text-center">
+            <span className="text-2xl font-black text-purple-500">1.5s</span>
+            <p className="font-bold text-sm text-slate-900 dark:text-white mt-1">Quantified Proof</p>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">Numbers, percentages, and metrics scanning</p>
+          </div>
+        </div>
+      </>
+    ),
+
+    "custom-domains": (
+      <>
+        <DocHeader title="Custom Domain & DNS Setup Guide" badge="Portfolio Deployment" />
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
+          CVify Pro allows users to map their personal domain (<code className="text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-lg text-xs">yourname.com</code>) directly to their live portfolio with automated SSL certificates.
+        </p>
+
+        <SectionTitle>DNS Configuration Steps</SectionTitle>
+        <Steps items={[
+          { step: "1", title: "Add CNAME Record", desc: "In your domain registrar (Namecheap, GoDaddy, Cloudflare), point CNAME 'www' or '@' to 'cname.cvifypro.vercel.app'." },
+          { step: "2", title: "Enter Domain in Dashboard", desc: "Go to Profile Settings ➔ Custom Domain and enter your full domain name." },
+          { step: "3", title: "Automated SSL Issuance", desc: "Our edge network provisions an automated Let's Encrypt SSL certificate within 2-5 minutes." },
+          { step: "4", title: "Live Verification", desc: "Status badge turns green 'Connected' and your custom domain goes live worldwide." },
+        ]} />
+      </>
+    ),
+
+    "telemetry-privacy": (
+      <>
+        <DocHeader title="Recruiter Telemetry & Candidate Privacy Shield" badge="Privacy & Telemetry" />
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
+          CVify Pro provides real-time recruiter visit analytics while enforcing strict candidate privacy safeguards.
+        </p>
+
+        <SectionTitle>Telemetry Data Scope</SectionTitle>
+        <ComparisonTable items={[
+          { left: "Tracked Metrics", right: "Total profile views, unique company visits, resume downloads, outreach CTA clicks." },
+          { left: "Excluded / NOT Tracked", right: "Personal visitor PII, invasive keystroke logging, unauthorized cross-site tracking." },
+          { left: "Candidate Controls", right: "One-click profile stealth mode, search indexing toggle, telemetry pause." },
+          { left: "Data Retention", right: "Aggregated 90-day rolling window with automated pruning on account closure." },
+        ]} />
+      </>
+    ),
+
+    "diamond-architecture": (
+      <>
+        <DocHeader title="The Diamond Economy: Transparent Zero-Subscription Model" badge="Monetization Architecture" />
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
+          CVify Pro rejects predatory recurring monthly subscriptions. Candidates only pay for the exact compute and AI tokens they consume via transparent Diamond top-ups.
+        </p>
+
+        <SectionTitle>Feature Compute & Diamond Matrix</SectionTitle>
+        <div className="overflow-x-auto my-6">
+          <table className="w-full text-left text-xs border border-slate-200 dark:border-white/10 rounded-xl overflow-hidden">
+            <thead className="bg-slate-100 dark:bg-white/5 text-slate-900 dark:text-white font-black uppercase tracking-wider">
+              <tr>
+                <th className="p-3 border-b border-slate-200 dark:border-white/10">Feature</th>
+                <th className="p-3 border-b border-slate-200 dark:border-white/10">Diamond Cost</th>
+                <th className="p-3 border-b border-slate-200 dark:border-white/10">Free Allowance</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-200 dark:divide-white/5 text-slate-600 dark:text-slate-300 font-medium">
+              <tr>
+                <td className="p-3 font-bold text-slate-900 dark:text-white">Profile & Resume Editing</td>
+                <td className="p-3 text-emerald-500 font-black">0 💎 (100% Free)</td>
+                <td className="p-3">Unlimited forever</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-bold text-slate-900 dark:text-white">Vector PDF Export</td>
+                <td className="p-3 text-emerald-500 font-black">0 💎 (100% Free)</td>
+                <td className="p-3">Unlimited standard downloads</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-bold text-slate-900 dark:text-white">Magic AI Resume Import</td>
+                <td className="p-3 text-amber-500 font-black">30 💎</td>
+                <td className="p-3">Initial signup bonus (100 💎)</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-bold text-slate-900 dark:text-white">Full AI ATS Scan & Audit</td>
+                <td className="p-3 text-amber-500 font-black">50 💎</td>
+                <td className="p-3">Free 24h rescan included</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-bold text-slate-900 dark:text-white">Subsequent Rescan (24h+)</td>
+                <td className="p-3 text-amber-500 font-black">25 💎</td>
+                <td className="p-3">Discounted follow-up price</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-bold text-slate-900 dark:text-white">AI Cover Letter Studio</td>
+                <td className="p-3 text-amber-500 font-black">50 💎</td>
+                <td className="p-3">Tailored to company & JD</td>
+              </tr>
+              <tr>
+                <td className="p-3 font-bold text-slate-900 dark:text-white">AI Intent Command Bar</td>
+                <td className="p-3 text-amber-500 font-black">30 💎</td>
+                <td className="p-3">Natural language editing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </>
+    ),
+
     overview: (
       <>
         <DocHeader title="Platform Overview" badge="Introduction" />
@@ -3154,9 +3428,17 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
     ),
   };
 
+    const filteredNavGroups = navGroups.map(group => ({
+    ...group,
+    items: group.items.filter(item =>
+      item.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.id.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  })).filter(group => group.items.length > 0);
+
   const NavItem = ({ id, icon, label, onSelect }: { id: string; icon: React.ReactNode; label: string; onSelect?: () => void }) => (
     <button
-      onClick={() => { setActiveSection(id); if (onSelect) onSelect(); }}
+      onClick={() => { handleSelect(id); if (onSelect) onSelect(); }}
       className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-[12px] font-bold transition-all text-left ${activeSection === id
           ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-black shadow-sm"
           : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white"
@@ -3198,7 +3480,18 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
       <div className="flex pt-24">
         {/* ── SIDEBAR (Desktop) ── */}
         <aside className="hidden lg:block w-72 h-[calc(100vh-96px)] sticky top-24 overflow-y-auto border-r border-slate-200 dark:border-white/10 p-4 pb-12 space-y-6 bg-slate-50/50 dark:bg-slate-950/40">
-          {navGroups.map((group) => (
+          <div className="relative mb-2">
+            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Search topics..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-3 py-2 text-xs bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition-colors"
+            />
+          </div>
+
+          {filteredNavGroups.map((group) => (
             <div key={group.label}>
               <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mb-2 px-4">{group.label}</p>
               <div className="space-y-1">
@@ -3244,9 +3537,23 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
                   </button>
                 </div>
 
+                {/* Search in Drawer */}
+                <div className="p-4 pb-0">
+                  <div className="relative">
+                    <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                    <input
+                      type="text"
+                      placeholder="Search topics..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full pl-9 pr-3 py-2 text-xs bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500 transition-colors"
+                    />
+                  </div>
+                </div>
+
                 {/* Nav Items */}
                 <div className="flex-1 overflow-y-auto p-4 pb-12 space-y-6">
-                  {navGroups.map((group) => (
+                  {filteredNavGroups.map((group) => (
                     <div key={group.label}>
                       <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mb-2 px-2">{group.label}</p>
                       <div className="space-y-0.5">
@@ -3266,7 +3573,7 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
           )}
         </AnimatePresence>
 
-        {/* ── FLOATING TOPICS BUTTON (Mobile only, visible when drawer closed) ── */}
+        {/* ── FLOATING TOPICS BUTTON (Mobile only) ── */}
         <AnimatePresence>
           {!mobileNav && (
             <motion.button
@@ -3274,7 +3581,7 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               onClick={() => setMobileNav(true)}
-              className="fixed bottom-6 right-4 z-30 lg:hidden flex items-center gap-2 px-4 py-3 bg-primary text-white rounded-2xl shadow-lg shadow-primary/30 font-black text-xs uppercase tracking-wider"
+              className="fixed bottom-6 right-4 z-30 lg:hidden flex items-center gap-2 px-4 py-3 bg-emerald-500 text-white rounded-2xl shadow-lg shadow-emerald-500/30 font-black text-xs uppercase tracking-wider"
               aria-label="Open topics list"
             >
               <Layers size={14} />
@@ -3283,23 +3590,21 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
           )}
         </AnimatePresence>
 
-        {/* ── MAIN CONTENT ── */}
-        <main className="flex-1 p-6 md:p-12 max-w-4xl mx-auto min-h-[calc(100vh-64px)]">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeSection}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
+        {/* ── MAIN CONTENT (Full Continuous Document Render for 100% Crawlability) ── */}
+        <main className="flex-1 p-4 sm:p-6 md:p-12 max-w-4xl mx-auto min-h-[calc(100vh-64px)] w-full overflow-hidden">
+          {Object.entries(content).map(([id, sectionNode]) => (
+            <section
+              key={id}
+              id={id}
+              className="scroll-mt-28 py-10 border-b border-slate-200/80 dark:border-white/5 last:border-0"
             >
-              {(content as Record<string, React.ReactNode>)[activeSection]}
-            </motion.div>
-          </AnimatePresence>
+              {sectionNode}
+            </section>
+          ))}
 
           {/* FOOTER */}
-          <div className="mt-20 pt-8 border-t border-border-subtle text-center">
-            <p className="text-[10px] font-black uppercase tracking-[0.5em] text-text-muted opacity-40">CVify Intelligence Systems &copy; 2026</p>
+          <div className="mt-20 pt-8 border-t border-slate-200 dark:border-white/10 text-center">
+            <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-400 dark:text-text-muted opacity-60">CVify Intelligence Systems &copy; 2026</p>
           </div>
         </main>
       </div>
@@ -3329,6 +3634,8 @@ const InfoCard = ({ icon, color, title, desc }: { icon: React.ReactNode; color: 
     purple: "bg-purple-50/80 dark:bg-purple-500/5 border-purple-200 dark:border-purple-500/20 text-purple-700 dark:text-purple-400",
     amber: "bg-amber-50/80 dark:bg-amber-500/5 border-amber-200 dark:border-amber-500/20 text-amber-800 dark:text-amber-400",
     red: "bg-red-50/80 dark:bg-red-500/5 border-red-200 dark:border-red-500/20 text-red-700 dark:text-red-400",
+    cyan: "bg-cyan-50/80 dark:bg-cyan-500/5 border-cyan-200 dark:border-cyan-500/20 text-cyan-700 dark:text-cyan-400",
+    rose: "bg-rose-50/80 dark:bg-rose-500/5 border-rose-200 dark:border-rose-500/20 text-rose-700 dark:text-rose-400",
     slate: "bg-slate-100/80 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-300",
     orange: "bg-orange-50/80 dark:bg-orange-500/5 border-orange-200 dark:border-orange-500/20 text-orange-700 dark:text-orange-400",
   };
