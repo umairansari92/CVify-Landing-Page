@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | CVify Pro Docs",
   },
   description:
-    "Official technical documentation for CVify Pro — the AI Career Intelligence Operating System. Covers ATS v2.0 scoring algorithms, 9-stage resume parsing pipeline, Theme Engine v4.0, Diamond Economy pricing, Security v7.0 Triple-Lock, and AI Representative architecture.",
+    "Official CVify Pro technical documentation: ATS v2.0 algorithms, 9-stage resume parser, Theme Engine v4.0, Diamond Economy, and Security v7.0 architecture.",
   keywords: [
     // Product entity keywords
     "CVify Pro documentation",

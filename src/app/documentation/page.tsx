@@ -3596,6 +3596,13 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
 
         {/* ── MAIN CONTENT (Full Continuous Document Render for 100% Crawlability) ── */}
         <main className="flex-1 p-4 sm:p-6 md:p-12 max-w-4xl mx-auto min-h-[calc(100vh-64px)] w-full overflow-hidden">
+          {/* Canonical Single H1 for the entire page (SEO Standard) */}
+          <div className="mb-12 pb-8 border-b border-slate-200 dark:border-white/10">
+            <span className="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-black uppercase tracking-widest rounded-full mb-3">System Knowledge Base</span>
+            <h1 className="text-3xl md:text-5xl font-black text-slate-900 dark:text-white tracking-tight">CVify Pro System Documentation</h1>
+            <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-2 font-medium">Official engineering specification, architecture blueprints, ATS algorithms, and security protocols.</p>
+          </div>
+
           {Object.entries(content).map(([id, sectionNode]) => (
             <section
               key={id}
@@ -3621,7 +3628,7 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
 const DocHeader = ({ title, badge }: { title: string; badge: string }) => (
   <div className="mb-8 pb-6 border-b border-slate-200 dark:border-white/10">
     <span className="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[9px] font-black uppercase tracking-widest rounded-full mb-4">{badge}</span>
-    <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">{title}</h1>
+    <h2 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">{title}</h2>
   </div>
 );
 
