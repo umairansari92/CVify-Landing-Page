@@ -29,13 +29,13 @@ const Footer = () => {
     {
       title: "Resources",
       items: [
-        { label: "Documentation", href: DOCS_URL, external: true },
-        { label: "Developer API", href: `${DOCS_URL}/api`, external: true },
-        { label: "Release Notes", href: `${DOCS_URL}/releases`, external: true },
-        { label: "Roadmap", href: `${DOCS_URL}/roadmap`, external: true },
+        { label: "Documentation", href: DOCS_URL, external: false },
+        { label: "Developer API", href: `${DOCS_URL}#ai-gateway`, external: false },
+        { label: "Release Notes", href: `${DOCS_URL}#structure-constitution`, external: false },
+        { label: "Roadmap", href: `${DOCS_URL}#roadmap`, external: false },
         { label: "Blog", href: "#", badge: "Soon" },
-        { label: "System Status", href: `${DOCS_URL}/status`, external: true },
-        { label: "Security & Privacy", href: `${APP_URL}/privacy`, external: true }
+        { label: "System Status", href: `${DOCS_URL}#network-status`, external: false },
+        { label: "Security & Privacy", href: `${DOCS_URL}#security-v7`, external: false }
       ]
     },
     {
