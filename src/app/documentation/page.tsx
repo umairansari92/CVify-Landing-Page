@@ -183,7 +183,7 @@ const Documentation = () => {
 {`[Stage 1: Master Profile] ──▶ Single Source of Truth (SSOT) living career asset
          │
          ▼
-[Stage 2: AI Analysis]    ──▶ 9-Stage AST & Semantic Extraction Engine
+[Stage 2: AI Analysis]    ──▶ 9-Stage AST Parsing Pipeline (see Resume Intelligence v5.0)
          │
          ▼
 [Stage 3: ATS Alignment]  ──▶ Keyword Gap Matching against Target Job Descriptions
@@ -195,7 +195,7 @@ const Documentation = () => {
 [Stage 5: Portfolio Lab]  ──▶ SEO-Optimized Web Presence with Live GitHub Telemetry
          │
          ▼
-[Stage 6: Job Matching]   ──▶ Real-Time Role Calibration & Qualification Benchmarking
+[Stage 6: Job Matching]   ──▶ JD-to-Profile Calibration & Qualification Benchmarking
          │
          ▼
 [Stage 7: AI Coach & HUD] ──▶ Loophole Identification & 6-Second Recruiter Simulation
@@ -206,10 +206,10 @@ const Documentation = () => {
 
         <SectionTitle>Why the Coordinated Pipeline Matters</SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          <InfoCard icon={<Layers size={18} />} color="emerald" title="Zero Disconnected Data"
-            desc="Fixing a skill gap in ATS Scan automatically updates your Master Profile, propagates to your live Portfolio, and recalibrates your AI Representative." />
+          <InfoCard icon={<Layers size={18} />} color="emerald" title="Unified Career Data"
+            desc="ATS findings and improvement suggestions can be directly applied to your Master Profile, which in turn updates your live Portfolio and recalibrates your AI Representative." />
           <InfoCard icon={<Brain size={18} />} color="blue" title="Continuous Feedback Loop"
-            desc="ATS Scan ➔ Loophole Checklist ➔ Actionable AI Coach Fix ➔ Profile Rescan ➔ Quantified Score Improvement." />
+            desc="ATS Scan ➔ Loophole Checklist ➔ Apply AI Coach Fixes ➔ Profile Rescan ➔ Quantified Score Improvement." />
         </div>
       </>
     ),
@@ -297,6 +297,10 @@ const Documentation = () => {
             <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">Numbers, percentages, and metrics scanning</p>
           </div>
         </div>
+
+        <p className="text-xs text-slate-500 dark:text-slate-500 italic mt-2 mb-6">
+          ⚠️ Note: The time breakdowns above reflect <strong>CVify Pro's internal analytical scoring model</strong> — not a universal law of recruiter behavior. They are derived from UX research on visual skimming patterns and used by CVify's simulation algorithm to weight resume elements. Actual recruiter behavior varies by industry, seniority, and role.
+        </p>
       </>
     ),
 
@@ -370,16 +374,16 @@ const Documentation = () => {
               <tr>
                 <td className="p-3 font-bold text-slate-900 dark:text-white">Full AI ATS Scan & Audit</td>
                 <td className="p-3 text-amber-500 font-black">50 💎</td>
-                <td className="p-3">Free 24h rescan included</td>
+                <td className="p-3">First same-day rescan within 24h is FREE</td>
               </tr>
               <tr>
-                <td className="p-3 font-bold text-slate-900 dark:text-white">Subsequent Rescan (24h+)</td>
+                <td className="p-3 font-bold text-slate-900 dark:text-white">Subsequent Rescan (24h+ or 2nd+)</td>
                 <td className="p-3 text-amber-500 font-black">25 💎</td>
-                <td className="p-3">Discounted follow-up price</td>
+                <td className="p-3">50% discounted follow-up price</td>
               </tr>
               <tr>
                 <td className="p-3 font-bold text-slate-900 dark:text-white">AI Cover Letter Studio</td>
-                <td className="p-3 text-amber-500 font-black">50 💎</td>
+                <td className="p-3 text-amber-500 font-black">30 💎</td>
                 <td className="p-3">Tailored to company & JD</td>
               </tr>
               <tr>
@@ -408,8 +412,8 @@ const Documentation = () => {
             desc="View candidates with verified GitHub data, actual project proof, transparent AI-matched skill alignments, and a 6-second first impression verdict. No more guessing." />
           <InfoCard icon={<Brain size={18} />} color="purple" title="Context-Aware Intelligence"
             desc="The AI adapts scoring, keywords, and coaching tone based on experience level (Fresher → Senior) and market mode (Standard, Pakistan HR, Freelance, Remote)." />
-          <InfoCard icon={<Shield size={18} />} color="amber" title="Anti-Hallucination Guarantee"
-            desc="6 strict rules ensure AI only references actual resume content. Hybrid scoring (AI × 0.6 + Server × 0.4) prevents random score inflation." />
+          <InfoCard icon={<Shield size={18} />} color="amber" title="Anti-Hallucination Engine"
+            desc="6 strict rules ensure AI feedback only references actual resume content (no invention). Rules include: cite existing bullets, no fabricated metrics, no invented companies. Hybrid scoring (AI × 0.6 + Server × 0.4) prevents random score inflation." />
         </div>
       </>
     ),
@@ -1055,7 +1059,7 @@ Rules:
         <Steps items={[
           { step: "1", title: "Select Style", desc: "Choose Professional, Creative, or Enthusiastic." },
           { step: "2", title: "Paste JD", desc: "The AI extracts company name, role, and key requirements automatically." },
-          { step: "3", title: "Generate", desc: "In 10-15 seconds, your tailored cover letter is ready. Edit, copy, or download. Cost: 20 💎." },
+          { step: "3", title: "Generate", desc: "In 10-15 seconds, your tailored cover letter is ready. Edit, copy, or download. Cost: 30 💎." },
         ]} />
       </>
     ),
@@ -3038,7 +3042,7 @@ export const isDisposableEmail = (email) => {
         <div className="space-y-3">
           {[
             { q: "My ATS score is low. What should I do?", a: "Read \"Missing Keywords\" — each has exact placement strategy. Then check \"Weak Bullets\" for before/after improvements you can copy-paste." },
-            { q: "Is my data safe?", a: "Bank-grade security: Argon2 hashing, JWT + HttpOnly cookies, encrypted HTTPS. Zero AI training data retention." },
+            { q: "Is my data safe?", a: "Bank-grade security: bcrypt (cost 10) + server-side pepper hashing, JWT + HttpOnly cookies (XSS-safe), encrypted HTTPS, and triple-lock brute force protection. Zero AI training data retention." },
             { q: "Can I use this for non-tech jobs?", a: "Yes! Works for teachers, bankers, receptionists, marketers — anyone. AI adapts to your field automatically." },
             { q: "Why does the scan cost diamonds?", a: "Each scan uses Gemini 2.5 Flash with 3-layer analysis. Diamonds ensure fair usage and platform sustainability." },
             { q: "Can recruiters see my portfolio?", a: "Yes — cvifypro.vercel.app/p/username is public. You control visibility through dashboard settings." },
