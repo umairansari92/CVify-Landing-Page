@@ -12,6 +12,7 @@ import {
   Wifi, WifiOff, SignalLow
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import ThemeToggle from "@/components/common/ThemeToggle";
 
 const Documentation = () => {
   const router = useRouter();
@@ -121,7 +122,7 @@ const Documentation = () => {
     overview: (
       <>
         <DocHeader title="Platform Overview" badge="Introduction" />
-        <p className="text-slate-300 text-[15px] leading-relaxed mb-8">
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-8">
           CVify Pro is not just a resume builder — it is a <strong className="text-text-primary">Career Intelligence Ecosystem</strong>.
           The platform solves the "Black Box" problem of Applicant Tracking Systems by giving users a real-time, AI-backed auditor
           that mimics Fortune 500 hiring pipelines. The architecture prioritizes <em>Aesthetics, Agency, and Authority</em>.
@@ -154,7 +155,7 @@ const Documentation = () => {
     "magic-import": (
       <>
         <DocHeader title="Magic AI Import" badge="Intelligence Hub" />
-        <p className="text-slate-300 text-[15px] leading-relaxed mb-6">
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
           Don't start from scratch. Our <strong className="text-primary">Magic AI Import</strong> parses your existing PDF or DOCX resume and instantly builds a professional CVify Pro profile.
         </p>
         <SectionTitle>Key Features</SectionTitle>
@@ -176,7 +177,7 @@ const Documentation = () => {
     "intent-mode": (
       <>
         <DocHeader title="AI Intent Mode" badge="Intelligence Hub" />
-        <p className="text-slate-300 text-[15px] leading-relaxed mb-6">
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
           The <strong className="text-primary">Intelligence Command Bar</strong> allows you to optimize your resume using natural language. No more manual editing — just tell the AI what you want.
         </p>
         <SectionTitle>Example Commands</SectionTitle>
@@ -187,13 +188,13 @@ const Documentation = () => {
             { cmd: "Make my experience section sound more technical", icon: <Cpu size={14} /> },
             { cmd: "Highlight my leadership skills in all bullet points", icon: <Users size={14} /> },
           ].map((item, i) => (
-            <div key={i} className="p-4 bg-white/5 border border-white/5 rounded-2xl flex items-center gap-4 text-sm italic font-medium text-slate-300">
+            <div key={i} className="p-4 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-2xl flex items-center gap-4 text-sm italic font-medium text-slate-600 dark:text-slate-300">
               <span className="text-primary">{item.icon}</span> "{item.cmd}"
             </div>
           ))}
         </div>
         <SectionTitle>Pricing & Logic</SectionTitle>
-        <p className="text-slate-400 text-[13px] leading-relaxed mb-4">
+        <p className="text-slate-600 dark:text-slate-400 text-[13px] leading-relaxed mb-4">
           Every execution costs <strong className="text-primary">30 💎</strong>. The AI analyzes your entire resume context before applying the requested changes to ensure consistency.
         </p>
       </>
@@ -202,7 +203,7 @@ const Documentation = () => {
     "job-matcher": (
       <>
         <DocHeader title="Job Matcher (JD Analysis)" badge="Intelligence Hub" />
-        <p className="text-slate-300 text-[15px] leading-relaxed mb-6">
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
           The <strong className="text-primary">Job Matcher</strong> mimics a real Applicant Tracking System (ATS). It audits your resume against a specific job description to find missing keywords and gaps.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
@@ -221,7 +222,7 @@ const Documentation = () => {
     "resume-audit": (
       <>
         <DocHeader title="Resume Intelligence Audit" badge="Intelligence Hub" />
-        <p className="text-slate-300 text-[15px] leading-relaxed mb-6">
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
           The <strong className="text-primary">Resume Intelligence Audit</strong> is a dual-mode validation engine designed to evaluate resumes dynamically. It bridges the gap between static content writing and modern ATS criteria, ensuring your resume meets recruiter expectations instantly.
         </p>
 
@@ -233,7 +234,7 @@ const Documentation = () => {
         </div>
 
         <SectionTitle>How the Audit Engine Works</SectionTitle>
-        <p className="text-slate-300 text-[14px] leading-relaxed mb-6">
+        <p className="text-slate-600 dark:text-slate-300 text-[14px] leading-relaxed mb-6">
           The engine operates using a fallback architecture. When you upload a resume via <strong>Magic Import</strong>, it receives structural scores directly from the server. As you manually edit or create a resume from scratch, the client-side engine executes local validation functions in real-time to compute scores on-the-fly.
         </p>
 
@@ -241,12 +242,12 @@ const Documentation = () => {
         <SectionTitle>Technical Diagrams & Data Workflows</SectionTitle>
         <div className="space-y-12 my-8">
           {/* Architecture */}
-          <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-6">
-            <h4 className="font-black text-sm text-white mb-2">1. Technical System Architecture</h4>
-            <p className="text-xs text-slate-400 mb-4">
+          <div className="bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-3xl p-6">
+            <h4 className="font-black text-sm text-slate-900 dark:text-white mb-2">1. Technical System Architecture</h4>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
               Demonstrates the flow from inputs (Magic Import or Manual Editor) through the Redux store, and shows how the merge selector chooses between parsingAnalysis and live computed scores.
             </p>
-            <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-emerald-400">
+            <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-slate-200 dark:border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-emerald-400">
               {`  ┌──────────────────────────────────────────────────────────┐
   │                        INPUTS                            │
   │  ┌──────────────────────────┐  ┌──────────────────────┐  │
@@ -275,12 +276,12 @@ const Documentation = () => {
           </div>
 
           {/* DFD */}
-          <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-6">
-            <h4 className="font-black text-sm text-white mb-2">2. Data Flow Diagram (DFD Level 1)</h4>
-            <p className="text-xs text-slate-400 mb-4">
+          <div className="bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-3xl p-6">
+            <h4 className="font-black text-sm text-slate-900 dark:text-white mb-2">2. Data Flow Diagram (DFD Level 1)</h4>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
               Traces how data moves from user inputs, through the parser service, to databases/Redux stores, and how final scoring metrics are assembled for UI rendering.
             </p>
-            <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-blue-400">
+            <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-slate-200 dark:border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-blue-400">
               {`     ┌────────┐             PDF / DOCX File             ┌─────────────┐
      │  User  │────────────────────────────────────────▶│ P1: Upload  │
      └────▲───┘                                         └──────┬──────┘
@@ -300,12 +301,12 @@ const Documentation = () => {
           </div>
 
           {/* Decision Tree */}
-          <div className="bg-white/[0.02] border border-white/5 rounded-3xl p-6">
-            <h4 className="font-black text-sm text-white mb-2">3. Decision Tree & Scoring Logic Flow</h4>
-            <p className="text-xs text-slate-400 mb-4">
+          <div className="bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-3xl p-6">
+            <h4 className="font-black text-sm text-slate-900 dark:text-white mb-2">3. Decision Tree & Scoring Logic Flow</h4>
+            <p className="text-xs text-slate-600 dark:text-slate-400 mb-4">
               A logical map showcasing how completeness, quantification, and impact are calculated mathematically, leading to overall category verdicts.
             </p>
-            <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-amber-400">
+            <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-slate-200 dark:border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-amber-400">
               {`  User opens Analyzer View
              │
              ▼
@@ -332,34 +333,34 @@ const Documentation = () => {
         </div>
 
         <SectionTitle>Scoring Methodology</SectionTitle>
-        <p className="text-slate-300 text-[14px] leading-relaxed mb-6">
+        <p className="text-slate-600 dark:text-slate-300 text-[14px] leading-relaxed mb-6">
           The audit engine splits evaluations into three metrics:
         </p>
 
         <div className="space-y-4 mb-8">
-          <div className="p-5 bg-white/[0.02] border border-white/5 rounded-2xl">
-            <h5 className="font-black text-sm text-white mb-2 flex items-center gap-2">
+          <div className="p-5 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
+            <h5 className="font-black text-sm text-slate-900 dark:text-white mb-2 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" /> Completeness Score (40% Weight)
             </h5>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Checks for the presence of 8 crucial resume modules: Full Name, Email, Profile Summary, Phone Number, Work Experience, Education, Skills, and Projects. Lacking any of these triggers warning flags as they are ATS compliance requirements.
             </p>
           </div>
 
-          <div className="p-5 bg-white/[0.02] border border-white/5 rounded-2xl">
-            <h5 className="font-black text-sm text-white mb-2 flex items-center gap-2">
+          <div className="p-5 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
+            <h5 className="font-black text-sm text-slate-900 dark:text-white mb-2 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500" /> Measurable Results (35% Weight)
             </h5>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Analyzes all bullet points in your work experience to count metrics, stats, percentages, and dollar amounts. Resumes with quantifiable impact (e.g. "Optimized DB speed by 40%") receive significantly higher scores.
             </p>
           </div>
 
-          <div className="p-5 bg-white/[0.02] border border-white/5 rounded-2xl">
-            <h5 className="font-black text-sm text-white mb-2 flex items-center gap-2">
+          <div className="p-5 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
+            <h5 className="font-black text-sm text-slate-900 dark:text-white mb-2 flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-amber-500" /> Impact Language (25% Weight)
             </h5>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
               Cross-references the first word of every bullet point against a library of 26 active action verbs (e.g. "Architected", "Spearheaded", "Refactored"). Replaces weak filler phrases ("Responsible for") with strong, direct verbs.
             </p>
           </div>
@@ -387,7 +388,7 @@ const Documentation = () => {
         </div>
 
         <SectionTitle>Sub-Application Pipeline Flow</SectionTitle>
-        <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-emerald-400 mb-8">
+        <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-slate-200 dark:border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-emerald-400 mb-8">
 {`┌────────────────────────────────────────────────────────────┐
 │                    CAREER OS SHELL                         │
 │   [ Global Auth ]  [ Diamonds Economy ]  [ Sidebar Shell ]  │
@@ -440,7 +441,7 @@ const Documentation = () => {
         <p className="text-text-secondary text-[13px] leading-relaxed mb-4">
           All architectural flows and sequence diagrams in CVify Pro are authored in raw ASCII art. This delivers zero server load, zero AI image token consumption, Git diff readability, dark-mode auto-adaptation, and instant copy-paste usability:
         </p>
-        <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-emerald-400 mb-8">
+        <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-slate-200 dark:border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-emerald-400 mb-8">
 {`┌─────────────────┐       Token-Efficient Payload       ┌─────────────────┐
 │ User / Recruiter│────────────────────────────────────▶│   API Gateway   │
 └────────┬────────┘                                     └────────┬────────┘
@@ -452,7 +453,7 @@ const Documentation = () => {
         </pre>
 
         <SectionTitle>3. Content Structure: Inverted Pyramid</SectionTitle>
-        <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl mb-8">
+        <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl mb-8">
           <pre className="text-[11px] font-mono text-text-secondary leading-relaxed whitespace-pre">{`┌────────────────────────────────────────────────────────────┐
 │ 1. ONE-LINE SUMMARY       │ 10 words max — core takeaway   │
 ├───────────────────────────┼────────────────────────────────┤
@@ -468,7 +469,7 @@ const Documentation = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl">
             <span className="text-blue-400 font-bold text-xs uppercase tracking-wider block mb-2">OpenAPI Machine-Readable Schema</span>
-            <pre className="font-mono text-[10px] text-slate-300 overflow-x-auto">{`POST /api/v1/resumes/audit
+            <pre className="font-mono text-[10px] text-slate-600 dark:text-slate-300 overflow-x-auto">{`POST /api/v1/resumes/audit
 Headers: Authorization: Bearer <JWT>
 Body:
   resumeId: string  required (MongoDB ObjectId)
@@ -478,7 +479,7 @@ Response: 200 { score, breakdown, confidence, gaps }`}</pre>
           </div>
           <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl">
             <span className="text-purple-400 font-bold text-xs uppercase tracking-wider block mb-2">Constraint-Heavy Prompt Template</span>
-            <pre className="font-mono text-[10px] text-slate-300 overflow-x-auto">{`Role: ATS Optimization Expert. Direct, no filler.
+            <pre className="font-mono text-[10px] text-slate-600 dark:text-slate-300 overflow-x-auto">{`Role: ATS Optimization Expert. Direct, no filler.
 Input: resumeText (max 5000 chars), jobDescription (max 2000 chars)
 Output: Valid JSON matching strict schema
 Rules:
@@ -524,7 +525,7 @@ Rules:
 
         <SectionTitle>Dual-Theme Palette Matrix</SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          <div className="p-5 bg-white/[0.03] border border-white/10 rounded-2xl space-y-3">
+          <div className="p-5 bg-white/[0.03] border border-slate-200 dark:border-white/10 rounded-2xl space-y-3">
             <span className="text-emerald-400 font-black text-sm uppercase tracking-wider block">☀️ Light Mode (:root - Default)</span>
             <div className="space-y-2 text-xs">
               <div className="flex items-center justify-between p-2 rounded-lg bg-[#FAFBFA] text-slate-800 border border-slate-200">
@@ -615,7 +616,7 @@ Rules:
         </p>
 
         <SectionTitle>9-Stage Pipeline Architecture</SectionTitle>
-        <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-blue-400 mb-8">
+        <pre className="font-mono text-[10px] md:text-xs bg-slate-950 border border-slate-200 dark:border-white/5 p-5 rounded-2xl overflow-x-auto leading-relaxed text-blue-400 mb-8">
 {`[Input Document] ──► [Parser Matrix] (Gemini / OCR / DOCX / Deterministic)
                             │
                             ▼
@@ -695,11 +696,11 @@ Rules:
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 text-xs">
           <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-1">
             <span className="text-emerald-400 font-bold block">4 Target Market Modes</span>
-            <p className="text-slate-400">Standard Global Tech · US Remote ($80k+ High Quantification) · European Union (GDPR / Clean Format) · MENA & Gulf Enterprise.</p>
+            <p className="text-slate-600 dark:text-slate-400">Standard Global Tech · US Remote ($80k+ High Quantification) · European Union (GDPR / Clean Format) · MENA & Gulf Enterprise.</p>
           </div>
           <div className="p-4 bg-slate-950 border border-slate-800 rounded-xl space-y-1">
             <span className="text-blue-400 font-bold block">4 Experience Levels</span>
-            <p className="text-slate-400">Entry-Level / Junior (0–2 Yrs) · Mid-Level Engineer (3–5 Yrs) · Senior / Staff (5+ Yrs) · Executive / Director.</p>
+            <p className="text-slate-600 dark:text-slate-400">Entry-Level / Junior (0–2 Yrs) · Mid-Level Engineer (3–5 Yrs) · Senior / Staff (5+ Yrs) · Executive / Director.</p>
           </div>
         </div>
 
@@ -707,7 +708,7 @@ Rules:
         <p className="text-text-secondary text-[13px] leading-relaxed mb-4">
           During execution, the scanner broadcasts real-time phase updates to the user:
         </p>
-        <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl font-mono text-xs text-slate-300 space-y-2 mb-6">
+        <div className="p-4 bg-slate-950 border border-slate-800 rounded-2xl font-mono text-xs text-slate-600 dark:text-slate-300 space-y-2 mb-6">
           <div className="text-emerald-400">1. Reading document DOM & font encodings...</div>
           <div className="text-emerald-400">2. Extracting experience headings & dates...</div>
           <div className="text-emerald-400">3. Evaluating structural layout safety...</div>
@@ -717,7 +718,7 @@ Rules:
           <div className="text-emerald-400">7. Synthesizing Gemini 2.5 Flash Recruiter Intelligence...</div>
         </div>
 
-        <p className="text-slate-400 text-[13px] italic">
+        <p className="text-slate-600 dark:text-slate-400 text-[13px] italic">
           Scan Cost: <strong className="text-amber-400">50 💎</strong>. Re-scans of the same document within 24 hours cost 50% less (<strong className="text-amber-400">25 💎</strong>).
         </p>
       </>
@@ -750,15 +751,15 @@ Rules:
         <div className="space-y-2 mb-6">
           <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-between text-xs">
             <span className="text-emerald-400 font-bold">RECRUITER READY (Score ≥ 85%)</span>
-            <span className="text-slate-300">Resume is highly competitive and ready for Tier-1 ATS submissions.</span>
+            <span className="text-slate-600 dark:text-slate-300">Resume is highly competitive and ready for Tier-1 ATS submissions.</span>
           </div>
           <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-between text-xs">
             <span className="text-amber-400 font-bold">COMPETITIVE (Score 70% – 84%)</span>
-            <span className="text-slate-300">Solid foundation, but requires missing keywords and metric quantification.</span>
+            <span className="text-slate-600 dark:text-slate-300">Solid foundation, but requires missing keywords and metric quantification.</span>
           </div>
           <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-xl flex items-center justify-between text-xs">
             <span className="text-red-400 font-bold">ACTION REQUIRED (Score &lt; 70%)</span>
-            <span className="text-slate-300">High risk of automated ATS rejection. Implement Quick Wins before applying.</span>
+            <span className="text-slate-600 dark:text-slate-300">High risk of automated ATS rejection. Implement Quick Wins before applying.</span>
           </div>
         </div>
       </>
@@ -963,13 +964,13 @@ Rules:
             { icon: "🌙", name: "Midnight Dev", accent: "text-violet-400", border: "border-violet-500/20", bg: "bg-violet-500/5", desc: "Built for coders. Deep midnight purple background with interactive particle field that reacts to your mouse cursor in repulse mode. Animated geometric grid overlay for an immersive feel.", tags: ["Dark Mode", "Particles FX", "Mouse Reactive", "Developers"] },
             { icon: "💼", name: "Corporate Gold", accent: "text-yellow-400", border: "border-yellow-500/20", bg: "bg-yellow-500/5", desc: "Authority and prestige. Dark charcoal base with warm gold accents. Diagonal stripe overlay and classic typography. Perfect for executives, finance professionals, and senior management roles.", tags: ["Dark Mode", "Gold Accent", "Executive"] },
             { icon: "🌅", name: "Creative Sunset", accent: "text-orange-400", border: "border-orange-500/20", bg: "bg-orange-500/5", desc: "Vibrant gradient energy. Warm orange-to-pink sunset tones with animated bokeh blobs in the background. Ideal for designers, artists, content creators, and startup founders.", tags: ["Dark Mode", "Gradient Blobs", "Creative"] },
-            { icon: "📋", name: "Slate Minimalist", accent: "text-slate-300", border: "border-slate-500/20", bg: "bg-slate-500/5", desc: "Precision in simplicity. Light gray background with barely-there noise texture. Ultra-clean typography with maximum readability. Best suited for consultants, academics, and corporate professionals.", tags: ["Light Mode", "Minimal", "Clean"] },
+            { icon: "📋", name: "Slate Minimalist", accent: "text-slate-600 dark:text-slate-300", border: "border-slate-500/20", bg: "bg-slate-500/5", desc: "Precision in simplicity. Light gray background with barely-there noise texture. Ultra-clean typography with maximum readability. Best suited for consultants, academics, and corporate professionals.", tags: ["Light Mode", "Minimal", "Clean"] },
             { icon: "🌿", name: "Emerald Leader", accent: "text-emerald-400", border: "border-emerald-500/20", bg: "bg-emerald-500/5", desc: "Natural authority. Deep forest green palette exuding calm confidence and leadership. Great for sustainability professionals, project managers, and team leads.", tags: ["Dark Mode", "Green Accent", "Leadership"] },
             { icon: "🕌", name: "ORIENTAL LUXE", accent: "text-amber-400", border: "border-amber-500/20", bg: "bg-amber-500/5", desc: "Ultra-exotic and luxurious. Ultra-dark near-black background (#090909) with warm gold (#b58953) accents. Geometric SVG mandala patterns float behind the profile using the Outfit font. Exudes luxury, sophistication, and cultural richness.", tags: ["Dark Mode", "Gold Luxury", "Geometric FX"] },
             { icon: "✨", name: "AURA DARK", accent: "text-purple-400", border: "border-purple-500/20", bg: "bg-purple-500/5", desc: "Pure darkness meets cosmic elegance. Absolute black background (#000000) with deep purple accents (#B677EF). Uses the modern Syne font for a cutting-edge aesthetic. Perfect for tech innovators, startup founders, and creators pushing boundaries.", tags: ["Dark Mode", "Purple Accent", "Minimal"] },
             { icon: "💻", name: "TERMINAL DARK", accent: "text-violet-400", border: "border-violet-500/20", bg: "bg-violet-500/5", desc: "The 3D Developer Portfolio aesthetic reborn inside CVify Pro. Deep midnight blue background (#050816), sleek neon purple (#915eff) accents, a glowing profile avatar in the hero, timeline experience cards, and project cards with hashtag tech stacks. Perfect for developers who want a serious, high-impact first impression.", tags: ["Dark Mode", "Purple Neon", "Developer"] },
             { icon: "🟢", name: "CYBER NEON", accent: "text-emerald-400", border: "border-emerald-500/20", bg: "bg-emerald-500/5", desc: "Cutting-edge hacker aesthetic inspired by the Catppuccin design language. Near-black background (#080808) with electric neon green (#00ffcc) accents. Uses the Orbitron monospace font with glow effects on all interactive elements. Full GitHub stats integration and a sleek scrolling experience.", tags: ["Dark Mode", "Neon Green", "Hacker", "NEW!"] },
-            { icon: "🖋️", name: "MONOGRAPH", accent: "text-slate-300", border: "border-white/20", bg: "bg-white/5", desc: "CVify Pro's premier editorial theme. Stark black headers against an off-white reading canvas with brutalist borders and IBM Plex Sans typography. Designed for authors, journalists, researchers, and professionals who demand a high-contrast, typographic-first presentation that reads like a premium magazine.", tags: ["Light Mode", "High Contrast", "Editorial", "NEW!"] },
+            { icon: "🖋️", name: "MONOGRAPH", accent: "text-slate-600 dark:text-slate-300", border: "border-slate-200 dark:border-white/20", bg: "bg-white/5", desc: "CVify Pro's premier editorial theme. Stark black headers against an off-white reading canvas with brutalist borders and IBM Plex Sans typography. Designed for authors, journalists, researchers, and professionals who demand a high-contrast, typographic-first presentation that reads like a premium magazine.", tags: ["Light Mode", "High Contrast", "Editorial", "NEW!"] },
             { icon: "🌑", name: "NOIR", accent: "text-orange-500", border: "border-orange-500/20", bg: "bg-orange-500/5", desc: "Flagship premium minimalist dark theme. Absolute black background, Satoshi typography, custom motion system, and subtle orange accents.", tags: ["Dark Mode", "Minimal", "Premium", "Flagship"] },
             { icon: "🏆", name: "APEX", accent: "text-teal-400", border: "border-teal-500/20", bg: "bg-teal-500/5", desc: "Clean, modern, minimal, and recruiter-focused dark aesthetic. Uses Outfit typography, electric teal highlights, and a structured, low-friction professional layout optimized for enterprise recruiters.", tags: ["Dark Mode", "Teal Accent", "Recruiter", "NEW!"] },
           ].map((theme, i) => (
@@ -1020,7 +1021,7 @@ Rules:
       <>
         <DocHeader title="🖋️ MONOGRAPH Theme" badge="Premium Theme" />
         <p className="text-text-secondary text-[15px] leading-relaxed mb-6">
-          <strong className="text-white">MONOGRAPH</strong> is CVify Pro's premier editorial theme — designed for authors, journalists, researchers, and professionals who demand a high-contrast, typographic-first presentation that reads like a premium magazine.
+          <strong className="text-slate-900 dark:text-white">MONOGRAPH</strong> is CVify Pro's premier editorial theme — designed for authors, journalists, researchers, and professionals who demand a high-contrast, typographic-first presentation that reads like a premium magazine.
         </p>
 
         <SectionTitle>Visual Identity</SectionTitle>
@@ -1036,7 +1037,7 @@ Rules:
         </div>
 
         <SectionTitle>What Makes It Different</SectionTitle>
-        <div className="p-5 bg-white/5 border border-white/20 rounded-2xl mb-6">
+        <div className="p-5 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/20 rounded-2xl mb-6">
           <div className="space-y-3">
             {[
               { label: "Background", val: "Two-tone: Solid black header, warm off-white body (#FAFAF9)" },
@@ -1047,7 +1048,7 @@ Rules:
               { label: "Icon", val: "🖋️ Fountain Pen — representing authorship and editorial quality" },
             ].map((row, i) => (
               <div key={i} className="flex items-start gap-3 text-[13px]">
-                <span className="font-black text-white w-28 flex-shrink-0">{row.label}</span>
+                <span className="font-black text-slate-900 dark:text-white w-28 flex-shrink-0">{row.label}</span>
                 <span className="text-text-secondary">{row.val}</span>
               </div>
             ))}
@@ -1057,8 +1058,8 @@ Rules:
         <SectionTitle>Best For</SectionTitle>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {["Writers & Authors", "Journalists", "Researchers", "Academics", "Legal Professionals", "Editorial Designers"].map((role, i) => (
-            <div key={i} className="p-3 bg-white/5 border border-white/15 rounded-xl text-center">
-              <p className="text-white font-black text-xs">{role}</p>
+            <div key={i} className="p-3 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/15 rounded-xl text-center">
+              <p className="text-slate-900 dark:text-white font-black text-xs">{role}</p>
             </div>
           ))}
         </div>
@@ -1069,7 +1070,7 @@ Rules:
       <>
         <DocHeader title="🌑 NOIR Theme" badge="Flagship Theme" />
         <p className="text-text-secondary text-[15px] leading-relaxed mb-6">
-          <strong className="text-white">NOIR</strong> is CVify Pro's flagship premium dark theme. Inspired by modern minimalist developer portfolios and contemporary product design systems, it prioritizes whitespace, typography, and a calm, confident presentation.
+          <strong className="text-slate-900 dark:text-white">NOIR</strong> is CVify Pro's flagship premium dark theme. Inspired by modern minimalist developer portfolios and contemporary product design systems, it prioritizes whitespace, typography, and a calm, confident presentation.
         </p>
 
         <SectionTitle>Visual Identity & Philosophy</SectionTitle>
@@ -1085,19 +1086,19 @@ Rules:
         </div>
 
         <SectionTitle>What Makes It Different</SectionTitle>
-        <div className="p-5 bg-white/5 border border-white/20 rounded-2xl mb-6">
+        <div className="p-5 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/20 rounded-2xl mb-6">
           <div className="space-y-3">
             {[
               { label: "Background", val: "Deep Black (#060606) with 10% visible aurora" },
               { label: "Color Mode", val: "Minimalist Dark Mode" },
               { label: "Accent Color", val: "Vivid Orange/Red (#FF2E0C)" },
-              { label: "Card Style", val: "Minimal — relying on border-y and border-white/5" },
+              { label: "Card Style", val: "Minimal — relying on border-y and border-slate-200 dark:border-white/5" },
               { label: "Font", val: "Satoshi + GeistMono" },
               { label: "Icon", val: "🌑 New Moon — representing the calm, deep dark aesthetic" },
               { label: "Interactivity", val: "Desktop custom pointer, scroll-based image scaling (1 to 1.08x)" },
             ].map((row, i) => (
               <div key={i} className="flex items-start gap-3 text-[13px]">
-                <span className="font-black text-white w-28 flex-shrink-0">{row.label}</span>
+                <span className="font-black text-slate-900 dark:text-white w-28 flex-shrink-0">{row.label}</span>
                 <span className="text-text-secondary">{row.val}</span>
               </div>
             ))}
@@ -1315,7 +1316,7 @@ Rules:
       <>
         <DocHeader title="🏆 APEX Theme" badge="Premium Theme" />
         <p className="text-text-secondary text-[15px] leading-relaxed mb-6">
-          <strong className="text-white">APEX</strong> is CVify Pro's premier recruiter-focused minimal theme. Built to capture hiring interest instantly, it incorporates a deep dark slate canvas, Outfit/Inter typography, and a signature <strong className="text-primary">Interactive Skills Galaxy</strong> with dual planetary orbits.
+          <strong className="text-slate-900 dark:text-white">APEX</strong> is CVify Pro's premier recruiter-focused minimal theme. Built to capture hiring interest instantly, it incorporates a deep dark slate canvas, Outfit/Inter typography, and a signature <strong className="text-primary">Interactive Skills Galaxy</strong> with dual planetary orbits.
         </p>
 
         <SectionTitle>Visual Identity & Design Tokens</SectionTitle>
@@ -1331,7 +1332,7 @@ Rules:
         </div>
 
         <SectionTitle>Key Features & Tech Specs</SectionTitle>
-        <div className="p-5 bg-white/5 border border-white/20 rounded-2xl mb-6">
+        <div className="p-5 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/20 rounded-2xl mb-6">
           <div className="space-y-3">
             {[
               { label: "Background", val: "Deep Dark Slate (#0D0F12) with starry ambient parallax particles" },
@@ -1343,7 +1344,7 @@ Rules:
               { label: "Detail Panel", val: "Slide-in right drawer showing competency ratings, stats cards, and focus scopes" }
             ].map((row, i) => (
               <div key={i} className="flex items-start gap-3 text-[13px]">
-                <span className="font-black text-white w-28 flex-shrink-0">{row.label}</span>
+                <span className="font-black text-slate-900 dark:text-white w-28 flex-shrink-0">{row.label}</span>
                 <span className="text-text-secondary">{row.val}</span>
               </div>
             ))}
@@ -1389,7 +1390,7 @@ Rules:
                 <div className="flex items-center gap-3 mb-2">
                   <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black border ${colors[colorKey]}`}>{item.layer}</span>
                   <span className={`font-black text-sm ${colors[colorKey].split(' ')[2]}`}>{item.name}</span>
-                  <span className="text-[9px] font-black uppercase tracking-widest text-text-muted border border-white/10 px-2 py-0.5 rounded-full">{item.role}</span>
+                  <span className="text-[9px] font-black uppercase tracking-widest text-text-muted border border-slate-200 dark:border-white/10 px-2 py-0.5 rounded-full">{item.role}</span>
                 </div>
                 <p className="text-text-secondary text-[13px] leading-relaxed">{item.desc}</p>
               </div>
@@ -1410,7 +1411,7 @@ Rules:
         <p className="text-text-secondary text-[13px] leading-relaxed mb-4">
           The registry uses Vite's <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded text-xs">import.meta.glob</code> to automatically discover all theme manifests at build time. <strong className="text-text-primary">No manual imports needed.</strong>
         </p>
-        <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl mb-8">
+        <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl mb-8">
           <pre className="text-[11px] font-mono text-text-secondary leading-relaxed whitespace-pre">{`// profile/themes/registry.js
 const manifests = import.meta.glob('./*/manifest.js', { eager: true });
 // ThemeResolver creates a lazy() loader for each discovered manifest
@@ -1608,7 +1609,7 @@ const manifests = import.meta.glob('./*/manifest.js', { eager: true });
         </p>
 
         {/* Folder Tree */}
-        <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl mb-8 overflow-x-auto">
+        <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl mb-8 overflow-x-auto">
           <pre className="text-[12px] text-text-secondary font-mono leading-relaxed whitespace-pre">{`CVify/
 ├─ Client/                       # React SPA (Vite)
 │   ├─ scripts/                  # CLI tools
@@ -1710,7 +1711,7 @@ const manifests = import.meta.glob('./*/manifest.js', { eager: true });
         </div>
 
         <SectionTitle>The Extreme Controller Refactor</SectionTitle>
-        <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl mb-6">
+        <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl mb-6">
           <p className="text-text-secondary text-[13px] leading-relaxed">
             By delegating all business logic to these micro-services, the monolithic <code className="text-primary bg-primary/10 px-2 py-0.5 rounded-lg text-xs">agentController.js</code> was reduced from <strong>370+ lines</strong> down to a hyper-clean <strong>44 lines</strong>. It now only handles the SSE streaming loop and passes the <code className="text-primary bg-primary/10 px-2 py-0.5 rounded-lg text-xs">RequestContext</code> to the Decision Engine.
           </p>
@@ -1726,7 +1727,7 @@ const manifests = import.meta.glob('./*/manifest.js', { eager: true });
         </p>
 
         <SectionTitle>🎨 Front-End (React SPA)</SectionTitle>
-        <div className="overflow-x-auto rounded-2xl border border-white/5 mb-8">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/5 mb-8">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-white/[0.03]">
@@ -1754,7 +1755,7 @@ const manifests = import.meta.glob('./*/manifest.js', { eager: true });
                 ["Alerts", "sweetalert2", "Beautiful branded confirmation dialogs"],
                 ["Toasts", "react-hot-toast", "Lightweight, stackable toast notifications"],
               ].map(([layer, tech, why], i) => (
-                <tr key={i} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                <tr key={i} className="border-t border-slate-200 dark:border-white/5 hover:bg-white/[0.02] transition-colors">
                   <td className="py-3 px-4 text-text-muted font-bold">{layer}</td>
                   <td className="py-3 px-4 text-primary font-black">{tech}</td>
                   <td className="py-3 px-4 text-text-secondary font-medium">{why}</td>
@@ -1765,7 +1766,7 @@ const manifests = import.meta.glob('./*/manifest.js', { eager: true });
         </div>
 
         <SectionTitle>🛠️ Back-End (Node / Express API)</SectionTitle>
-        <div className="overflow-x-auto rounded-2xl border border-white/5 mb-6">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/5 mb-6">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-white/[0.03]">
@@ -1799,7 +1800,7 @@ const manifests = import.meta.glob('./*/manifest.js', { eager: true });
                 ["Env", "dotenv", "Safe .env loading, never committed to git"],
                 ["Error", "errorHandler.js", "Centralised error responses, status codes"],
               ].map(([layer, tech, why], i) => (
-                <tr key={i} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                <tr key={i} className="border-t border-slate-200 dark:border-white/5 hover:bg-white/[0.02] transition-colors">
                   <td className="py-3 px-4 text-text-muted font-bold">{layer}</td>
                   <td className="py-3 px-4 text-emerald-400 font-black">{tech}</td>
                   <td className="py-3 px-4 text-text-secondary font-medium">{why}</td>
@@ -1837,7 +1838,7 @@ app.use(helmet());  // Global — applied to ALL routes`}</pre>
         </div>
 
         <SectionTitle>Why Helmet vs Manual Header Setting?</SectionTitle>
-        <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl">
+        <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
           <p className="text-text-secondary text-[13px] leading-relaxed">
             Manually writing <code className="text-primary text-xs bg-primary/10 px-1.5 py-0.5 rounded">res.setHeader()</code> for every security header is error-prone and easy to forget. Helmet encapsulates 14 best-practice headers in a single <code className="text-primary text-xs bg-primary/10 px-1.5 py-0.5 rounded">app.use(helmet())</code> call — ensuring no header is accidentally omitted and keeping the codebase maintainable.
           </p>
@@ -1895,7 +1896,7 @@ export const isDisposableEmail = (email) => {
         <SectionTitle>Families Covered</SectionTitle>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {["Mailinator Family", "Guerrilla Mail", "10MinuteMail", "Temp-Mail", "YOPmail", "Trashmail", "Sharklasers", "Spamgourmet", "Dispostable", "ThrowAM", "AirMail", "Nada Email"].map((name, i) => (
-            <div key={i} className="p-2.5 bg-white/[0.03] border border-white/5 rounded-xl text-center">
+            <div key={i} className="p-2.5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-xl text-center">
               <p className="text-text-secondary font-bold text-[12px]">{name}</p>
             </div>
           ))}
@@ -1918,7 +1919,7 @@ export const isDisposableEmail = (email) => {
     "security-v6": (
       <>
         <DocHeader title="🔐 Security v6.0 — Defense in Depth" badge="Latest Security Update" />
-        <p className="text-slate-300 text-[15px] leading-relaxed mb-8">
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-8">
           In June 2026, CVify Pro underwent a comprehensive <strong className="text-text-primary">multi-layer security hardening</strong> following a surgical refactor approach. All changes are backward-compatible — existing users and sessions were not disrupted.
         </p>
 
@@ -1960,9 +1961,9 @@ export const isDisposableEmail = (email) => {
           <InfoCard icon={<Zap size={16} />} color="blue" title="Lazy Migration (Zero User Disruption)"
             desc="On login, the system first tries the peppered hash. If it fails, it tries the legacy hash. If legacy succeeds, the password is silently re-hashed with pepper in the background. No user is locked out." />
         </div>
-        <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl mb-6">
+        <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl mb-6">
           <p className="text-[11px] font-black uppercase tracking-widest text-text-muted mb-3">Migration Flow</p>
-          <pre className="text-[12px] font-mono text-slate-300 leading-relaxed whitespace-pre">{`Login Attempt
+          <pre className="text-[12px] font-mono text-slate-600 dark:text-slate-300 leading-relaxed whitespace-pre">{`Login Attempt
   ├─ bcrypt(password + PEPPER_KEY) → ✅ Match → Login
   ├─ bcrypt(password + PEPPER_KEY) → ❌ Fail
   │    └─ bcrypt(password) → ✅ Legacy Match
@@ -1986,7 +1987,7 @@ export const isDisposableEmail = (email) => {
         </div>
 
         <SectionTitle>6. Secure Logout Endpoint</SectionTitle>
-        <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl mb-6">
+        <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl mb-6">
           <p className="text-text-secondary text-[13px] leading-relaxed">
             A new <code className="text-primary bg-primary/10 px-2 py-0.5 rounded-lg text-xs">POST /api/auth/logout</code> endpoint clears the <code className="text-primary bg-primary/10 px-2 py-0.5 rounded-lg text-xs">authToken</code> cookie server-side by setting it to an expired value. The Redux <code className="text-primary bg-primary/10 px-2 py-0.5 rounded-lg text-xs">logout()</code> action silently calls this endpoint as a fire-and-forget operation — no UI changes required.
           </p>
@@ -2014,7 +2015,7 @@ export const isDisposableEmail = (email) => {
             { done: true, label: "Axios withCredentials: true (cookie forwarding)" },
             { done: true, label: "XSS sanitization via custom xss middleware" },
           ].map((item, i) => (
-            <div key={i} className={`flex items-center gap-3 p-3 rounded-xl border text-[13px] ${item.done ? 'bg-emerald-500/5 border-emerald-500/10' : 'bg-white/[0.02] border-white/5'}`}>
+            <div key={i} className={`flex items-center gap-3 p-3 rounded-xl border text-[13px] ${item.done ? 'bg-emerald-500/5 border-emerald-500/10' : 'bg-white/[0.02] border-slate-200 dark:border-white/5'}`}>
               <span className={`font-black text-xs ${item.done ? 'text-emerald-400' : 'text-text-muted'}`}>{item.done ? '✅' : '⬜'}</span>
               <span className={item.done ? 'text-text-primary' : 'text-text-muted'}>{item.label}</span>
             </div>
@@ -2078,7 +2079,7 @@ export const isDisposableEmail = (email) => {
     "security-v7": (
       <>
         <DocHeader title="🛡️ Security v7.0 — Triple-Lock Architecture & Threat Model" badge="Latest Security Update" />
-        <p className="text-slate-300 text-[15px] leading-relaxed mb-6">
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
           In July 2026, CVify Pro underwent the most comprehensive authentication security hardening in its history.
           The primary motivation was a red-team analysis that exposed <strong className="text-red-400">4 realistic brute-force bypass scenarios</strong> in the previous single-layer rate limiter.
           All changes are production-deployed, backward-compatible, and aligned with enterprise SOC standards.
@@ -2091,7 +2092,7 @@ export const isDisposableEmail = (email) => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <div className="p-5 bg-white/[0.02] border border-white/5 rounded-2xl">
+          <div className="p-5 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
             <h4 className="font-black text-sm text-primary mb-3 flex items-center gap-2">
               <ShieldCheck size={16} /> Assets Protected
             </h4>
@@ -2102,7 +2103,7 @@ export const isDisposableEmail = (email) => {
                 { title: "AI Credits", desc: "Diamond balances & atomic consumption transactions" },
                 { title: "Resume & Portfolio Data", desc: "Personal identity, career history, documents, public slugs" },
               ].map((asset, i) => (
-                <div key={i} className="p-2.5 bg-white/[0.03] rounded-xl border border-white/5">
+                <div key={i} className="p-2.5 bg-white/[0.03] rounded-xl border border-slate-200 dark:border-white/5">
                   <span className="font-bold text-text-primary block mb-0.5">{asset.title}</span>
                   <span className="text-text-muted text-[11px]">{asset.desc}</span>
                 </div>
@@ -2110,12 +2111,12 @@ export const isDisposableEmail = (email) => {
             </div>
           </div>
 
-          <div className="p-5 bg-white/[0.02] border border-white/5 rounded-2xl flex flex-col justify-between">
+          <div className="p-5 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl flex flex-col justify-between">
             <div>
               <h4 className="font-black text-sm text-emerald-400 mb-3 flex items-center gap-2">
                 <Layers size={16} /> Trust Boundaries
               </h4>
-              <pre className="font-mono text-[10px] md:text-[11px] bg-slate-950 border border-white/5 p-4 rounded-xl leading-relaxed text-emerald-400 overflow-x-auto">
+              <pre className="font-mono text-[10px] md:text-[11px] bg-slate-950 border border-slate-200 dark:border-white/5 p-4 rounded-xl leading-relaxed text-emerald-400 overflow-x-auto">
                 {` Browser (Untrusted Client)
     │
     ▼ [TLS 1.3 / Encrypted Transit]
@@ -2142,7 +2143,7 @@ export const isDisposableEmail = (email) => {
         <p className="text-text-secondary text-[13px] leading-relaxed mb-4">
           Every incoming authentication request traverses 10 distinct security checkpoints before reaching controller logic.
         </p>
-        <div className="bg-slate-950 border border-white/10 rounded-2xl p-5 mb-8 overflow-x-auto">
+        <div className="bg-slate-950 border border-slate-200 dark:border-white/10 rounded-2xl p-5 mb-8 overflow-x-auto">
           <pre className="font-mono text-[10px] md:text-[11px] leading-relaxed text-emerald-400">
             {` [ Incoming HTTP Request ]
            │
@@ -2190,7 +2191,7 @@ export const isDisposableEmail = (email) => {
             { id: "3", color: "amber", title: "Serverless Memory Reset", problem: "Vercel cold starts reset in-memory rate limit counters. Attacker waits for function cold start then gets fresh attempt budget.", fix: "All three locks stored in MongoDB — survives cold starts, shared across all serverless instances globally." },
             { id: "4", color: "yellow", title: "Combo Attack (Credential Stuffing)", problem: "Attacker uses leaked email:password pairs from data breaches, trying each combo from a unique IP. Single-dimension locks (IP-only or Email-only) miss this pattern.", fix: "Combo Lock: SHA256(email:ip) locks the specific email+IP pair after 5 attempts — catches credential stuffing without impacting other users on the same IP." },
           ].map((scenario) => (
-            <div key={scenario.id} className="p-5 bg-white/[0.02] border border-white/5 rounded-2xl">
+            <div key={scenario.id} className="p-5 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
               <div className="flex items-start gap-3 mb-3">
                 <span className={`text-${scenario.color}-400 font-black text-xs w-6 h-6 rounded-full bg-${scenario.color}-500/10 flex items-center justify-center flex-shrink-0 mt-0.5`}>{scenario.id}</span>
                 <p className={`font-black text-sm text-${scenario.color}-400`}>{scenario.title}</p>
@@ -2212,7 +2213,7 @@ export const isDisposableEmail = (email) => {
         <SectionTitle>4. Triple-Lock Architecture & Per-Lock Thresholds</SectionTitle>
         <p className="text-text-secondary text-[13px] leading-relaxed mb-4">Three independent SHA-256 hashed identifiers are computed on every login attempt and evaluated with progressive thresholds.</p>
 
-        <div className="overflow-x-auto rounded-2xl border border-white/5 mb-8">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/5 mb-8">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-white/[0.03]">
@@ -2228,7 +2229,7 @@ export const isDisposableEmail = (email) => {
                 ["Email SHA256(email)", "5 attempts", "6 attempts", "Same account targeted from rotating IPs — strict"],
                 ["IP SHA256(ip)", "30 attempts", "50 attempts", "Lenient — prevents false-positive blocking of multi-account users on same IP (home, office)"],
               ].map(([lock, captcha, hard, why], i) => (
-                <tr key={i} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                <tr key={i} className="border-t border-slate-200 dark:border-white/5 hover:bg-white/[0.02] transition-colors">
                   <td className="py-3 px-4 text-primary font-black">{lock}</td>
                   <td className="py-3 px-4 text-amber-400 font-bold">{captcha}</td>
                   <td className="py-3 px-4 text-red-400 font-bold">{hard}</td>
@@ -2244,7 +2245,7 @@ export const isDisposableEmail = (email) => {
         <p className="text-text-secondary text-[13px] leading-relaxed mb-4">
           Configured globally via Helmet middleware to enforce browser-level security policies.
         </p>
-        <div className="overflow-x-auto rounded-2xl border border-white/5 mb-8">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/5 mb-8">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-white/[0.03]">
@@ -2263,7 +2264,7 @@ export const isDisposableEmail = (email) => {
                 ["Cross-Origin-Opener-Policy (COOP)", "Set to same-origin — isolates browsing context from cross-origin popup windows.", "✔ Active"],
                 ["Cross-Origin-Resource-Policy (CORP)", "Set to same-site — prevents unauthorized cross-origin reading of static assets.", "✔ Active"],
               ].map(([header, purpose, status], i) => (
-                <tr key={i} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                <tr key={i} className="border-t border-slate-200 dark:border-white/5 hover:bg-white/[0.02] transition-colors">
                   <td className="py-3 px-4 text-primary font-black font-mono text-[11px]">{header}</td>
                   <td className="py-3 px-4 text-text-secondary font-medium">{purpose}</td>
                   <td className="py-3 px-4 text-emerald-400 font-black text-center">{status}</td>
@@ -2279,7 +2280,7 @@ export const isDisposableEmail = (email) => {
           Mapped against OWASP ASVS v4.0 (Section 6: Stored Cryptography) and NIST SP 800-63B standards.
         </p>
 
-        <div className="overflow-x-auto rounded-2xl border border-white/5 mb-8">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/5 mb-8">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-white/[0.03]">
@@ -2299,7 +2300,7 @@ export const isDisposableEmail = (email) => {
                 ["Triple-Lock Brute Force", "SHA-256 Hashed Keys", "MongoDB Index Keys", "Ephemeral (24h TTL)"],
                 ["Refresh Tokens (v8.0)", "SHA-256(token) Hash", "CSPRNG 256-bit Token", "Rotated on Issue"],
               ].map(([purpose, algo, source, rot], i) => (
-                <tr key={i} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                <tr key={i} className="border-t border-slate-200 dark:border-white/5 hover:bg-white/[0.02] transition-colors">
                   <td className="py-3 px-4 text-text-primary font-bold">{purpose}</td>
                   <td className="py-3 px-4 text-primary font-mono text-[11px]">{algo}</td>
                   <td className="py-3 px-4 text-text-secondary font-medium">{source}</td>
@@ -2328,7 +2329,7 @@ export const isDisposableEmail = (email) => {
             { step: "9", title: "SIEM Operations Dashboard", desc: "Real-time threat telemetry stream for SOC teams." },
             { step: "10", title: "Zero-Trust Continuous Auth", desc: "Adaptive step-up authentication on sensitive actions." },
           ].map((item) => (
-            <div key={item.step} className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl flex items-start gap-3">
+            <div key={item.step} className="p-4 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl flex items-start gap-3">
               <span className="w-6 h-6 rounded-full bg-primary/10 text-primary font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5">{item.step}</span>
               <div>
                 <p className="font-black text-sm text-text-primary mb-0.5">{item.title}</p>
@@ -2384,7 +2385,7 @@ export const isDisposableEmail = (email) => {
               fix: "Interceptor now distinguishes endpoints: auth routes (login, signup, captcha) get inline error handling only. Session Expired modal fires ONLY on 401s from authenticated API calls (/api/user, /api/resumes, etc.).",
             },
           ].map((bug) => (
-            <div key={bug.num} className="p-5 bg-white/[0.02] border border-white/5 rounded-2xl">
+            <div key={bug.num} className="p-5 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
               <div className="flex items-center gap-3 mb-3">
                 <span className={`text-${bug.color}-400 font-black text-xs w-6 h-6 rounded-full bg-${bug.color}-500/10 flex items-center justify-center flex-shrink-0`}>#{bug.num}</span>
                 <p className={`font-black text-sm text-${bug.color}-400`}>{bug.title}</p>
@@ -2427,7 +2428,7 @@ export const isDisposableEmail = (email) => {
               a: "Your CAPTCHA solved status is stored in MongoDB, not in browser state. When you return to the login page, the frontend calls POST /api/auth/security-state which reads from MongoDB and returns your current lock status including captchaSolved=true. The UI restores the 'CAPTCHA Verified' badge and the countdown timer resumes from the correct remaining time — not from scratch.",
             },
           ].map((faq, i) => (
-            <div key={i} className="p-5 bg-white/[0.02] border border-white/5 rounded-2xl">
+            <div key={i} className="p-5 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
               <p className="font-black text-sm text-text-primary mb-3 flex items-start gap-2">
                 <span className="text-primary font-black text-xs w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">Q</span>
                 {faq.q}
@@ -2442,7 +2443,7 @@ export const isDisposableEmail = (email) => {
     "device-fingerprint": (
       <>
         <DocHeader title="📱 Device Fingerprinting & Security Alert Email System" badge="Security Operations" />
-        <p className="text-slate-300 text-[15px] leading-relaxed mb-6">
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-6">
           CVify Pro automatically detects logins from un-recognized devices and issues immediate, geo-located, timezone-aware security alert notifications.
           The system operates silently without blocking user workflows, maintaining a 10-device rolling history per account in MongoDB.
         </p>
@@ -2452,7 +2453,7 @@ export const isDisposableEmail = (email) => {
         <p className="text-text-secondary text-[13px] leading-relaxed mb-4">
           Every successful login triggers background fingerprint analysis and geo-resolution.
         </p>
-        <div className="bg-slate-950 border border-white/10 rounded-2xl p-5 mb-8 overflow-x-auto">
+        <div className="bg-slate-950 border border-slate-200 dark:border-white/10 rounded-2xl p-5 mb-8 overflow-x-auto">
           <pre className="font-mono text-[10px] md:text-[11px] leading-relaxed text-emerald-400">
             {` [ User Authenticates (POST /api/auth/login) ]
                           │
@@ -2507,7 +2508,7 @@ export const isDisposableEmail = (email) => {
           Redesigned to match CVify Pro's dark ecosystem design system (#060608 canvas, #121218 card, #1e1e2c borders).
         </p>
 
-        <div className="overflow-x-auto rounded-2xl border border-white/5 mb-8">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/5 mb-8">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-white/[0.03]">
@@ -2525,7 +2526,7 @@ export const isDisposableEmail = (email) => {
                 ["CTA Button", "Solid Red (#ef4444) 'Secure My Account' pointing to /profile", "Direct navigation to profile security settings"],
                 ["Footer", "CVify Pro branding + DataVerse attribution + Automated email warning", "Compliance with anti-phishing email standards"],
               ].map(([comp, spec, why], i) => (
-                <tr key={i} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                <tr key={i} className="border-t border-slate-200 dark:border-white/5 hover:bg-white/[0.02] transition-colors">
                   <td className="py-3 px-4 text-primary font-black font-mono text-[11px]">{comp}</td>
                   <td className="py-3 px-4 text-text-secondary font-medium">{spec}</td>
                   <td className="py-3 px-4 text-text-muted font-medium">{why}</td>
@@ -2538,16 +2539,16 @@ export const isDisposableEmail = (email) => {
         {/* ─── 4. DATABASE & MIDDLEWARE SPECIFICATIONS ─── */}
         <SectionTitle>4. Device Storage & Performance Limits</SectionTitle>
         <div className="space-y-3 mb-8">
-          <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl">
+          <div className="p-4 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
             <p className="font-black text-sm text-text-primary mb-1">Rolling Device Cap (10 Max)</p>
             <p className="text-text-secondary text-[12px] leading-relaxed">
               To prevent un-bounded document growth in MongoDB, user.knownDevices is sliced to retain only the <strong className="text-primary">10 most recent devices</strong>:
-              <code className="block mt-2 font-mono text-[11px] text-emerald-400 bg-slate-950 p-2.5 rounded-xl border border-white/5">
+              <code className="block mt-2 font-mono text-[11px] text-emerald-400 bg-slate-950 p-2.5 rounded-xl border border-slate-200 dark:border-white/5">
                 if (user.knownDevices.length &gt; 10) user.knownDevices = user.knownDevices.slice(-10);
               </code>
             </p>
           </div>
-          <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl">
+          <div className="p-4 bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
             <p className="font-black text-sm text-text-primary mb-1">Known Device Touch Handling</p>
             <p className="text-text-secondary text-[12px] leading-relaxed">
               When a login matches an existing fingerprint in <code className="text-primary">user.knownDevices</code>, no email alert is dispatched.
@@ -2646,16 +2647,16 @@ export const isDisposableEmail = (email) => {
             { title: "Universal Professional Agency", desc: "Teacher, banker, receptionist, CEO — the AI adapts for ALL professions. Not just tech. Not just white-collar. Everyone.", color: "text-amber-400" },
             { title: "Live SEO-Optimized Portfolio", desc: "Your profile appears on Google with JSON-LD structured data. Share on LinkedIn and it auto-generates a rich preview card. No coding, no hosting.", color: "text-red-400" },
           ].map((item, i) => (
-            <div key={i} className="p-5 glass rounded-2xl border border-white/5">
+            <div key={i} className="p-5 glass rounded-2xl border border-slate-200 dark:border-white/5">
               <p className={`font-black text-sm mb-1 ${item.color}`}>{item.title}</p>
-              <p className="text-slate-300 text-[12px] font-medium leading-relaxed">{item.desc}</p>
+              <p className="text-slate-600 dark:text-slate-300 text-[12px] font-medium leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
 
         {/* Comparison Table */}
         <SectionTitle>Feature-by-Feature Comparison</SectionTitle>
-        <div className="overflow-x-auto rounded-2xl border border-white/5">
+        <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/5">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-white/[0.03]">
@@ -2683,7 +2684,7 @@ export const isDisposableEmail = (email) => {
                 ["Digital Presence", "✅ Live SEO Web Profile", "❌ Dead PDF Only", "❌ Dead PDF Only"],
                 ["Global / Local Markets", "✅ EN, UR, NL + 4 Modes", "❌ Western Only", "❌ Western Only"],
               ].map(([feature, cvify, canva, rezi], i) => (
-                <tr key={i} className="border-t border-white/5 hover:bg-white/[0.02] transition-colors">
+                <tr key={i} className="border-t border-slate-200 dark:border-white/5 hover:bg-white/[0.02] transition-colors">
                   <td className="py-3.5 px-5 text-text-primary font-bold">{feature}</td>
                   <td className="py-3.5 px-5 text-emerald-400 font-medium">{cvify}</td>
                   <td className="py-3.5 px-5 text-red-400/70">{canva}</td>
@@ -2774,7 +2775,7 @@ export const isDisposableEmail = (email) => {
             { q: "Will 'Currently Learning' skills hurt my ATS score?", a: "No — they help at a discounted weight. ATS Scanner matches learningRoadmap keywords at 50% weight (vs 100% for professional skills). You get partial credit for gaps-in-progress, never a penalty. A matched learning skill also earns a 'Gap Bridged' tag on recruiter scorecards." },
             { q: "Can I add the same skill to both professional skills and Currently Learning?", a: "No — and the system enforces this strictly. If a skill exists in your professional lists (Frontend, Backend, etc.), it cannot also appear in Currently Learning. This rule is enforced in the React UI and also at the API (server) level, so it cannot be bypassed." },
           ].map((f, i) => (
-            <div key={i} className="p-5 glass rounded-2xl border border-white/5 hover:border-primary/10 transition-all">
+            <div key={i} className="p-5 glass rounded-2xl border border-slate-200 dark:border-white/5 hover:border-primary/10 transition-all">
               <p className="font-black text-primary text-sm mb-1.5">Q: {f.q}</p>
               <p className="text-text-secondary text-[13px] font-medium leading-relaxed">A: {f.a}</p>
             </div>
@@ -2826,7 +2827,7 @@ export const isDisposableEmail = (email) => {
             { title: "Verified Skill Badges", desc: "Blockchain-verified proficiency badges that recruiters can trust.", status: "Q4 2026" },
             { title: "Multi-Language Resumes", desc: "Generate resumes in Arabic, Dutch, and Urdu for regional markets.", status: "2027" },
           ].map((item, i) => (
-            <div key={i} className={`p-5 rounded-2xl flex justify-between items-start gap-4 transition-all ${item.status === "TOP PRIORITY" ? "bg-primary/5 border border-primary/20 shadow-lg shadow-primary/5" : "glass border border-white/5"}`}>
+            <div key={i} className={`p-5 rounded-2xl flex justify-between items-start gap-4 transition-all ${item.status === "TOP PRIORITY" ? "bg-primary/5 border border-primary/20 shadow-lg shadow-primary/5" : "glass border border-slate-200 dark:border-white/5"}`}>
               <div>
                 <p className={`font-black text-sm ${item.status === "TOP PRIORITY" ? "text-primary" : "text-text-primary"}`}>{item.title}</p>
                 <p className="text-text-secondary text-[12px] font-medium leading-relaxed">{item.desc}</p>
@@ -2841,7 +2842,7 @@ export const isDisposableEmail = (email) => {
     "ai-representative-v2": (
       <>
         <DocHeader title="🤖 AI Representative" badge="New Feature" />
-        <p className="text-slate-300 text-[15px] leading-relaxed mb-8">
+        <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed mb-8">
           The <strong className="text-text-primary">AI Representative</strong> is a floating, real-time AI-powered portfolio guide embedded on every CVify Pro public profile.
           It is NOT a generic chatbot — it is a <strong className="text-text-primary">digital representative</strong> of the portfolio owner,
           helping recruiters, hiring managers, and visitors instantly understand a candidate without reading the entire portfolio.
@@ -2860,7 +2861,7 @@ export const isDisposableEmail = (email) => {
         </div>
 
         <SectionTitle>Core Architecture</SectionTitle>
-        <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl mb-8 overflow-x-auto">
+        <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl mb-8 overflow-x-auto">
           <pre className="text-[12px] text-text-secondary font-mono leading-relaxed whitespace-pre">{`AI Representative Stack
 ├─ Frontend
 │   ├─ AiAgentWidget.jsx       # Floating chat UI (Framer Motion + Glassmorphism)
@@ -2907,7 +2908,7 @@ export const isDisposableEmail = (email) => {
         </div>
 
         <SectionTitle>Quick Action Buttons</SectionTitle>
-        <p className="text-slate-400 text-[13px] leading-relaxed mb-4">
+        <p className="text-slate-600 dark:text-slate-400 text-[13px] leading-relaxed mb-4">
           When the chat opens, dynamic Quick Action Buttons are shown above the input. They are generated based on what data is available in the profile — no projects means no "View Projects" button. Clicking any button fires <code className="text-primary bg-primary/10 px-2 py-0.5 rounded-lg text-xs">sendMessage()</code> directly without typing.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mb-8">
@@ -2939,7 +2940,7 @@ export const isDisposableEmail = (email) => {
         ]} />
 
         <SectionTitle>API Endpoint</SectionTitle>
-        <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl">
+        <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
           <p className="text-[11px] font-black uppercase tracking-widest text-text-muted mb-3">POST /api/agent/stream</p>
           <ComparisonTable items={[
             { left: "Method", right: "POST" },
@@ -2990,7 +2991,7 @@ export const isDisposableEmail = (email) => {
         </p>
 
         <SectionTitle>Footer Content</SectionTitle>
-        <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl mb-6">
+        <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl mb-6">
           <div className="space-y-3 text-[13px]">
             <div className="flex items-start gap-3">
               <span className="font-black text-primary w-36 flex-shrink-0">Line 1</span>
@@ -3104,13 +3105,13 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
 
         <SectionTitle>Profession Modes</SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-          <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl">
+          <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
             <h4 className="font-black text-primary text-sm mb-2">🏢 General / Non-Tech Mode</h4>
             <p className="text-text-secondary text-[13px] leading-relaxed">
               Provides a single, flat list of professional skills. Ideal for business, sales, admin, operations, and management roles where highly nested categorization is not required.
             </p>
           </div>
-          <div className="p-5 bg-white/[0.03] border border-white/5 rounded-2xl">
+          <div className="p-5 bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 shadow-sm dark:shadow-none rounded-2xl">
             <h4 className="font-black text-primary text-sm mb-2">💻 Developer / Tech Mode</h4>
             <p className="text-text-secondary text-[13px] leading-relaxed">
               Splits skills into 6 structured inputs: <strong className="text-text-primary">Frontend, Backend, Database, AI/DevOps, Security, and Tools</strong>. Great for software engineers, designers, and tech professionals.
@@ -3156,13 +3157,13 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
   const NavItem = ({ id, icon, label, onSelect }: { id: string; icon: React.ReactNode; label: string; onSelect?: () => void }) => (
     <button
       onClick={() => { setActiveSection(id); if (onSelect) onSelect(); }}
-      className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-[12px] font-bold transition-all ${activeSection === id
-          ? "bg-primary/10 text-primary border border-primary/20"
-          : "text-text-muted hover:bg-white/5 hover:text-text-primary"
+      className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-[12px] font-bold transition-all text-left ${activeSection === id
+          ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-black shadow-sm"
+          : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white"
         }`}
     >
-      <span className={activeSection === id ? "text-primary" : "text-text-muted opacity-60"}>{icon}</span>
-      {label}
+      <span className={activeSection === id ? "text-emerald-500 dark:text-emerald-400" : "text-slate-400 dark:text-slate-500"}>{icon}</span>
+      <span>{label}</span>
     </button>
   );
 
@@ -3170,33 +3171,36 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
     <div className="min-h-screen bg-background text-text-main">
 
       {/* ── TOP BAR ── */}
-      <nav className="fixed top-0 left-0 w-full z-50 p-4 glass border-b border-border-subtle bg-background/80 flex justify-between items-center px-4 lg:px-8">
+      <nav className="fixed top-0 left-0 w-full z-50 p-4 border-b border-slate-200 dark:border-white/10 bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl flex justify-between items-center px-4 lg:px-8 shadow-sm">
         <div className="flex items-center gap-3 sm:gap-4">
-          <button onClick={() => router.back()} className="p-2 hover:bg-white/5 rounded-full transition-colors">
+          <button onClick={() => router.back()} className="p-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded-full transition-colors text-slate-700 dark:text-slate-300">
             <ArrowLeft size={18} />
           </button>
-          <a href="/" className="flex items-center gap-2 font-black text-white text-lg tracking-tight">
-            <span className="text-emerald-400">CVify</span><span className="text-white/60 font-light">Pro</span>
+          <a href="/" className="flex items-center gap-2 font-black text-lg tracking-tight">
+            <span className="text-emerald-500">CVify</span><span className="text-slate-900 dark:text-white font-light">Pro</span>
           </a>
-          <span className="hidden md:block text-[9px] font-black uppercase tracking-[0.2em] text-text-muted border-l border-border-subtle pl-4">Documentation</span>
+          <span className="hidden md:block text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 border-l border-slate-200 dark:border-white/10 pl-4">Documentation</span>
         </div>
-        {/* Mobile hamburger — visible label so users know it opens nav */}
-        <button
-          onClick={() => setMobileNav(true)}
-          className="lg:hidden flex items-center gap-1.5 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-xl text-primary text-xs font-black"
-          aria-label="Open navigation menu"
-        >
-          <Menu size={15} />
-          <span>Topics</span>
-        </button>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <ThemeToggle />
+          {/* Mobile hamburger — visible label so users know it opens nav */}
+          <button
+            onClick={() => setMobileNav(true)}
+            className="lg:hidden flex items-center gap-1.5 px-3 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-600 dark:text-emerald-400 text-xs font-black"
+            aria-label="Open navigation menu"
+          >
+            <Menu size={15} />
+            <span>Topics</span>
+          </button>
+        </div>
       </nav>
 
       <div className="flex pt-24">
         {/* ── SIDEBAR (Desktop) ── */}
-        <aside className="hidden lg:block w-72 h-[calc(100vh-96px)] sticky top-24 overflow-y-auto border-r border-border-subtle p-4 pb-12 space-y-6 glass bg-background/40">
+        <aside className="hidden lg:block w-72 h-[calc(100vh-96px)] sticky top-24 overflow-y-auto border-r border-slate-200 dark:border-white/10 p-4 pb-12 space-y-6 bg-slate-50/50 dark:bg-slate-950/40">
           {navGroups.map((group) => (
             <div key={group.label}>
-              <p className="text-[9px] font-black uppercase tracking-[0.2em] text-text-muted mb-2 px-4">{group.label}</p>
+              <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mb-2 px-4">{group.label}</p>
               <div className="space-y-1">
                 {group.items.map(item => <NavItem key={item.id} {...item} />)}
               </div>
@@ -3223,17 +3227,17 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
                 animate={{ x: 0 }}
                 exit={{ x: -300 }}
                 transition={{ type: "spring", damping: 28, stiffness: 300 }}
-                className="fixed left-0 top-0 w-[280px] sm:w-80 h-full z-40 overflow-y-auto border-r border-border-subtle bg-background shadow-2xl lg:hidden flex flex-col"
+                className="fixed left-0 top-0 w-[280px] sm:w-80 h-full z-40 overflow-y-auto border-r border-slate-200 dark:border-white/10 bg-white dark:bg-slate-950 shadow-2xl lg:hidden flex flex-col"
               >
                 {/* Drawer Header */}
-                <div className="flex items-center justify-between p-4 border-b border-border-subtle sticky top-0 bg-background/95 backdrop-blur-md z-10">
+                <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-white/10 sticky top-0 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md z-10">
                   <div className="flex items-center gap-2">
-                    <Book size={16} className="text-primary" />
-                    <span className="text-sm font-black text-text-primary uppercase tracking-wider">Documentation</span>
+                    <Book size={16} className="text-emerald-500" />
+                    <span className="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">Documentation</span>
                   </div>
                   <button
                     onClick={() => setMobileNav(false)}
-                    className="p-1.5 rounded-xl hover:bg-white/5 transition-colors text-text-muted hover:text-text-primary"
+                    className="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition-colors text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                     aria-label="Close navigation"
                   >
                     <X size={18} />
@@ -3244,7 +3248,7 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
                 <div className="flex-1 overflow-y-auto p-4 pb-12 space-y-6">
                   {navGroups.map((group) => (
                     <div key={group.label}>
-                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-text-muted mb-2 px-2">{group.label}</p>
+                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mb-2 px-2">{group.label}</p>
                       <div className="space-y-0.5">
                         {group.items.map(item => (
                           <NavItem
@@ -3306,33 +3310,35 @@ document.documentElement.classList.toggle('pub-scrolled', window.scrollY > 20);`
 // ─── REUSABLE COMPONENTS ───
 
 const DocHeader = ({ title, badge }: { title: string; badge: string }) => (
-  <div className="mb-8 pb-6 border-b border-border-subtle">
-    <span className="inline-block px-3 py-1 bg-primary/10 border border-primary/20 text-primary text-[9px] font-black uppercase tracking-widest rounded-full mb-4">{badge}</span>
-    <h1 className="text-3xl md:text-4xl font-black text-text-primary tracking-tight">{title}</h1>
+  <div className="mb-8 pb-6 border-b border-slate-200 dark:border-white/10">
+    <span className="inline-block px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[9px] font-black uppercase tracking-widest rounded-full mb-4">{badge}</span>
+    <h1 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">{title}</h1>
   </div>
 );
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => (
-  <h3 className="text-lg font-black text-text-primary tracking-tight mt-8 mb-4 flex items-center gap-2">
-    <ChevronRight size={16} className="text-primary" />{children}
+  <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight mt-8 mb-4 flex items-center gap-2">
+    <ChevronRight size={16} className="text-emerald-500" />{children}
   </h3>
 );
 
 const InfoCard = ({ icon, color, title, desc }: { icon: React.ReactNode; color: string; title: string; desc: string }) => {
   const colors: Record<string, string> = {
-    blue: "bg-blue-500/5 border-blue-500/10 text-blue-400",
-    emerald: "bg-emerald-500/5 border-emerald-500/10 text-emerald-400",
-    purple: "bg-purple-500/5 border-purple-500/10 text-purple-400",
-    amber: "bg-amber-500/5 border-amber-500/10 text-amber-400",
-    red: "bg-red-500/5 border-red-500/10 text-red-400",
+    blue: "bg-blue-50/80 dark:bg-blue-500/5 border-blue-200 dark:border-blue-500/20 text-blue-700 dark:text-blue-400",
+    emerald: "bg-emerald-50/80 dark:bg-emerald-500/5 border-emerald-200 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400",
+    purple: "bg-purple-50/80 dark:bg-purple-500/5 border-purple-200 dark:border-purple-500/20 text-purple-700 dark:text-purple-400",
+    amber: "bg-amber-50/80 dark:bg-amber-500/5 border-amber-200 dark:border-amber-500/20 text-amber-800 dark:text-amber-400",
+    red: "bg-red-50/80 dark:bg-red-500/5 border-red-200 dark:border-red-500/20 text-red-700 dark:text-red-400",
+    slate: "bg-slate-100/80 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-800 dark:text-slate-300",
+    orange: "bg-orange-50/80 dark:bg-orange-500/5 border-orange-200 dark:border-orange-500/20 text-orange-700 dark:text-orange-400",
   };
   return (
-    <div className={`p-4 rounded-2xl border transition-all hover:scale-[1.01] ${colors[color] ?? ""}`}>
+    <div className={`p-4 rounded-2xl border transition-all hover:scale-[1.01] ${colors[color] ?? "bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300"}`}>
       <div className="flex items-center gap-2 mb-1.5">
         {icon}
-        <p className="font-black text-sm">{title}</p>
+        <p className="font-black text-sm text-slate-900 dark:text-white">{title}</p>
       </div>
-      <p className="text-text-secondary text-[12px] font-medium leading-relaxed">{desc}</p>
+      <p className="text-slate-600 dark:text-slate-400 text-[12px] font-medium leading-relaxed">{desc}</p>
     </div>
   );
 };
@@ -3341,10 +3347,10 @@ const Steps = ({ items }: { items: { step: string; title: string; desc: string }
   <div className="space-y-3 mb-4">
     {items.map((s, i) => (
       <div key={i} className="flex gap-4 items-start">
-        <div className="w-8 h-8 bg-primary/10 rounded-xl flex items-center justify-center text-primary font-black text-xs flex-shrink-0 mt-0.5">{s.step}</div>
+        <div className="w-8 h-8 bg-emerald-500/10 border border-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 font-black text-xs flex-shrink-0 mt-0.5">{s.step}</div>
         <div>
-          <p className="font-black text-text-primary text-sm">{s.title}</p>
-          <p className="text-text-secondary text-[13px] font-medium leading-relaxed">{s.desc}</p>
+          <p className="font-black text-slate-900 dark:text-white text-sm">{s.title}</p>
+          <p className="text-slate-600 dark:text-slate-400 text-[13px] font-medium leading-relaxed">{s.desc}</p>
         </div>
       </div>
     ))}
@@ -3355,9 +3361,9 @@ const ComparisonTable = ({ items }: { items: { left: string; right: string }[] }
   <div className="space-y-2 mb-4">
     {items.map((c, i) => (
       <div key={i} className="flex items-stretch gap-3 text-[13px]">
-        <div className="w-1/3 p-3 bg-white/[0.03] rounded-xl font-black text-text-primary flex items-center">{c.left}</div>
-        <div className="flex items-center text-primary font-bold">→</div>
-        <div className="flex-1 p-3 bg-primary/5 rounded-xl font-medium text-text-secondary border border-primary/10 flex items-center">{c.right}</div>
+        <div className="w-1/3 p-3 bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 rounded-xl font-black text-slate-900 dark:text-white flex items-center">{c.left}</div>
+        <div className="flex items-center text-emerald-500 font-bold">→</div>
+        <div className="flex-1 p-3 bg-emerald-50/80 dark:bg-emerald-500/5 rounded-xl font-medium text-slate-800 dark:text-slate-300 border border-emerald-200 dark:border-emerald-500/20 flex items-center">{c.right}</div>
       </div>
     ))}
   </div>

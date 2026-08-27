@@ -43,6 +43,13 @@
   --color-secondary-text: #475569;    /* Secondary Text */
   --color-muted-text: #64748b;        /* Muted Text */
 
+  /* Legacy & Documentation aliases */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-main: #0f172a;
+  --border-subtle: #e2e8f0;
+
   /* ── Chapter Accent Colors ── */
   --color-chapter-resume: #3b82f6;    /* Blue */
   --color-chapter-ats: #10b981;       /* Emerald */
@@ -104,6 +111,13 @@
   --color-foreground: #f8fafc;        /* Primary Light Text */
   --color-secondary-text: #94a3b8;    /* Secondary Text */
   --color-muted-text: #64748b;        /* Muted Text */
+
+  /* Legacy & Documentation aliases */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-main: #f8fafc;
+  --border-subtle: rgba(255, 255, 255, 0.08);
 }
 
 /* ── Tailwind v4 @theme bridge ── */
@@ -117,6 +131,13 @@
   --color-warning: var(--color-warning);
   --color-error: var(--color-danger);
   --color-diamond: var(--color-diamond);
+
+  --color-text-primary: var(--color-foreground);
+  --color-text-secondary: var(--color-secondary-text);
+  --color-text-muted: var(--color-muted-text);
+  --color-text-main: var(--color-foreground);
+  --color-border-subtle: var(--color-border);
+  --color-surface-card: var(--color-surface);
 
   --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.3);
   --shadow-glow: 0 0 20px var(--color-primary-glow);
