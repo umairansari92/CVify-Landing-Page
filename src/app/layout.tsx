@@ -67,6 +67,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/jpeg" href="/CVify Favicon.jpg" />
         <link rel="apple-touch-icon" href="/CVify Favicon.jpg" />
+        {/* 2026: AI Crawler content roadmap discovery (llms.txt standard) */}
+        <link rel="describedby" href="/llms.txt" />
+        {/* Preconnect to external AI/CDN resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://api.github.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

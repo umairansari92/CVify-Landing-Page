@@ -1,0 +1,66 @@
+# CVify Pro
+
+> CVify Pro is an AI-powered Career Intelligence Operating System built for modern professionals. It integrates ATS resume building, 9-stage resume parsing, AI coaching, cover letter generation, live portfolio hosting, and a verified AI Candidate Representative into a single unified platform. Accessible at https://cvifypro.vercel.app
+
+## Platform Overview
+
+- [Platform Overview](https://cvifypro.vercel.app/documentation#overview): What CVify Pro is — an integrated AI Career OS, not just a resume builder. Covers core value proposition, audience (job seekers, recruiters), and the anti-hallucination architecture.
+- [8-Layer Career Lifecycle](https://cvifypro.vercel.app/documentation#career-pipeline): The complete 8-stage career pipeline from Master Profile creation to job offer. Shows how all features operate as coordinated stages, not isolated tools.
+- [Master Profile vs Derived Resumes](https://cvifypro.vercel.app/documentation#master-profile): Architectural distinction between the permanent living Master Profile (SSOT) and the lightweight derived resumes, portfolios, and AI knowledge bases projected from it.
+- [Quick Setup (3 Min)](https://cvifypro.vercel.app/documentation#setup): Onboarding steps — create account, import/build profile, pick theme, activate AI features.
+
+## Core AI Features
+
+- [ATS v2.0 Intelligence Engine](https://cvifypro.vercel.app/documentation#ats): Hybrid ATS scoring — 40% Completeness, 35% Quantification, 25% Impact Verb analysis combined with Gemini 2.5 Flash semantic validation. Includes full OpenAPI spec for the ATS endpoint.
+- [AI Career Coach & Debrief HUD](https://cvifypro.vercel.app/documentation#coach): Prescriptive loophole checklist generation, bullet rewrite engine, 6-second recruiter first-impression simulation, and career gap diagnostics.
+- [AI Cover Letters](https://cvifypro.vercel.app/documentation#cover-letter): Three-style cover letter generation (Professional, Creative, Enthusiastic) tailored to a pasted Job Description. Cost: 30 💎.
+- [Live Portfolio & SEO](https://cvifypro.vercel.app/documentation#portfolio): No-code personal brand website at cvifypro.vercel.app/p/[username]. 13 premium themes, custom domain DNS support, GitHub stats integration, and recruiter telemetry.
+- [AI Representative](https://cvifypro.vercel.app/documentation#ai-representative): Candidate-grounded AI chatbot on live portfolio pages. Answers recruiter questions by citing verified GitHub commits, project repos, and profile data — not generic responses.
+- [Magic AI Import](https://cvifypro.vercel.app/documentation#magic-import): 9-stage AST + semantic pipeline that parses existing PDF/DOCX resumes into a structured editable Master Profile. Cost: 30 💎.
+
+## Intelligence Hub
+
+- [Six Coordinated Career Engines](https://cvifypro.vercel.app/documentation#six-engines): Architecture overview of the six AI subsystems: ATS Intelligence, AI Career Coach, Portfolio Theme Engine v4.0, AI Candidate Representative, Job Description Matcher, Resume Studio & AST Sync.
+- [AI Intent Mode](https://cvifypro.vercel.app/documentation#intent-mode): Natural language command bar for resume optimization. Example: "Rewrite my summary to sound more like a CEO." Cost: 30 💎.
+- [Job Matcher (JD Analysis)](https://cvifypro.vercel.app/documentation#job-matcher): Parses employer job postings to compute stack alignment percentages and identify exact missing keywords vs candidate profile.
+- [Resume Intelligence Audit v5.0](https://cvifypro.vercel.app/documentation#resume-audit): Full audit report combining ATS score, recruiter simulation, keyword density, and actionable improvement plan.
+- [6-Second Recruiter Simulation](https://cvifypro.vercel.app/documentation#recruiter-simulation): CVify Pro's internal analytical model that weights resume visual hierarchy (Header 2.5s / Role 2.0s / Metrics 1.5s) to simulate first-impression scanning.
+
+## Architecture & Technology
+
+- [Project Structure](https://cvifypro.vercel.app/documentation#project-structure): Full monorepo layout — Client (Vite/React SPA), Server (Node.js/Express/MongoDB), and Landing (Next.js 15 SSG).
+- [Tech Stack Overview](https://cvifypro.vercel.app/documentation#technology): Complete dependency table — React 19, Redux Toolkit, Framer Motion, Node.js, Express, MongoDB, Gemini 2.5 Flash, Next.js 15, Tailwind v4.
+- [Resume Intelligence v5.0](https://cvifypro.vercel.app/documentation#resume-intelligence-v5): 9-Stage Decoupled Parsing Pipeline with AST extraction, semantic validation, Zod schema enforcement, and auto-healing fallbacks.
+- [Theme Engine v4.0](https://cvifypro.vercel.app/documentation#theme-engine): 5-layer pluggable portfolio rendering pipeline (PublicProfile → ProfileLoader → ProfileEngine → ThemeResolver → Theme Component). Supports 13 themes with zero monolithic coupling.
+- [Backend For Frontend (BFF)](https://cvifypro.vercel.app/documentation#bff): Single /api/v1/bff endpoint that aggregates User, Resume, CoverLetter, and Analytics data in one parallelized request.
+- [Enterprise AI Gateway](https://cvifypro.vercel.app/documentation#ai-gateway): Centralized AI routing layer with rate limiting, token budgeting, prompt injection guards, and fallback orchestration.
+
+## Security & Privacy
+
+- [Security v7.0 — Triple-Lock](https://cvifypro.vercel.app/documentation#security-v7): Three independent brute-force locks (per-email, per-IP, per email+IP combo) with exponential backoff. bcrypt (cost 10) + server-side PEPPER_KEY hashing.
+- [Recruiter Telemetry & Privacy](https://cvifypro.vercel.app/documentation#telemetry-privacy): What is tracked (profile views, downloads, CTA clicks) vs what is never tracked (PII, keystrokes). Candidate stealth mode and 90-day data retention policy.
+- [Device Fingerprint & Alert Email](https://cvifypro.vercel.app/documentation#device-fingerprint): New login from unrecognized device triggers an automated security alert email with device metadata and one-click revoke link.
+
+## Portfolio Themes
+
+- [All 13 Portfolio Themes](https://cvifypro.vercel.app/documentation#themes): Full catalog — NOIR, MONOGRAPH, ORIENTAL LUXE, AURA DARK, TERMINAL DARK, CYBER NEON, APEX, and more.
+- [NOIR Theme (Flagship)](https://cvifypro.vercel.app/documentation#noir): Obsidian dark editorial theme with kinetic particle physics, glassmorphism overlays, and TypeAnimation headlines.
+- [Custom Domain & DNS Setup](https://cvifypro.vercel.app/documentation#custom-domains): How to map yourname.com to your CVify Pro portfolio with CNAME configuration and automated Let's Encrypt SSL.
+
+## Business & Pricing
+
+- [Diamond Economy](https://cvifypro.vercel.app/documentation#diamonds): Transparent pay-per-compute model. No monthly subscriptions. Costs: Magic Import 30💎, ATS Scan 50💎 (first 24h rescan FREE, subsequent 25💎), Cover Letter 30💎, Intent Mode 30💎.
+- [Complete Diamond Pricing Matrix](https://cvifypro.vercel.app/documentation#diamond-architecture): Full feature-by-feature pricing table with free vs paid tier breakdown.
+- [Why CVify Pro Stands Out](https://cvifypro.vercel.app/documentation#competitors): Honest comparison with Canva, Zety, LinkedIn, and Kickresume — CVify Pro is the only platform combining ATS Auditor + AI Coach + Live Portfolio + AI Representative in one ecosystem.
+- [For Recruiters & HR](https://cvifypro.vercel.app/documentation#recruiter): How to use CVify Pro as a sourcing tool — public portfolio search, GitHub telemetry, AI Representative Q&A.
+
+## Resources
+
+- [Pro Tips (90+ Score)](https://cvifypro.vercel.app/documentation#tips): Actionable checklist to achieve 90+ ATS scores — keyword placement, quantification rules, formatting guidelines.
+- [FAQ](https://cvifypro.vercel.app/documentation#faq): Common questions about data security, diamond economy, ATS scoring, portfolio visibility, and file format support.
+- [Future Roadmap](https://cvifypro.vercel.app/documentation#roadmap): Upcoming features including Interview Simulator v2, AI Salary Benchmarker, Team Hiring Dashboard, and LinkedIn Sync.
+
+## Optional
+
+- [Full Documentation Page](https://cvifypro.vercel.app/documentation): Complete 57-section authoritative documentation covering all features, architecture, and business model of CVify Pro.
+- [Main Application](https://app-cvifypro.vercel.app): Live CVify Pro application — resume builder, ATS scanner, portfolio editor.
