@@ -1,6 +1,8 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
+Allow: /documentation
 Allow: /p/
 Disallow: /api/
 
+Sitemap: https://cvifypro.vercel.app/sitemap.xml
 Sitemap: https://cvify.pro/sitemap.xml
